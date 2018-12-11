@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="爬虫结构代码示例全为python3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python网络爬虫">
+<meta property="og:url" content="https://www.mctashuo.cn/2018/11/19/python/网络爬虫/index.html">
+<meta property="og:site_name" content="Mctahuo">
+<meta property="og:description" content="爬虫结构代码示例全为python3">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542595932.216421.jpg">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542632105.617901.jpg">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542632113.095293.jpg">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542679192.833996.jpg">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542679709.457854.jpg">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542695023.218843.jpg">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/1542695026.236893.jpg">
+<meta property="og:updated_time" content="2018-11-20T11:29:40.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python网络爬虫">
+<meta name="twitter:description" content="爬虫结构代码示例全为python3">
+<meta name="twitter:image" content="https://www.mctashuo.cn/uploads/1542595932.216421.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.mctashuo.cn/2018/11/19/python/网络爬虫/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python网络爬虫 | Mctahuo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mctahuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">晨的博客</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/11/19/python/网络爬虫/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python网络爬虫
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-19 10:59:39" itemprop="dateCreated datePublished" datetime="2018-11-19T10:59:39+08:00">2018-11-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-20 19:29:40" itemprop="dateModified" datetime="2018-11-20T19:29:40+08:00">2018-11-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/19/python/网络爬虫/" class="leancloud_visitors" data-flag-title="Python网络爬虫">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="爬虫结构"><a href="#爬虫结构" class="headerlink" title="爬虫结构"></a>爬虫结构</h1><p><img src="/uploads/1542595932.216421.jpg" alt="图片"><br>代码示例全为python3<br><a id="more"></a></p>
+<ol>
+<li>首先选取一部分精心挑选的种子URL。</li>
+<li>将这些URL放入待抓取URL队列。</li>
+<li>从待抓取URL队列中读取待抓取队列的URL，解析DNS，并且得到主机的IP，并将URL对应的网页下载下来，存储进已下载网页库中。此外，将这些URL放进已抓取URL队列。</li>
+<li>分析已抓取URL队列中的URL，从已下载的网页数据中分析出其他URL，并和已抓取的URL进行比较去重，最后将去重过的URL放入待抓取URL队列，从而进入下一个循环。</li>
+</ol>
+<h1 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h1><h2 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h2><h3 id="请求和响应模型"><a href="#请求和响应模型" class="headerlink" title="请求和响应模型"></a>请求和响应模型</h3><h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">'http://www.zhihu.com'</span>)</span><br><span class="line">html=response.read()</span><br><span class="line">print(html)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">request=urllib.request.Request(<span class="string">'http://www.zhihu.com'</span>)</span><br><span class="line">response=urllib.request.urlopen(request)</span><br><span class="line">html=response.read()</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure>
+<h4 id="post数据"><a href="#post数据" class="headerlink" title="post数据"></a>post数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://www.baidu.com/login'</span></span><br><span class="line">postdata = &#123;<span class="string">'username'</span>: <span class="string">'qiye'</span>, <span class="string">'password'</span>: <span class="string">'qiye_pass'</span>&#125;</span><br><span class="line">data = urllib.parse.urlencode(postdata).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">req = urllib.request.Request(url, data)</span><br><span class="line">res = urllib.request.urlopen(req)</span><br><span class="line">html = res.read().decode(<span class="string">'utf-8'</span>)</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure>
+<h4 id="header处理"><a href="#header处理" class="headerlink" title="header处理"></a>header处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line">url = <span class="string">'http://www.baidu.com/login'</span></span><br><span class="line">user_agent = <span class="string">'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'</span></span><br><span class="line">referer = <span class="string">'http://www.baidu.com'</span></span><br><span class="line">postdata = &#123;<span class="string">'username'</span>: <span class="string">'qiye'</span>, <span class="string">'passwd'</span>: <span class="string">'qiye_pass'</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: user_agent, <span class="string">'Referer'</span>: referer&#125;</span><br><span class="line">data = urllib.parse.urlencode(postdata).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">req = urllib.request.Request(url, data, headers)</span><br><span class="line">print(req)</span><br><span class="line">response = urllib.request.urlopen(req)</span><br><span class="line">html = response.read()</span><br><span class="line">print(type(html))</span><br><span class="line">print(html.decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+<p>也可以使用req.addheader方法<br>req.add_header(‘User-Agent’, user_agent)</p>
+<h4 id="cookie处理"><a href="#cookie处理" class="headerlink" title="cookie处理"></a>cookie处理</h4><p>自动处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> http.cookiejar</span><br><span class="line">cookie = http.cookiejar.CookieJar()</span><br><span class="line">opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie))</span><br><span class="line">response = opener.open(<span class="string">'http://www.zhihu.com'</span>)</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> cookie:</span><br><span class="line">    print(item.name + <span class="string">':'</span> + item.value)</span><br></pre></td></tr></table></figure></p>
+<p>手动处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line">opener = urllib.request.build_opener()</span><br><span class="line">response = opener.addheaders.append((<span class="string">'Cookie'</span>, <span class="string">'email'</span> + <span class="string">'wewerwr@163.com'</span>))</span><br><span class="line">req = urllib.request.Request(<span class="string">'http://www.zhihu.com'</span>)</span><br><span class="line">response = opener.open(req)</span><br><span class="line">print(response.headers)</span><br><span class="line">retdate = response.read()</span><br></pre></td></tr></table></figure></p>
+<h4 id="Timeout超时设置"><a href="#Timeout超时设置" class="headerlink" title="Timeout超时设置"></a>Timeout超时设置</h4><h4 id="Http响应码"><a href="#Http响应码" class="headerlink" title="Http响应码"></a>Http响应码</h4><h4 id="重写向"><a href="#重写向" class="headerlink" title="重写向"></a>重写向</h4><h4 id="Proxy的设置"><a href="#Proxy的设置" class="headerlink" title="Proxy的设置"></a>Proxy的设置</h4><h2 id="httplib实现"><a href="#httplib实现" class="headerlink" title="httplib实现"></a>httplib实现</h2><p>功能较少</p>
+<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p>Github:<br><a href="https://github.com/kennethreitz/requests" target="_blank" rel="noopener">Requests</a></p>
+<h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">print(r.content)</span><br></pre></td></tr></table></figure>
+<h3 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">postdata = &#123;<span class="string">'key'</span>:<span class="string">'value'</span>&#125;</span><br><span class="line">r = requests.post(<span class="string">'http://www.baidu.com/login'</span>, data=postdata)</span><br><span class="line">print(r.content)</span><br></pre></td></tr></table></figure>
+<h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">r = request.put(<span class="string">'http://ww'</span>,data=&#123;<span class="string">'key'</span>:<span class="string">'value'</span>&#125;)</span><br><span class="line">r = request.delete(<span class="string">'http://fsfs.sf.com/delete'</span>)</span><br><span class="line"></span><br><span class="line">payload=&#123;<span class="string">'Keywords'</span>: <span class="string">'blog:qiyeboy'</span>, <span class="string">'pageindex'</span>:<span class="number">1</span>&#125;</span><br><span class="line">r = requests.get(<span class="string">'http://zzk.cnblogs.com/s/blogpost'</span>, params = payload)</span><br><span class="line">print(r.url)</span><br></pre></td></tr></table></figure>
+<h3 id="响应和编码"><a href="#响应和编码" class="headerlink" title="响应和编码"></a>响应和编码</h3><p>r.content #字节形式<br>r.text  #文本形式<br>r.encoding #猜测格式</p>
+<p>探测编码格式的包chardet<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line">payload=&#123;<span class="string">'Keywords'</span>: <span class="string">'blog:qiyeboy'</span>, <span class="string">'pageindex'</span>:<span class="number">1</span>&#125;</span><br><span class="line">r = requests.get(<span class="string">'http://zzk.cnblogs.com/s/blogpost'</span>, params = payload)</span><br><span class="line">print(chardet.detect(r.content))</span><br><span class="line">r.encoding = chardet.detect(r.content)[<span class="string">'encoding'</span>]</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
+<p>流模式<br>r.raw.read(10)<br>请求头处理<br>在get函数中添加headers参数即可<br>响应码和响应头处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"><span class="keyword">if</span> r.status_code == requests.codes.ok:</span><br><span class="line">    print(r.status_code)</span><br><span class="line">    print(r.headers)</span><br><span class="line">    print(r.headers.get(<span class="string">'content-type'</span>)) <span class="comment">#推荐</span></span><br><span class="line">    print(r.headers[<span class="string">'content-type'</span>]) <span class="comment">#错误时返回Non</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    r.raise_for_status() <span class="comment"># 主动产生异常</span></span><br></pre></td></tr></table></figure></p>
+<p>cookie处理<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> r.cookies.keys():</span><br><span class="line">    print(cookie +<span class="string">':'</span>+ r.cookies.get(cookie))</span><br></pre></td></tr></table></figure></p>
+<p>自定义cookie<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line">cookies = dict(name=<span class="string">'qiye'</span>,age=<span class="string">'10'</span>)</span><br><span class="line">r=requests.get(<span class="string">'http://www.badu.com'</span>,cookies=cookies)</span><br><span class="line">r.encoding = chardet.detect(r.content)[<span class="string">'encoding'</span>]</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
+<p>更高级作法，每次访问时，程序自动把cookie的值带上，Request提供一个session的概念<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">loginUrl = <span class="string">'http://www.baidu.com/login'</span></span><br><span class="line">s = requests.Session()</span><br><span class="line"><span class="comment"># 首先访问登录页面，作为游客，服务器会先分配一个cookie</span></span><br><span class="line">r = s.get(loginUrl,allow_redirects=<span class="keyword">True</span>)</span><br><span class="line">datas = &#123;</span><br><span class="line">    <span class="string">'name'</span>:<span class="string">'qiye'</span>,<span class="string">'password'</span>:<span class="string">'qiye'</span></span><br><span class="line">&#125;</span><br><span class="line">r=s.post(loginUrl, data = datas,allow_redirects=<span class="keyword">True</span>)</span><br><span class="line">r.encoding=<span class="string">'utf-8'</span></span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
+<p>如果没有第一步访问登录的页面，而是直接向登录链接发送Post请求，系统会将这个Cookie在发送<br>Post请求时带上，这种使用Session函数处理Cookie的方式会很常用<br>重定向<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">'http://github.com'</span>)</span><br><span class="line">print(r.url)</span><br><span class="line">print(r.history)</span><br></pre></td></tr></table></figure></p>
+<p>超时<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requestes.get(<span class="string">'http://github.com'</span>, timeout=<span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+<p>代理设置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">proxies = &#123;</span><br><span class="line">    <span class="string">'http'</span>:<span class="string">'http://0.10.1.10:3128'</span>,</span><br><span class="line">    <span class="string">'https'</span>:<span class="string">'http://10.01.0.1:1080'</span>,</span><br><span class="line">&#125;</span><br><span class="line">requests.get(<span class="string">'http://github.com'</span>, proxies=proxies)</span><br></pre></td></tr></table></figure></p>
+<p>HTTP Basic Auth<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxies = &#123;</span><br><span class="line">    <span class="string">'http'</span>:<span class="string">'http://user:pass@10.0.0.1:3128'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="HTML解析"><a href="#HTML解析" class="headerlink" title="HTML解析"></a>HTML解析</h1><h2 id="Firebug工具"><a href="#Firebug工具" class="headerlink" title="Firebug工具"></a>Firebug工具</h2><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p><code>\b</code><br>代表单词的开关或结尾<br><code>.</code>匹配除了换行符的任意字符<br><code>*</code>任意表达式<br><code>\bwe\b.*\bwork\b</code>先匹配出we单词，接着再匹配任意的字符（非换行），直到匹配到work单词<br>结束。<br>无字符的四种作用：</p>
+<ol>
+<li>匹配字符</li>
+<li>匹配数量</li>
+<li>匹配模式</li>
+<li>匹配位置<br><code>\d</code> 匹配数字<br><code>\w</code> 匹配字母，数字，下划线或汉字<br><code>\s</code> 匹配任意空白符<br><code>^</code> 匹配串的开始<br><code>$</code> 匹配串的结束<br>所有以s开关的单词<br><code>\bs\w*\b</code><br>匹配s100<br><code>\bs\d*$</code><br>字符转义<br><code>\\</code><h3 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h3><code>*</code> 0次或多次<br><code>+</code> 1次或多次<br><code>?</code> 重复0次或一次<br>{n} n次<br>{n,} n到多次<br>{n,m} n-m次<br><code>hello\d+</code> 匹配hello后1个或更多数字<br><code>^\d{5,12}$</code>5-12个数字的字符串，qq号<br><code>we\d</code> we后面0个或者一个数字 we,we0<h3 id="字符集合"><a href="#字符集合" class="headerlink" title="字符集合"></a>字符集合</h3><h3 id="分支条件"><a href="#分支条件" class="headerlink" title="分支条件"></a>分支条件</h3><h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><h3 id="反义"><a href="#反义" class="headerlink" title="反义"></a>反义</h3><h3 id="后向引用"><a href="#后向引用" class="headerlink" title="后向引用"></a>后向引用</h3><h3 id="零宽断言"><a href="#零宽断言" class="headerlink" title="零宽断言"></a>零宽断言</h3><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><h3 id="贪婪与懒惰"><a href="#贪婪与懒惰" class="headerlink" title="贪婪与懒惰"></a>贪婪与懒惰</h3><h3 id="处理选项"><a href="#处理选项" class="headerlink" title="处理选项"></a>处理选项</h3></li>
+</ol>
+<h3 id="Python与正则"><a href="#Python与正则" class="headerlink" title="Python与正则"></a>Python与正则</h3><p>原生字符串<br>re模块</p>
+<h2 id="Beautiful-soup"><a href="#Beautiful-soup" class="headerlink" title="Beautiful soup"></a>Beautiful soup</h2><p>一个可以从HTML或XML文件中提取数据的Python库<br>支持标准库中的HTML解析器，支持一些第三方库lxml解析速度非常快,要ｃ语言支持<br>纯Python的html5lib，解析方式和浏览器相同,速度慢</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li>创建对象</li>
+<li>对象种类</li>
+<li>遍历文档树(节点关系)</li>
+<li>搜索文档树</li>
+<li>css选择器<h3 id="lxml的XPath解析"><a href="#lxml的XPath解析" class="headerlink" title="lxml的XPath解析"></a>lxml的XPath解析</h3>Beautiful和lxml的原理不一样，Beautiful基于DOM，会载入整个文档，解析整个DOM树，速度慢<br>lxml使用XPath技术，局部处理，速度快<br>FirePath自动生成XPath表达式</li>
+</ol>
+<h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><h2 id="HTML正文抽取"><a href="#HTML正文抽取" class="headerlink" title="HTML正文抽取"></a>HTML正文抽取</h2><p>无JavaScript动态加载</p>
+<h3 id="json存储"><a href="#json存储" class="headerlink" title="json存储"></a>json存储</h3><p>盗墓笔记示例<br>标题和链接<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">user_agent = <span class="string">'Mozilla/4.0 (compatible; MSIE 5.5;Windows NT)'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:user_agent</span><br><span class="line">&#125;</span><br><span class="line">r = requests.get(<span class="string">'http://seputu.com/'</span>,headers=headers)</span><br><span class="line">soup = BeautifulSoup(r.text, <span class="string">'html.parser'</span>) <span class="comment">#html.paser</span></span><br><span class="line"><span class="keyword">for</span> mulu <span class="keyword">in</span> soup.find_all(class_=<span class="string">"mulu"</span>):</span><br><span class="line">    h2 = mulu.find(<span class="string">'h2'</span>)</span><br><span class="line">    <span class="keyword">if</span> h2 != <span class="keyword">None</span>:</span><br><span class="line">        h2_title = h2.string <span class="comment">#标题</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> mulu.find(class_=<span class="string">'box'</span>).find_all(<span class="string">'a'</span>): <span class="comment">#获取ａ标识中url和章节内容</span></span><br><span class="line">            href = a.get(<span class="string">'href'</span>)</span><br><span class="line">            box_title = a.get(<span class="string">'title'</span>)</span><br><span class="line">            print(href, box_title)</span><br></pre></td></tr></table></figure></p>
+<p>存储为json<br>编码和解码<br>json模块实现dumps和dump函数<br>dump把Python对象转换成json对象，并将json对象通过fp文件流写入文件中<br>而dumps则是生成了一个字符串。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dumps(obj, skipkeys=<span class="keyword">False</span>, ensure_ascii=<span class="keyword">True</span>, checkcircular=<span class="keyword">True</span>, </span><br><span class="line">allow_nan=<span class="keyword">True</span>, cls=<span class="keyword">None</span>, indent= <span class="keyword">None</span>, separators=<span class="keyword">None</span>, </span><br><span class="line">encoding=<span class="string">'utf-8'</span>, default=<span class="keyword">None</span>, sort_keys=<span class="keyword">False</span>,**kw)</span><br><span class="line">dump(obj,fp, skipkeys=<span class="keyword">False</span>, ensure_ascii=<span class="keyword">True</span>, checkcircular=<span class="keyword">True</span>, </span><br><span class="line">allow_nan=<span class="keyword">True</span>, cls=<span class="keyword">None</span>, indent= <span class="keyword">None</span>, separators=<span class="keyword">None</span>, </span><br><span class="line">encoding=<span class="string">'utf-8'</span>, default=<span class="keyword">None</span>, sort_keys=<span class="keyword">False</span>,**kw)</span><br></pre></td></tr></table></figure></p>
+<p>解码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">loads(s,encoding=<span class="keyword">None</span>,cls=<span class="keyword">None</span>,object_hook=<span class="keyword">None</span>, parse_float=<span class="keyword">None</span>,</span><br><span class="line">parse_int=<span class="keyword">None</span>, parse_constant=<span class="keyword">None</span>, object_pairs_hook=<span class="keyword">None</span>, **kw)</span><br><span class="line">load(fp,encoding=<span class="keyword">None</span>,cls=<span class="keyword">None</span>,object_hook=<span class="keyword">None</span>, parse_float=<span class="keyword">None</span>,</span><br><span class="line">parse_int=<span class="keyword">None</span>, parse_constant=<span class="keyword">None</span>, object_pairs_hook=<span class="keyword">None</span>, **kw)</span><br></pre></td></tr></table></figure></p>
+<p>数据格式的变化<br><img src="/uploads/1542632105.617901.jpg" alt="python-&gt;json"><br><img src="/uploads/1542632113.095293.jpg" alt="json-&gt;python"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">user_agent = <span class="string">'Mozilla/4.0 (compatible; MSIE 5.5;Windows NT)'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:user_agent</span><br><span class="line">&#125;</span><br><span class="line">r = requests.get(<span class="string">'http://seputu.com/'</span>,headers=headers)</span><br><span class="line">soup = BeautifulSoup(r.text, <span class="string">'html.parser'</span>) <span class="comment">#html.paser</span></span><br><span class="line">content = []</span><br><span class="line"><span class="keyword">for</span> mulu <span class="keyword">in</span> soup.find_all(class_=<span class="string">"mulu"</span>):</span><br><span class="line">    h2 = mulu.find(<span class="string">'h2'</span>)</span><br><span class="line">    <span class="keyword">if</span> h2 != <span class="keyword">None</span>:</span><br><span class="line">        h2_title = h2.string <span class="comment">#标题</span></span><br><span class="line">        list = []</span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> mulu.find(class_=<span class="string">'box'</span>).find_all(<span class="string">'a'</span>): <span class="comment">#获取ａ标识中url和章节内容</span></span><br><span class="line">            href = a.get(<span class="string">'href'</span>)</span><br><span class="line">            box_title = a.get(<span class="string">'title'</span>)</span><br><span class="line">            <span class="comment">#print(href, box_title)</span></span><br><span class="line">            list.append(&#123;</span><br><span class="line">                <span class="string">'href'</span>:href,<span class="string">'box_title'</span>:box_title</span><br><span class="line">            &#125;)</span><br><span class="line">        content.append(&#123;</span><br><span class="line">            <span class="string">'title'</span>:h2_title,<span class="string">'content'</span>:list</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="comment">#print(content)</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'/tmp/qiye.json'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    json.dump(content,fp=fp,indent=<span class="number">4</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'/tmp/qiye.json'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    print(json.load(f1))</span><br></pre></td></tr></table></figure>
+<h3 id="CSV存储"><a href="#CSV存储" class="headerlink" title="CSV存储"></a>CSV存储</h3><p>CSV（逗号分隔值），纯文本形式存储的表格数据。纯文本意味着该文件是一个字符序列，不含必须像二进制数字那样被<br>解读的数据<br>Python使用csv库读写csv文件<br>python对象-&gt;csv文件<br>csv文件-&gt;python对象<br>使用数据索引<br>使用命名元组<br>列名是合法Python标识符时才生效<br>字典序列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line">user_agent = <span class="string">'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:user_agent</span><br><span class="line">&#125;</span><br><span class="line">r = requests.get(<span class="string">'http://seputu.com/'</span>,headers=headers)</span><br><span class="line">pattern = re.compile(<span class="string">r'\s*\[(.*)]\s+(.*)'</span>)</span><br><span class="line">html = etree.HTML(r.text)</span><br><span class="line">rows=[]</span><br><span class="line">div_mulus = html.xpath(<span class="string">'.// *[@class="mulu"]'</span>) <span class="comment">#所有div class=mulu标记</span></span><br><span class="line"><span class="keyword">for</span> div_mulu <span class="keyword">in</span> div_mulus:</span><br><span class="line">    <span class="comment">#div_h2标记</span></span><br><span class="line">    div_h2 = div_mulu.xpath(<span class="string">'./div[@class="mulu-title"]/center/h2/text()'</span>)</span><br><span class="line">    <span class="keyword">if</span> len(div_h2) &gt; <span class="number">0</span>:</span><br><span class="line">        h2_title = div_h2[<span class="number">0</span>].encode(<span class="string">'utf-8'</span>)</span><br><span class="line">        a_s = div_mulu.xpath(<span class="string">'./div[@class="box"]/ul/li/a'</span>)</span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> a_s:</span><br><span class="line">            <span class="comment">#href</span></span><br><span class="line">            href = a.xpath(<span class="string">'./@href'</span>)[<span class="number">0</span>].encode(<span class="string">'utf-8'</span>)</span><br><span class="line">            <span class="comment">#titile</span></span><br><span class="line">            box_title=a.xpath(<span class="string">'./@title'</span>)[<span class="number">0</span>]</span><br><span class="line">            match = pattern.search(box_title)</span><br><span class="line">            <span class="keyword">if</span> match!=<span class="keyword">None</span>:</span><br><span class="line">                date = match.group(<span class="number">1</span>).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">                real_title=match.group(<span class="number">2</span>).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">                <span class="comment">#print</span></span><br><span class="line">                content=(h2_title,real_title,href,date)</span><br><span class="line">                <span class="comment">#print(content)</span></span><br><span class="line">                rows.append(content)</span><br><span class="line">headers=[<span class="string">'title'</span>,<span class="string">'real_title'</span>,<span class="string">'href'</span>,<span class="string">'date'</span>]</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'qiye.csv'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f_csv = csv.writer(f,)</span><br><span class="line">    f_csv.writerow(headers)</span><br><span class="line">    f_csv.writerow(rows)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'qiye.csv'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f1:</span><br><span class="line">    f_csv = csv.reader(f1)</span><br><span class="line">    headings = next(f_csv)</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> f_csv:</span><br><span class="line">        print(s)</span><br></pre></td></tr></table></figure>
+<h2 id="多媒体文件抽取"><a href="#多媒体文件抽取" class="headerlink" title="多媒体文件抽取"></a>多媒体文件抽取</h2><p>使用urllib模块提供的urlretrieve()函数，urlretrieve()方法直接将远程数据下载到本地<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urlretrieve(url, filename=<span class="keyword">None</span>, reporthook=<span class="keyword">None</span>, data=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Schedule</span><span class="params">(blocknum, blocksize, totalsize)</span>:</span></span><br><span class="line">    <span class="string">''''''</span></span><br><span class="line">    blocknum:已经下载的数据块</span><br><span class="line">    blocksize:数据块大小</span><br><span class="line">    totalsize:远程文件的大小</span><br><span class="line">    <span class="string">''''''</span></span><br><span class="line">    per = <span class="number">100.0</span> * blocknum*blocksize/totalsize</span><br><span class="line">    <span class="keyword">if</span> per &gt; <span class="number">100</span>:</span><br><span class="line">        per=<span class="number">100</span></span><br><span class="line">    print(<span class="string">'当前下载进度: %d'</span> %per)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">user_agent=<span class="string">'Mozilla/4.0 (compatible;MSIE 5.5; Windows NT)'</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:user_agent</span><br><span class="line">&#125;</span><br><span class="line">r = requests.get(<span class="string">'http://www.ivsky.com/tupian/ziranfengguang/'</span>,headers=headers)</span><br><span class="line"><span class="comment">#lxml解析</span></span><br><span class="line">html=etree.HTML(r.text)</span><br><span class="line">img_urls=html.xpath(<span class="string">'.// img/@src'</span>)</span><br><span class="line">i=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> img_url <span class="keyword">in</span> img_urls:</span><br><span class="line">    urllib.request.urlretrieve(img_url,<span class="string">'img'</span>+str(i)+<span class="string">'.jpg'</span>,Schedule)</span><br><span class="line">    i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="Email提醒"><a href="#Email提醒" class="headerlink" title="Email提醒"></a>Email提醒</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> parseaddr, formataddr</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_format_addr</span><span class="params">(s)</span>:</span></span><br><span class="line">    name, addr = parseaddr(s)</span><br><span class="line">    <span class="keyword">return</span> formataddr((Header(name,<span class="string">'utf-8'</span>).encode(), addr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from_addr = <span class="string">'xxxx@163.com'</span></span><br><span class="line"></span><br><span class="line">password = <span class="string">'xxxx'</span></span><br><span class="line"></span><br><span class="line">to_addr = <span class="string">'mctashuo@outlook.com'</span></span><br><span class="line"></span><br><span class="line">smtp_server=<span class="string">'smtp.163.com'</span></span><br><span class="line"></span><br><span class="line">msg = MIMEText(<span class="string">'Python爬虫运行异常，异常信息为遇到HTTP 403'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">msg[<span class="string">'From'</span>] = _format_addr(<span class="string">'一号爬虫 &lt;%s&gt;'</span> % from_addr)</span><br><span class="line">msg[<span class="string">'To'</span>] = _format_addr(<span class="string">'管理员 &lt;%s&gt;'</span> % to_addr)</span><br><span class="line">msg[<span class="string">'Subject'</span>] = Header(<span class="string">'一号爬虫运行状态'</span>,<span class="string">'utf-8'</span>).encode()</span><br><span class="line"></span><br><span class="line"><span class="comment">#发送</span></span><br><span class="line">server = smtplib.SMTP(smtp_server, <span class="number">25</span>)</span><br><span class="line">server.login(from_addr, password)</span><br><span class="line">server.sendmail(from_addr, [to_addr], msg.as_string())</span><br><span class="line">server.quit()</span><br></pre></td></tr></table></figure>
+<h1 id="基础爬虫"><a href="#基础爬虫" class="headerlink" title="基础爬虫"></a>基础爬虫</h1><p>100个百度百科网络爬虫词条以及相关词条的标题，摘要和链接等信息</p>
+<h2 id="架构和运行流程"><a href="#架构和运行流程" class="headerlink" title="架构和运行流程"></a>架构和运行流程</h2><p><img src="/uploads/1542679192.833996.jpg" alt="架构"><br>五大模块</p>
+<ol>
+<li>爬虫调度器负责统筹其他四个模块的协调工作</li>
+<li>url管理器管理url链接，维护已经爬取的URL集合和未爬取的URL集合，提供获取新URL链接的接口</li>
+<li>HTML下载器用于从URL管理器中获取未爬取的URL链接并下载HTML网页</li>
+<li>HTML解析器用于从HTML下载器中获取已经下载的HTML网页，并从中解析出新的URL链接交给URL管理器，解析出有效数据交给数据存储器</li>
+<li>数据存储器用于将HTML解析器解析出来的数据通过文件或者数据库的形式存储起来<br>运行流程<br><img src="/uploads/1542679709.457854.jpg" alt="流程"><h3 id="URL管理器"><a href="#URL管理器" class="headerlink" title="URL管理器"></a>URL管理器</h3>两个变量，已经爬取的URL的集合，未爬取的URL集合，使用set的去重功能<br>去重解决方案</li>
+<li>内存去重</li>
+<li>关系数据库去重</li>
+<li>缓存数据库去重</li>
+</ol>
+<p>接口</p>
+<ol>
+<li>判断是否有待取的URL，方法定义为has_new_url().</li>
+<li>添加新的URL到未爬取集合中，方法定义为add_new_url(url),add_new_urls(urls)</li>
+<li>获取一个未爬取的URL，方法定义为get_new_url().</li>
+<li>获取未爬取URL集合的大小，方法定义为new_url_size().</li>
+<li>获取已经爬取的URL集合的大小，方法定义为old_url_size().</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#URLManager.py</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UrlManager</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.new_urls = set()</span><br><span class="line">        self.old_urls = set()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="comment"># 判断是否有未爬取的URL</span></span><br><span class="line">        <span class="keyword">return</span> self.new_url_size() != <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="comment"># 获取一个未爬取的URL</span></span><br><span class="line">        new_url = self.new_urls.pop()</span><br><span class="line">        self.old_urls.add(new_url)</span><br><span class="line">        <span class="keyword">return</span> new_url</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self,url)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.new_urls <span class="keyword">and</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.old_urls:</span><br><span class="line">            self.new_urls.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self,urls)</span>:</span></span><br><span class="line">        <span class="string">''</span></span><br><span class="line">        将新的URL添加到未爬取的URL集合中</span><br><span class="line">        <span class="string">''</span></span><br><span class="line">        <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> len(urls) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">            self.add_new_url(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">new_url_size</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> len(self.new_urls)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">old_url_size</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> len(self.old_urls)</span><br></pre></td></tr></table></figure>
+<h3 id="HTML下载器"><a href="#HTML下载器" class="headerlink" title="HTML下载器"></a>HTML下载器</h3><p>乱码问题<br>接口<br>download(url)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HtmlDownloader.py</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlDownloader</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(self,url)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        user_agent = <span class="string">'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'</span></span><br><span class="line">        headers=&#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>:user_agent</span><br><span class="line">        &#125;</span><br><span class="line">        r = requests.get(url,headers=headers)</span><br><span class="line">        <span class="keyword">if</span> r.status_code == <span class="number">200</span>:</span><br><span class="line">            r.encoding=<span class="string">'utf-8'</span></span><br><span class="line">            <span class="keyword">return</span> r.text</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="HTML解析器"><a href="#HTML解析器" class="headerlink" title="HTML解析器"></a>HTML解析器</h3><p>解析部分主要分为提取相关词条页面的URL和提取当前词条的标题和摘要<br>接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parse(page_url,html_cont)解析网页内容抽取URL和数据，返回URL和数据</span><br><span class="line">_get_new_urls(page_url,soup):抽取新的URL集合</span><br><span class="line">_get_new_data(page_url,soup):抽取有效数据</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HtmlParser.py</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlParser</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parser</span><span class="params">(self, page_url, html_cont)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> page_url <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> html_cont <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        soup = BeautifulSoup(html_cont, <span class="string">'html.parser'</span>, from_encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        new_urls = self._get_new_urls(page_url,soup)</span><br><span class="line">        new_data = self._get_new_data(page_url,soup)</span><br><span class="line">        <span class="keyword">return</span> new_urls,new_data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_new_urls</span><span class="params">(slef, page_url,soup)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#   抽取新的URL集合</span></span><br><span class="line"></span><br><span class="line">        new_urls = set()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#　抽取符合要求的a标记</span></span><br><span class="line">        links = soup.find_all(<span class="string">'a'</span>,href=re.compile(<span class="string">r'/item/*'</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">            <span class="comment"># 提取href属性</span></span><br><span class="line">            new_url = link[<span class="string">'href'</span>]</span><br><span class="line">            <span class="comment"># 拼接成完整网址</span></span><br><span class="line">            new_full_url = parse.urljoin(page_url, new_url)</span><br><span class="line">            new_urls.add(new_full_url)</span><br><span class="line">        <span class="keyword">return</span> new_urls</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_new_data</span><span class="params">(self,page_url,soup)</span>:</span></span><br><span class="line">    <span class="comment">#抽取有效数据</span></span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">        data[<span class="string">'url'</span>]=page_url</span><br><span class="line">        title = soup.find(<span class="string">'dd'</span>,class_=<span class="string">'lemmaWgt-lemmaTitle-title'</span>).find(<span class="string">'h1'</span>)</span><br><span class="line">        data[<span class="string">'title'</span>]=title.get_text()</span><br><span class="line">        summary = soup.find(<span class="string">'div'</span>,class_=<span class="string">'lemma-summary'</span>)</span><br><span class="line">        data[<span class="string">'summary'</span>]=summary.get_text()</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<h3 id="数据存储器"><a href="#数据存储器" class="headerlink" title="数据存储器"></a>数据存储器</h3><p>接口<br>store_data(data)解析出来的数据存储到内存中<br>output_html()将存储的数据输出为指定格式的文件格式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataOutput</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.datas=[]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">store_data</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.datas.append(data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_html</span><span class="params">(self)</span>:</span></span><br><span class="line">        fout=codecs.open(<span class="string">'baike.html'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;html&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;body&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;table&gt;"</span>)</span><br><span class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> self.datas:</span><br><span class="line">            fout.write(<span class="string">"&lt;tr&gt;"</span>)</span><br><span class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span>%data[<span class="string">'url'</span>])</span><br><span class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span>%data[<span class="string">'title'</span>])</span><br><span class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span>%data[<span class="string">'summary'</span>])</span><br><span class="line">            fout.write(<span class="string">"&lt;/tr&gt;"</span>)</span><br><span class="line">            self.data.remove(data)</span><br><span class="line">        fout.write(<span class="string">"&lt;/table&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;/body&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;/html&gt;"</span>)</span><br><span class="line">        fout.close()</span><br></pre></td></tr></table></figure></p>
+<h3 id="爬虫调度器"><a href="#爬虫调度器" class="headerlink" title="爬虫调度器"></a>爬虫调度器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> firstSpider.DataOutput <span class="keyword">import</span> DataOutput</span><br><span class="line"><span class="keyword">from</span> firstSpider.HtmlDownloader <span class="keyword">import</span> HtmlDownloader</span><br><span class="line"><span class="keyword">from</span> firstSpider.HtmlParser <span class="keyword">import</span> HtmlParser</span><br><span class="line"><span class="keyword">from</span> firstSpider.URLManager <span class="keyword">import</span> URLManager</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpiderMan</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.manager = URLManager()</span><br><span class="line">        self.downloader = HtmlDownloader()</span><br><span class="line">        self.parser = HtmlParser()</span><br><span class="line">        self.output = DataOutput()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crawl</span><span class="params">(self,root_url)</span>:</span></span><br><span class="line">        <span class="comment">#　入口URL</span></span><br><span class="line">        self.manager.add_new_url(root_url)</span><br><span class="line">        <span class="comment"># 新URL，和数量</span></span><br><span class="line">        <span class="keyword">while</span>(self.manager.has_new_url() <span class="keyword">and</span> self.manager.old_url_size() &lt; <span class="number">100</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                new_url = self.manager.get_new_url()</span><br><span class="line"></span><br><span class="line">                html = self.downloader.download(new_url)</span><br><span class="line"></span><br><span class="line">                new_urls,data = self.parser.parser(new_url,html)</span><br><span class="line"></span><br><span class="line">                self.manager.add_new_urls(new_urls)</span><br><span class="line"></span><br><span class="line">                self.output.store_data(data)</span><br><span class="line"></span><br><span class="line">                print(<span class="string">"已经爬取%s个链接"</span>%self.manager.old_url_size())</span><br><span class="line"></span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                print(e)</span><br><span class="line">        self.output.output_html()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    spider_man = SpiderMan()</span><br><span class="line">    spider_man.crawl(<span class="string">'http://baike.baidu.com/view/284853.htm'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="简单分布式爬虫"><a href="#简单分布式爬虫" class="headerlink" title="简单分布式爬虫"></a>简单分布式爬虫</h1><p>难点在于调度<br>主从模式<br>指由一台主机作为控制节点，负责管理所有运行网络爬虫的主机，爬虫只需要从控制节点那里接收任务，并把新<br>生成的任务提交给控制节点，不必与其他爬虫通信，简单，利于管理，控制节点需要与所有爬虫进行通信，因此控制节点会<br>成为整个系统的瓶颈，容易导致性能下降<br>例子使用三台主机，1控制，2爬虫<br>结构<br><img src="/uploads/1542695023.218843.jpg" alt="结构"><br>主从结构<br><img src="/uploads/1542695026.236893.jpg" alt="主从爬虫结构"></p>
+<h2 id="URL管理器-1"><a href="#URL管理器-1" class="headerlink" title="URL管理器"></a>URL管理器</h2><p>内存溢出问题：对爬取过后URL进行MD5处理。添加save_progress和load_progress方法进行序列化<br>将未爬取URL和已爬取的URL集合序列化到本地，保存当前进度，以便下次恢复状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL Manager.py</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> _pickle</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">URLManager</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.new_urls = self.load_progress(<span class="string">'new_urls.txt'</span>)</span><br><span class="line">        self.old_urls = self.load_progress(<span class="string">'old_urls.txt'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        判断是否有未爬取的URL</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">return</span> self.new_url_size() != <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        获取一个未爬取的URL</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        new_url = self.new_urls.pop()</span><br><span class="line">        m = hashlib.md5()</span><br><span class="line">        m.update(new_url.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        self.old_urls.add(m.hexdigest()[<span class="number">8</span>:<span class="number">-8</span>])</span><br><span class="line">        <span class="keyword">return</span> new_url</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self,url)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        将新的URL添加到未爬取的URL集合中</span></span><br><span class="line"><span class="string">        :param url: 单个URL</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        m = hashlib.md5()</span><br><span class="line">        m.update(url.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        url_md5 = m.hexdigest()[<span class="number">8</span>:<span class="number">-8</span>]</span><br><span class="line">        <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.new_urls <span class="keyword">and</span> url_md5 <span class="keyword">not</span> <span class="keyword">in</span> self.old_urls:</span><br><span class="line">            self.new_urls.add(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self,urls)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        将新的URL集合添加到未爬取的URL集合中</span></span><br><span class="line"><span class="string">        :param urls: url集合</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">            self.add_new_url(url)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">new_url_size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        获取未爬取URL集合的大小</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">return</span> len(self.new_urls)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">old_url_size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        获取已经爬取URL集合的大小</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">return</span> len(self.old_urls)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_progress</span><span class="params">(self, path, data)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        保存进度</span></span><br><span class="line"><span class="string">        :param path: 文件路径</span></span><br><span class="line"><span class="string">        :param data: 数据</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> open(path, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            _pickle.dump(data,f)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">load_progress</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        从本地加载进度</span></span><br><span class="line"><span class="string">        :param path: 文件路径</span></span><br><span class="line"><span class="string">        :return: 数据</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">        print(<span class="string">"[+] 从文件加载进度 %s"</span> % path)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">with</span> open(path, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                tmp = _pickle.load(f)</span><br><span class="line">                <span class="keyword">return</span> tmp</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            print(<span class="string">'[!]无进度文件，创建 %s'</span> %path)</span><br><span class="line">        <span class="keyword">return</span> set()</span><br></pre></td></tr></table></figure></p>
+<p>##　数据存储器<br>生成的文件需要按照当前时间进行命名，以避免重复，同时对文件进行缓存写入<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataOutput</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.filepath=<span class="string">'baike_%s.html'</span> %(time.strftime(<span class="string">"%Y_%m_%d_%H_%M_%S"</span>, time.localtime()))</span><br><span class="line">        self.output_head(self.filepath)</span><br><span class="line">        self.datas=[]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">store_data</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.datas.append(data)</span><br><span class="line">        <span class="keyword">if</span> len(self.datas) &gt; <span class="number">10</span>:</span><br><span class="line">            self.output_html(self.filepath)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_head</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        将HTML头写入</span></span><br><span class="line"><span class="string">        :param path:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        fout=codecs.open(path,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;html&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;body&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">'&lt;table&gt;'</span>)</span><br><span class="line">        fout.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_html</span><span class="params">(self,path)</span>:</span></span><br><span class="line">        fout=codecs.open(path,<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> self.datas:</span><br><span class="line">            fout.write(<span class="string">"&lt;tr&gt;"</span>)</span><br><span class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span>%data[<span class="string">'url'</span>])</span><br><span class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span>%data[<span class="string">'title'</span>])</span><br><span class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span>%data[<span class="string">'summary'</span>])</span><br><span class="line">            fout.write(<span class="string">"&lt;/tr&gt;"</span>)</span><br><span class="line">            self.datas.remove(data)</span><br><span class="line"></span><br><span class="line">        fout.close()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_end</span><span class="params">(self,path)</span>:</span></span><br><span class="line"></span><br><span class="line">        fout=codecs.open(path,<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;/table&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;/body&gt;"</span>)</span><br><span class="line">        fout.write(<span class="string">"&lt;/html&gt;"</span>)</span><br><span class="line">        fout.close()</span><br></pre></td></tr></table></figure></p>
+<h2 id="控制调度器"><a href="#控制调度器" class="headerlink" title="控制调度器"></a>控制调度器</h2><p>产生并启动URL管理进行，数据提取进行和数据存储进行，同时维护4个队列保持进行间的通信<br>url_q队列是URL管理进程将URL传递给爬虫节点的通道<br>result_q队列是爬虫节点将数据返回给数据提取进程的通道<br>conn_q队列是数据提取进程将新的URL数据提交RURL管理进程的通道<br>store_q队列是数据提取进程将获取到的数据交给数据存储进程的通道<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> multiprocessing.managers <span class="keyword">import</span> BaseManager</span><br><span class="line"><span class="keyword">from</span> SpiderDis.ControlNode.URLManager <span class="keyword">import</span> URLManager</span><br><span class="line"><span class="keyword">from</span> SpiderDis.ControlNode.DataOutput <span class="keyword">import</span> DataOutput</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process, Queue</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NodeManager</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_manager</span><span class="params">(self,url_q,result_q)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        创建一个分布式管理器</span></span><br><span class="line"><span class="string">        :param self:</span></span><br><span class="line"><span class="string">        :param url_q: url队列</span></span><br><span class="line"><span class="string">        :param result_q: 结果队列</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">        BaseManager.register(<span class="string">'get_task_queue'</span>,callable=<span class="keyword">lambda</span>:url_q)</span><br><span class="line">        BaseManager.register(<span class="string">'get_result_queue'</span>, callable=<span class="keyword">lambda</span>:result_q)</span><br><span class="line"></span><br><span class="line">        manager=BaseManager(address=(<span class="string">''</span>,<span class="number">8001</span>),authkey=<span class="string">'baike'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> manager</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">url_manager_proc</span><span class="params">(self,url_q,conn_q,root_url)</span>:</span></span><br><span class="line">        url_manager = URLManager()</span><br><span class="line">        url_manager.add_new_url(root_url)</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            <span class="keyword">while</span>(url_manager.has_new_url()):</span><br><span class="line"></span><br><span class="line">                new_url = url_manager.get_new_url()</span><br><span class="line"></span><br><span class="line">                url_q.put(new_url)</span><br><span class="line"></span><br><span class="line">                print(<span class="string">"old_url="</span>,url_manager.old_url_size())</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(url_manager.old_url_size() &gt; <span class="number">2000</span>):</span><br><span class="line">                    <span class="comment"># 通知爬取节点工作结束</span></span><br><span class="line">                    url_q.put(<span class="string">'end'</span>)</span><br><span class="line">                    print(<span class="string">"控制节点发起结果通知"</span>)</span><br><span class="line">                    url_manager.save_progress(<span class="string">'new_urls.txt'</span>,url_manager.new_urls)</span><br><span class="line">                    url_manager.save_progress(<span class="string">'old_urls.txt'</span>,url_manager.old_urls)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">            <span class="comment"># 将从result_solve_proc获取到的URL添加到URL管理器</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> conn_q.empty():</span><br><span class="line">                    urls = conn_q.get()</span><br><span class="line">                    url_manager.add_new_urls(urls)</span><br><span class="line">            <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</span><br><span class="line">                time.sleep(<span class="number">0.1</span>) <span class="comment">#　延时休息</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">result_solve_proc</span><span class="params">(self,result_q,conn_q,store_q)</span>:</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">True</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> result_q.empty():</span><br><span class="line">                    content = result_q.get(<span class="keyword">True</span>)</span><br><span class="line">                    <span class="keyword">if</span> content[<span class="string">'new_urls'</span>] == <span class="string">'end'</span>:</span><br><span class="line"></span><br><span class="line">                        print(<span class="string">'结果分析进行接收通知然后结果'</span>)</span><br><span class="line">                        store_q.put(<span class="string">'end'</span>)</span><br><span class="line">                        <span class="keyword">return</span></span><br><span class="line">                    conn_q.put(content[<span class="string">'new_urls'</span>]) <span class="comment">#url 为set</span></span><br><span class="line">                    store_q.put(content[<span class="string">'data'</span>]) <span class="comment">#解析出来的数据为dict</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</span><br><span class="line">                time.sleep(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">store_proc</span><span class="params">(self,store_q)</span>:</span></span><br><span class="line">        output = DataOutput()</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> store_q.empty():</span><br><span class="line">                data = store_q.get()</span><br><span class="line">                <span class="keyword">if</span> data == <span class="string">'end'</span>:</span><br><span class="line">                    print(<span class="string">'存储进行接受通知然后结束'</span>)</span><br><span class="line">                    output.output_end(output.filepath)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                output.store_data(data)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                time.sleep(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 初始化４个队列</span></span><br><span class="line">    url_q = Queue()</span><br><span class="line">    result_q = Queue()</span><br><span class="line">    store_q = Queue()</span><br><span class="line">    conn_q = Queue()</span><br><span class="line"></span><br><span class="line">    node = NodeManager()</span><br><span class="line">    manager = node.start_manager(url_q, result_q)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建URL管理进程</span></span><br><span class="line">    url_manager_proc = Process(target=node.url_manager_proc, args=(url_q,</span><br><span class="line">                           conn_q,<span class="string">'http://baike.baidu.com/view/284853.htm'</span>,</span><br><span class="line">                                                         ))</span><br><span class="line">    result_slove_proc = Process(target=node.result_solve_proc, args=(result_q, conn_q</span><br><span class="line">                        ,store_q,))</span><br><span class="line">    store_proc = Process(target=node.store_proc, args=(store_q,))</span><br><span class="line"></span><br><span class="line">    <span class="comment">#　启动三个进程和分布式管理器</span></span><br><span class="line"></span><br><span class="line">    url_manager_proc.start()</span><br><span class="line">    result_slove_proc.start()</span><br><span class="line">    store_proc.start()</span><br><span class="line">    manager.get_server().serve_forever()</span><br></pre></td></tr></table></figure></p>
+<h2 id="爬虫节点"><a href="#爬虫节点" class="headerlink" title="爬虫节点"></a>爬虫节点</h2><p>流程</p>
+<ol>
+<li>爬虫调度器从控制节点中的url_q队列读取URL</li>
+<li>爬虫调度器调用HTML下载器，HTML解析器获取网页中新的URL和标题摘要</li>
+<li>爬虫调度器将新的URL和标题摘要传入result_q队列交给控制节点</li>
+</ol>
+<h3 id="HTML下载器-1"><a href="#HTML下载器-1" class="headerlink" title="HTML下载器"></a>HTML下载器</h3><h3 id="HTML解析器-1"><a href="#HTML解析器-1" class="headerlink" title="HTML解析器"></a>HTML解析器</h3><h3 id="爬虫调度器-1"><a href="#爬虫调度器-1" class="headerlink" title="爬虫调度器"></a>爬虫调度器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> multiprocessing.managers <span class="keyword">import</span> BaseManager</span><br><span class="line"><span class="keyword">from</span> SpiderDis.SpiderNode.HtmlDownloader <span class="keyword">import</span> HtmlDownloader</span><br><span class="line"><span class="keyword">from</span> SpiderDis.SpiderNode.HtmlParser <span class="keyword">import</span> HtmlParser</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpiderWork</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment">#初始化分布式进行中工作节点的连接工作</span></span><br><span class="line">        <span class="comment">#1</span></span><br><span class="line">        BaseManager.register(<span class="string">'get_task_queue'</span>)</span><br><span class="line">        BaseManager.register(<span class="string">'get_result_queue'</span>)</span><br><span class="line"></span><br><span class="line">        server_addr = <span class="string">'127.0.0.1'</span></span><br><span class="line">        print(<span class="string">"Connect to server %s"</span> %server_addr)</span><br><span class="line"></span><br><span class="line">        self.m = BaseManager(address=(server_addr, <span class="number">8001</span>), authkey=<span class="string">'baike'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">        self.m.connect()</span><br><span class="line"></span><br><span class="line">        self.task = self.m.get_task_queue()</span><br><span class="line">        self.result = self.m.get_result_queue()</span><br><span class="line"></span><br><span class="line">        self.downloader = HtmlDownloader()</span><br><span class="line"></span><br><span class="line">        self.parser = HtmlParser()</span><br><span class="line"></span><br><span class="line">        print(<span class="string">"init finish"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crawl</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">True</span>):</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> self.task.empty():</span><br><span class="line">                    url = self.task.get()</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> url == <span class="string">'end'</span>:</span><br><span class="line">                        print(<span class="string">"控制节点通知停止工作"</span>)</span><br><span class="line">                        self.result.put(&#123;<span class="string">'new_urls'</span>:<span class="string">'end'</span>,<span class="string">'data'</span>:<span class="string">'end'</span>&#125;)</span><br><span class="line">                        <span class="keyword">return</span></span><br><span class="line">                print(<span class="string">"爬虫节点正在解析：%s"</span> % url.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">                content = self.downloader.download(url)</span><br><span class="line">                new_urls,data = self.parser.parser(url,content)</span><br><span class="line">                self.result.put(&#123;<span class="string">'new_urls'</span>:new_urls,<span class="string">'data'</span>:data&#125;)</span><br><span class="line">            <span class="keyword">except</span> EOFError <span class="keyword">as</span> e:</span><br><span class="line">                print(<span class="string">"连接工作节点失败"</span>)</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                print(e)</span><br><span class="line">                print(<span class="string">"Crawl fail"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    spider = SpiderWork()</span><br><span class="line">    spider.crawl()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/16/python/python快速入门/" rel="next" title="Python快速入门">
+                <i class="fa fa-chevron-left"></i> Python快速入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/20/python/中级网络爬虫/" rel="prev" title="中级网络爬虫">
+                中级网络爬虫 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Chen Ma">
+            
+              <p class="site-author-name" itemprop="name">Chen Ma</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">80</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#爬虫结构"><span class="nav-number">1.</span> <span class="nav-text">爬虫结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python实现"><span class="nav-number">2.</span> <span class="nav-text">Python实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib"><span class="nav-number">2.1.</span> <span class="nav-text">urllib</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求和响应模型"><span class="nav-number">2.1.1.</span> <span class="nav-text">请求和响应模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#post数据"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">post数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#header处理"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">header处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie处理"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">cookie处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Timeout超时设置"><span class="nav-number">2.1.1.5.</span> <span class="nav-text">Timeout超时设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http响应码"><span class="nav-number">2.1.1.6.</span> <span class="nav-text">Http响应码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写向"><span class="nav-number">2.1.1.7.</span> <span class="nav-text">重写向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proxy的设置"><span class="nav-number">2.1.1.8.</span> <span class="nav-text">Proxy的设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#httplib实现"><span class="nav-number">2.2.</span> <span class="nav-text">httplib实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests"><span class="nav-number">2.3.</span> <span class="nav-text">Requests</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Get"><span class="nav-number">2.3.1.</span> <span class="nav-text">Get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post"><span class="nav-number">2.3.2.</span> <span class="nav-text">Post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他方法"><span class="nav-number">2.3.3.</span> <span class="nav-text">其他方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应和编码"><span class="nav-number">2.3.4.</span> <span class="nav-text">响应和编码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML解析"><span class="nav-number">3.</span> <span class="nav-text">HTML解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Firebug工具"><span class="nav-number">3.1.</span> <span class="nav-text">Firebug工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">3.2.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">3.2.1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复"><span class="nav-number">3.2.2.</span> <span class="nav-text">重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符集合"><span class="nav-number">3.2.3.</span> <span class="nav-text">字符集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支条件"><span class="nav-number">3.2.4.</span> <span class="nav-text">分支条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组"><span class="nav-number">3.2.5.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反义"><span class="nav-number">3.2.6.</span> <span class="nav-text">反义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后向引用"><span class="nav-number">3.2.7.</span> <span class="nav-text">后向引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#零宽断言"><span class="nav-number">3.2.8.</span> <span class="nav-text">零宽断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">3.2.9.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪与懒惰"><span class="nav-number">3.2.10.</span> <span class="nav-text">贪婪与懒惰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理选项"><span class="nav-number">3.2.11.</span> <span class="nav-text">处理选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python与正则"><span class="nav-number">3.2.12.</span> <span class="nav-text">Python与正则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beautiful-soup"><span class="nav-number">3.3.</span> <span class="nav-text">Beautiful soup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.3.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lxml的XPath解析"><span class="nav-number">3.3.2.</span> <span class="nav-text">lxml的XPath解析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据存储"><span class="nav-number">4.</span> <span class="nav-text">数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML正文抽取"><span class="nav-number">4.1.</span> <span class="nav-text">HTML正文抽取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#json存储"><span class="nav-number">4.1.1.</span> <span class="nav-text">json存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSV存储"><span class="nav-number">4.1.2.</span> <span class="nav-text">CSV存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多媒体文件抽取"><span class="nav-number">4.2.</span> <span class="nav-text">多媒体文件抽取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Email提醒"><span class="nav-number">4.3.</span> <span class="nav-text">Email提醒</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础爬虫"><span class="nav-number">5.</span> <span class="nav-text">基础爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#架构和运行流程"><span class="nav-number">5.1.</span> <span class="nav-text">架构和运行流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL管理器"><span class="nav-number">5.1.1.</span> <span class="nav-text">URL管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML下载器"><span class="nav-number">5.1.2.</span> <span class="nav-text">HTML下载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML解析器"><span class="nav-number">5.1.3.</span> <span class="nav-text">HTML解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据存储器"><span class="nav-number">5.1.4.</span> <span class="nav-text">数据存储器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬虫调度器"><span class="nav-number">5.1.5.</span> <span class="nav-text">爬虫调度器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单分布式爬虫"><span class="nav-number">6.</span> <span class="nav-text">简单分布式爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL管理器-1"><span class="nav-number">6.1.</span> <span class="nav-text">URL管理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制调度器"><span class="nav-number">6.2.</span> <span class="nav-text">控制调度器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫节点"><span class="nav-number">6.3.</span> <span class="nav-text">爬虫节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML下载器-1"><span class="nav-number">6.3.1.</span> <span class="nav-text">HTML下载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML解析器-1"><span class="nav-number">6.3.2.</span> <span class="nav-text">HTML解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬虫调度器-1"><span class="nav-number">6.3.3.</span> <span class="nav-text">爬虫调度器</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen Ma</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "MyIbIKOgV7er81eDL87telqz-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "MyIbIKOgV7er81eDL87telqz-gzGzoHsz",
+                'X-LC-Key': "R0py3Gu7zvD98ooAKQvK3eUc",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+
+  
+
+</body>
+</html>
