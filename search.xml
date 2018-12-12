@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[215.kth-largest-element-in-an-array]]></title>
+    <url>%2F2018%2F12%2F12%2FACM%2Fleetcode%2F215.kth-largest-element-in-an-array%2F</url>
+    <content type="text"><![CDATA[Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5Example 2: Input: [3,2,3,1,2,4,5,5,6] and k = 4Output: 4Note:You may assume k is always valid, 1 ≤ k ≤ array’s length.使用随机化划分的方法123456789101112131415161718192021222324252627282930313233343536373839class Solution &#123;public: int findKthLargest(vector&lt;int&gt;&amp; nums, int k) &#123; int p = 0; int q = nums.size(); return rand_select(nums,p,q-1,q-k+1); &#125; int rand_select(vector&lt;int&gt;&amp; nums,int p,int q,int i) &#123; if(p == q) return nums[p]; int r = rand_parition(nums,p,q); int k = r-p + 1; if(k == i) return nums[r]; else if (k &lt; i) return rand_select(nums,r+1,q,i-k); else return rand_select(nums,p,r-1,i); &#125; int rand_parition(vector&lt;int&gt; &amp; nums,int p,int q) &#123; int rnd = rand()%(q-p) + p; swap(nums[rnd],nums[p]); int tmp = nums[p]; while(p &lt; q) &#123; while(p &lt; q &amp;&amp; tmp &lt;= nums[q]) &#123; q--; &#125; nums[p] = nums[q]; while(p &lt; q &amp;&amp; tmp &gt;= nums[p]) &#123; p++; &#125; nums[q] = nums[p]; &#125; nums[p] = tmp; return p; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[674.longest-continuous-increasing-subsequence]]></title>
+    <url>%2F2018%2F12%2F12%2FACM%2Fleetcode%2F674.longest-continuous-increasing-subsequence%2F</url>
+    <content type="text"><![CDATA[Given an unsorted array of integers, find the length of longest continuous increasing subsequence (subarray). Example 1:Input: [1,3,5,4,7]Output: 3Explanation: The longest continuous increasing subsequence is [1,3,5], its length is 3.Even though [1,3,5,7] is also an increasing subsequence, it’s not a continuous one where 5 and 7 are separated by 4.Example 2:Input: [2,2,2,2,2]Output: 1Explanation: The longest continuous increasing subsequence is [2], its length is 1.Note: Length of the array will not exceed 10,000.1234567891011121314151617181920class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; int end = nums.size(); if(end &lt; 1) return 0; int start = 0; int cur = 1; int res = 1; while(cur &lt; end) &#123; if(nums[cur] &lt;= nums[cur-1]) &#123; res = max(res,cur-start); start = cur; &#125; cur++; &#125; res = max(res,cur-start); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[33.search-in-rotated-sorted-array]]></title>
     <url>%2F2018%2F12%2F12%2FACM%2Fleetcode%2F33.search-in-rotated-sorted-array%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).You are given a target value to search. If found in the array return its index, otherwise return -1.You may assume no duplicate exists in the array.Your algorithm&apos;s runtime complexity must be in the order of O(log n).Example 1:Input: nums = [4,5,6,7,0,1,2], target = 0Output: 4Example 2:Input: nums = [4,5,6,7,0,1,2], target = 3Output: -1 基本思路为二分法，旋转数组会分为排序的和不排序的，对排序的使用二分法查找，非排序的继续二分直到没有结果123456789101112131415161718192021222324252627282930313233343536373839class Solution &#123;public: int search(vector&lt;int&gt;&amp; nums, int target) &#123; int end = nums.size()-1; int start = 0; int res = -1; while(start &lt;= end) &#123; int mid = (start + end) / 2; if(nums[mid] &gt;= nums[start]) &#123; res = BinarySearch(nums,target,start,mid); if(res != -1) return res; else start = mid + 1; &#125; else if(nums[mid] &lt; nums[start]) &#123; res = BinarySearch(nums,target,mid,end); if(res != -1) return res; else end = mid; &#125; &#125; return res; &#125; int BinarySearch(vector&lt;int&gt; &amp;nums,int target,int start,int end) &#123; while(start &lt;= end) &#123; int mid = (start + end) / 2; if(target &lt; nums[mid]) &#123; end = mid - 1; &#125; else if (target &gt; nums[mid]) start = mid + 1; else if(target == nums[mid]) return mid; &#125; return -1; &#125;&#125;;]]></content>
@@ -616,8 +634,8 @@
         <category>C++</category>
       </categories>
       <tags>
-        <tag>static</tag>
         <tag>const</tag>
+        <tag>static</tag>
       </tags>
   </entry>
   <entry>
@@ -688,18 +706,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[内存泄漏]]></title>
-    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%2F</url>
-    <content type="text"><![CDATA[什么是内存泄漏(Memory Leak)?简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。 如何检测内存泄露第一：良好的编码习惯，尽量在涉及内存的程序段，检测出内存泄露。当程式稳定之后，在来检测内存泄露时，无疑增加了排除的困难和复杂度。使用了内存分配的函数，一旦使用完毕,要记得要使用其相应的函数释放掉。第二：将分配的内存的指针以链表的形式自行管理，使用完毕之后从链表中删除，程序结束时可检查改链表。 第三：Boost 中的smart pointer 第四：一些常见的工具插件，如ccmalloc、Dmalloc、Leaky等等]]></content>
-      <categories>
-        <category>C++面试</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>内存</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[悬空指针和野指针]]></title>
     <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%82%AC%E7%A9%BA%E6%8C%87%E9%92%88%E5%92%8C%E9%87%8E%E6%8C%87%E9%92%88%2F</url>
     <content type="text"><![CDATA[A dangling pointer is a pointer that used to point to a valid address but now no longer does. This is usually due to that memory location being freed up and no longer available. There is nothing wrong with having a dangling pointer unless you try to access the memory location pointed at by that pointer. It is always best practise not to have or leave dangling pointers.空悬指针是这样一种指针：它曾经指向一个有效地址，但是现在不再指向有效地址（个人添加，其实就是原来的那块地址不能通过这个指针区访问了）。这通常是因为指针所指的内存单位被释放了并且不再有效了。空悬指针存在并没有什么问题，除非你尝试通过这个指针访问指向的地址空间。不遗留任何悬空指针总是最好的实践方式。A wild pointer is a pointer that has not been correctly initialised and therefore points to some random piece of memory. It is a serious error to have wild pointers.而野指针是这样一种指针：它没有被正确的初始化于是指向一个随机的内存地址。存在野指针是一个严重的错误]]></content>
@@ -709,6 +715,18 @@
       </categories>
       <tags>
         <tag>指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[内存泄漏]]></title>
+    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%2F</url>
+    <content type="text"><![CDATA[什么是内存泄漏(Memory Leak)?简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。 如何检测内存泄露第一：良好的编码习惯，尽量在涉及内存的程序段，检测出内存泄露。当程式稳定之后，在来检测内存泄露时，无疑增加了排除的困难和复杂度。使用了内存分配的函数，一旦使用完毕,要记得要使用其相应的函数释放掉。第二：将分配的内存的指针以链表的形式自行管理，使用完毕之后从链表中删除，程序结束时可检查改链表。 第三：Boost 中的smart pointer 第四：一些常见的工具插件，如ccmalloc、Dmalloc、Leaky等等]]></content>
+      <categories>
+        <category>C++面试</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>内存</tag>
       </tags>
   </entry>
   <entry>

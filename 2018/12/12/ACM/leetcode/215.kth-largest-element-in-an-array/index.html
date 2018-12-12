@@ -102,25 +102,24 @@
 
 
 
-  <meta name="description" content="Given a string containing only digits, restore it by returning all possible valid IP address combinations. Example: Input: “25525511135”Output: [“255.255.11.135”, “255.255.111.35”] 1234567891011121314">
-<meta name="keywords" content="DFS">
+  <meta name="description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5Example">
 <meta property="og:type" content="article">
-<meta property="og:title" content="93.Restore IP Address">
-<meta property="og:url" content="https://www.mctashuo.cn/2018/12/11/ACM/leetcode/93.Restore-IP-Address/index.html">
+<meta property="og:title" content="215.kth-largest-element-in-an-array">
+<meta property="og:url" content="https://www.mctashuo.cn/2018/12/12/ACM/leetcode/215.kth-largest-element-in-an-array/index.html">
 <meta property="og:site_name" content="Mctahuo">
-<meta property="og:description" content="Given a string containing only digits, restore it by returning all possible valid IP address combinations. Example: Input: “25525511135”Output: [“255.255.11.135”, “255.255.111.35”] 1234567891011121314">
+<meta property="og:description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5Example">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-11T08:54:59.842Z">
+<meta property="og:updated_time" content="2018-12-12T13:28:25.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="93.Restore IP Address">
-<meta name="twitter:description" content="Given a string containing only digits, restore it by returning all possible valid IP address combinations. Example: Input: “25525511135”Output: [“255.255.11.135”, “255.255.111.35”] 1234567891011121314">
+<meta name="twitter:title" content="215.kth-largest-element-in-an-array">
+<meta name="twitter:description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5Example">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.mctashuo.cn/2018/12/11/ACM/leetcode/93.Restore-IP-Address/">
+  <link rel="canonical" href="https://www.mctashuo.cn/2018/12/12/ACM/leetcode/215.kth-largest-element-in-an-array/">
 
 
 
@@ -130,7 +129,7 @@
   };
 </script>
 
-  <title>93.Restore IP Address | Mctahuo</title>
+  <title>215.kth-largest-element-in-an-array | Mctahuo</title>
   
 
 
@@ -378,7 +377,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/12/11/ACM/leetcode/93.Restore-IP-Address/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/12/12/ACM/leetcode/215.kth-largest-element-in-an-array/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -395,7 +394,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">93.Restore IP Address
+          <h1 class="post-title" itemprop="name headline">215.kth-largest-element-in-an-array
 
               
             
@@ -421,7 +420,7 @@
                 
               
 
-              <time title="创建时间：2018-12-11 16:20:29 / 修改时间：16:54:59" itemprop="dateCreated datePublished" datetime="2018-12-11T16:20:29+08:00">2018-12-11</time>
+              <time title="创建时间：2018-12-12 21:25:12 / 修改时间：21:28:25" itemprop="dateCreated datePublished" datetime="2018-12-12T21:25:12+08:00">2018-12-12</time>
             
 
             
@@ -464,7 +463,7 @@
 
           
           
-             <span id="/2018/12/11/ACM/leetcode/93.Restore-IP-Address/" class="leancloud_visitors" data-flag-title="93.Restore IP Address">
+             <span id="/2018/12/12/ACM/leetcode/215.kth-largest-element-in-an-array/" class="leancloud_visitors" data-flag-title="215.kth-largest-element-in-an-array">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -495,11 +494,10 @@
       
 
       
-        <p>Given a string containing only digits, restore it by returning all possible valid IP address combinations.</p>
-<p>Example:</p>
-<p>Input: “25525511135”<br>Output: [“255.255.11.135”, “255.255.111.35”]</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; restoreIpAddresses(<span class="built_in">string</span> s) &#123;</span><br><span class="line">        dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="string">""</span>,s);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> count,<span class="built_in">string</span> ip,<span class="built_in">string</span> &amp;s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(count &gt; <span class="number">4</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">4</span> &amp;&amp; start == s.size()) &#123;</span><br><span class="line">            ip.resize(ip.size() <span class="number">-1</span>);</span><br><span class="line">            ans.push_back(ip);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; <span class="number">4</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(start + i &gt; s.size()) <span class="keyword">break</span>;</span><br><span class="line">            <span class="built_in">string</span> tmp = s.substr(start,i);</span><br><span class="line">            <span class="keyword">if</span>(tmp[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; tmp.size() &gt; <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(stoi(tmp) &lt;= <span class="number">255</span>) &#123;</span><br><span class="line">                dfs(start+i,count+<span class="number">1</span>,ip+tmp+<span class="string">"."</span>,s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
+<p>Example 1:</p>
+<p>Input: [3,2,1,5,6,4] and k = 2<br>Output: 5<br>Example 2:</p>
+<p>Input: [3,2,3,1,2,4,5,5,6] and k = 4<br>Output: 4<br>Note:<br>You may assume k is always valid, 1 ≤ k ≤ array’s length.<br><a id="more"></a><br>使用随机化划分的方法<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> q = nums.size();</span><br><span class="line">        <span class="keyword">return</span> rand_select(nums,p,q<span class="number">-1</span>,q-k+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rand_select</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums,<span class="keyword">int</span> p,<span class="keyword">int</span> q,<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p == q)</span><br><span class="line">            <span class="keyword">return</span> nums[p];</span><br><span class="line">        <span class="keyword">int</span> r = rand_parition(nums,p,q);</span><br><span class="line">        <span class="keyword">int</span> k = r-p + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(k == i)</span><br><span class="line">            <span class="keyword">return</span> nums[r];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (k &lt; i)</span><br><span class="line">            <span class="keyword">return</span> rand_select(nums,r+<span class="number">1</span>,q,i-k);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> rand_select(nums,p,r<span class="number">-1</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rand_parition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp; nums,<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rnd = rand()%(q-p) + p;</span><br><span class="line">        swap(nums[rnd],nums[p]);</span><br><span class="line">        <span class="keyword">int</span> tmp = nums[p];</span><br><span class="line">        <span class="keyword">while</span>(p &lt; q) &#123;</span><br><span class="line">            <span class="keyword">while</span>(p &lt; q &amp;&amp; tmp &lt;= nums[q]) &#123;</span><br><span class="line">                q--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[p] = nums[q];</span><br><span class="line">            <span class="keyword">while</span>(p &lt; q &amp;&amp; tmp &gt;= nums[p]) &#123;</span><br><span class="line">                p++;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[q] = nums[p];</span><br><span class="line">        &#125;</span><br><span class="line">        nums[p] = tmp;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -521,12 +519,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/DFS/" rel="tag"># DFS</a>
-          
-        </div>
-      
 
       
       
@@ -536,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/07/ACM/leetcode/3.longest-substring-without-repeating-characters/" rel="next" title="longest-substring-without-repeating-characters">
-                <i class="fa fa-chevron-left"></i> longest-substring-without-repeating-characters
+              <a href="/2018/12/12/ACM/leetcode/674.longest-continuous-increasing-subsequence/" rel="next" title="674.longest-continuous-increasing-subsequence">
+                <i class="fa fa-chevron-left"></i> 674.longest-continuous-increasing-subsequence
               </a>
             
           </div>
@@ -545,10 +537,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/11/hexo迁移/" rel="prev" title="hexo迁移">
-                hexo迁移 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
