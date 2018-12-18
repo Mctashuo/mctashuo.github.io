@@ -721,7 +721,7 @@
 <li>process_request(request, spider)<br>当每个Request通过下载中间件时，该方法被调用，返回值必须为None,Response对象，Request对象中的一个或Raise<br>IgnoreRequest异常<br>返回值：</li>
 </ol>
 <p>如果返回None， Scrapy将继续处理该Request,执行其他的中间件的相应方法，直到合适的下载器处理函数被调用，该Request被执行（其Response被下载）。<br>如果返回Response对象，Scrapy不会调用其他的process_request（），process_exception（）方法，或相应的下载方法，将返回该response。已安装的中间件的process_response（）方法则会在每个response返回时被调用。<br>如果返回Request对象，Scrapy则停止调用process_request方法并重新调度返回的Request。当新返回的Request被执行后，相应地中间件链将会根据下载的Response被调用。<br>如果是Raise IgnoreRequest异常，则安装的下载中间件的process_exception（）方法会被调用。如果没有任何一个方法处理该异常，则Request的errback方法会被调用。如果没有代码处理抛出的异常，则该异常被忽略且不记录。</p>
-<ol>
+<ol start="2">
 <li>process_response(request, response, spider)<br>方法说明：该方法主要用来处理产生的Response，返回值必须是Response对象、Request对象中的一个或Raise IgnoreRequest异常。<br>参数：<br>request（Request对象）：Response对应的Request。<br>response（Response对象）：处理的Response。<br>spider（Spider对象）：Response对应的Spider。<br>返回值：如果返回Response对象，可以与传入的Response相同，也可以是新的对象，该Response会被链中的其他中间件的process_response（）方法处理。<br>如果返回Request对象，则中间件链停止，返回的Request会被重新调度下载。处理类似于process_request（）返回Request时所做的那样。<br>如果抛出IgnoreRequest异常，则调用Request的errback方法。如果没有代码处理抛出的异常，则该异常被忽略且不记录。</li>
 <li>process_exption(request, exception, spider)<br>方法说明：当下载处理器或process_request（）抛出异常，比如IgnoreRequest异常时，Scrapy调用process_exception（）。process_exception（）应该返回None、Response对象或者Request对象其中之一。<br>参数：request（Request对象）：产生异常的Request。<br>exception（Exception对象）：抛出的异常。<br>spider（Spider对象）：Request对应的Spider。<br>返回值：如果返回None，Scrapy将会继续处理该异常，接着调用已安装的其他中间件的process_exception（）方法，直到所有中间件都被调用完毕，则调用默认的异常处理。<br>如果返回Response对象，则已安装的中间件链的process_response（）方法被调用。Scrapy将不会调用任何其他中间件的process_exception（）方法。<br>如果返回Request对象，则返回的request将会被重新调用下载，这将停止中间件的process_exception（）方法执行，类似于返回Response对象的处理。</li>
 </ol>
@@ -876,7 +876,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">93</span>
+                    <span class="site-state-item-count">94</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1082,7 +1082,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">54</span>
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
