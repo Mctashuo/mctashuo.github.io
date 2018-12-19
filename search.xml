@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[23.merge-k-sorted-lists]]></title>
+    <url>%2F2018%2F12%2F19%2FACM%2Fleetcode%2F23.merge-k-sorted-lists%2F</url>
+    <content type="text"><![CDATA[Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example: Input:[ 1-&gt;4-&gt;5, 1-&gt;3-&gt;4, 2-&gt;6]Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6参考链接Solution 1:Brute Force1234567891011121314151617181920212223242526272829/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123; ListNode tmp(0); auto res = &amp;tmp; while(1) &#123; ListNode ** min_head = nullptr; for(auto &amp;head:lists) &#123; if(!head) continue; if(!min_head || head-&gt;val &lt; (*min_head)-&gt;val) min_head = &amp;head; &#125; if(!min_head) break; res-&gt;next = new ListNode((*min_head)-&gt;val); res = res-&gt;next; (*min_head) = (*min_head)-&gt;next; &#125; return tmp.next; &#125;&#125;; Sulotion 21234567891011121314151617181920212223242526272829/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123; auto cmp = [](const ListNode *a,const ListNode *b) &#123; return a-&gt;val &gt; b-&gt;val; &#125;; priority_queue&lt;ListNode*,vector&lt;ListNode*&gt;,decltype(cmp)&gt; q(cmp); for(auto list:lists) &#123; if(list) q.push(list); &#125; ListNode tmp(0); ListNode *tail = &amp;tmp; while(!q.empty()) &#123; tail-&gt;next = q.top(); q.pop(); tail = tail-&gt;next; if(tail-&gt;next) q.push(tail-&gt;next); &#125; return tmp.next; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[142.linked-list-cycle-ii]]></title>
+    <url>%2F2018%2F12%2F19%2FACM%2Fleetcode%2F142.linked-list-cycle-ii%2F</url>
+    <content type="text"><![CDATA[Given a linked list, return the node where the cycle begins. If there is no cycle, return null. To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list. Note: Do not modify the linked list. Example 1: Input: head = [3,2,0,-4], pos = 1Output: tail connects to node index 1Explanation: There is a cycle in the linked list, where tail connects to the second node. Example 2: Input: head = [1,2], pos = 0Output: tail connects to node index 0Explanation: There is a cycle in the linked list, where tail connects to the first node. Example 3: Input: head = [1], pos = -1Output: no cycleExplanation: There is no cycle in the linked list. Follow up:Can you solve it without using extra space?123456789101112131415161718192021222324252627282930313233/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode *detectCycle(ListNode *head) &#123; if(!head) return head; auto fast = head-&gt;next; auto slow = head; while(fast != slow &amp;&amp; fast) &#123; slow = slow-&gt;next; if(fast-&gt;next) fast = fast-&gt;next-&gt;next; else return nullptr; &#125; if(!fast) return nullptr; slow = slow-&gt;next; while(slow != head) &#123; slow = slow-&gt;next; head = head-&gt;next; &#125; return head; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[lambda表达式]]></title>
     <url>%2F2018%2F12%2F18%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2Flambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[参考链接声明Lambda表达式Lambda表达式完整的声明格式如下： [capture list] (params list) mutable exception-&gt; return type { function body }各项具体含义如下 capture list：捕获外部变量列表params list：形参列表mutable指示符：用来说用是否可以修改捕获的变量exception：异常设定return type：返回类型function body：函数体此外，我们还可以省略其中的某些成分来声明“不完整”的Lambda表达式，常见的有以下几种： 序号 格式1 [capture list] (params list) -&gt; return type {function body}2 [capture list] (params list) {function body}3 [capture list] {function body}其中： 格式1声明了const类型的表达式，这种类型的表达式不能修改捕获列表中的值。格式2省略了返回值类型，但编译器可以根据以下规则推断出Lambda表达式的返回类型： （1）：如果function body中存在return语句，则该Lambda表达式的返回类型由return语句的返回类型确定； （2）：如果function body中没有return语句，则返回值为void类型。格式3中省略了参数列表，类似普通函数中的无参函数。]]></content>
@@ -855,19 +873,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[指针和引用的区别]]></title>
-    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[空值问题 初值问题 赋值问题 重载操作符]]></content>
-      <categories>
-        <category>C++面试</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>指针</tag>
-        <tag>引用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[malloc和new的区别]]></title>
     <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2Fmalloc%E5%92%8Cnew%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[相同点：都可用于申请动态内存和释放内存 不同点：（1）操作对象有所不同。malloc与free是C++/C 语言的标准库函数，new/delete 是C++的运算符。对于非内部数据类的对象而言，光用maloc/free 无法满足动态对象的要求。对象在创建的同时要自动执行构造函数， 对象消亡之前要自动执行析构函数。由于malloc/free 是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加malloc/free。 （2）用法上也有所不同。函数malloc 的原型如下：void * malloc(size_t size); 用malloc 申请一块长度为length 的整数类型的内存，程序如下：int *p = (int *) malloc(sizeof(int) * length);我们应当把注意力集中在两个要素上：“类型转换”和“sizeof”。 malloc 返回值的类型是void *，所以在调用malloc 时要显式地进行类型转换，将void *转换成所需要的指针类型。 malloc 函数本身并不识别要申请的内存是什么类型，它只关心内存的总字节数。函数free 的原型如下：void free( void * memblock );为什么free 函数不象malloc 函数那样复杂呢？这是因为指针p 的类型以及它所指的内存的容量事先都是知道的，语句free(p)能正确地释放内存。如果p 是NULL 指针，那么free对p 无论操作多少次都不会出问题。如果p 不是NULL 指针，那么free 对p连续操作两次就会导致程序运行错误。 new/delete 的使用要点：运算符new 使用起来要比函数malloc 简单得多，例如：int *p1 = (int *)malloc(sizeof(int) * length);int *p2 = new int[length];这是因为new 内置了sizeof、类型转换和类型安全检查功能。对于非内部数据类型的对象而言，new 在创建动态对象的同时完成了初始化工作。如果对象有多个构造函数，那么new 的语句也可以有多种形式。如果用new 创建对象数组，那么只能使用对象的无参数构造函数。例如123Obj *objects = new Obj[100]; // 创建100 个动态对象不能写成Obj *objects = new Obj[100](1); // 创建100 个动态对象的同时赋初值1 在用delete 释放对象数组时，留意不要丢了符号‘[]’。例如12delete []objects; // 正确的用法delete objects; // 错误的用法 后者相当于delete objects[0]，漏掉了另外99 个对象。 new自动计算需要分配的空间，而malloc需要手工计算字节数 new是类型安全的，而malloc不是，比如：12int* p = new float[2]; // 编译时指出错误int* p = malloc(2*sizeof(float)); // 编译时无法指出错误 new operator 由两步构成，分别是 operator new 和 construct operator new对应于malloc，但operator new可以重载，可以自定义内存分配策略，甚至不做内存分配，甚至分配到非内存设备上。而malloc无能为力 new将调用constructor，而malloc不能；delete将调用destructor，而free不能。 malloc/free要库文件支持，new/delete则不要。 本质区别malloc/free是C/C++语言的标准库函数，new/delete是C++的运算符。对于用户自定义的对象而言，用maloc/free无法满足动态管理对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free。因此C++需要一个能完成动态内存分配和初始化工作的运算符new，以及一个能完成清理与释放内存工作的运算符delete 12345678910111213141516171819202122232425262728class Obj&#123;public: Obj( ) &#123; cout &lt;&lt; "Initialization" &lt;&lt; endl; &#125; ~ Obj( ) &#123; cout &lt;&lt; "Destroy" &lt;&lt; endl; &#125; void Initialize( ) &#123; cout &lt;&lt; "Initialization" &lt;&lt; endl; &#125; void Destroy( ) &#123; cout &lt;&lt; "Destroy" &lt;&lt; endl; &#125;&#125;obj;void UseMallocFree( )&#123; Obj * a = (Obj *) malloc( sizeof ( obj ) ); // allocate memory a -&gt; Initialize(); // initialization // … a -&gt; Destroy(); // deconstruction free(a); // release memory&#125;void UseNewDelete( void )&#123; Obj * a = new Obj; // … delete a; &#125; 类Obj的函数Initialize实现了构造函数的功能，函数Destroy实现了析构函数的功能。函数UseMallocFree中，由于malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成“构造”与“析构”。所以我们不要用malloc/free来完成动态对象的内存管理，应该用new/delete。由于内部数据类型的“对象”没有构造与析构的过程，对它们而言malloc/free和new/delete是等价的。 2、联系既然new/delete的功能完全覆盖了malloc/free，为什么C++还保留malloc/free呢？因为C++程序经常要调用C函数，而C程序只能用malloc/free管理动态内存。如果用free释放“new创建的动态对象”，那么该对象因无法执行析构函数而可能导致程序出错。如果用delete释放“malloc申请的动态内存”，理论上讲程序不会出错，但是该程序的可读性很差。所以new/delete、malloc/free必须配对使用。]]></content>
@@ -878,6 +883,19 @@
       <tags>
         <tag>malloc</tag>
         <tag>new</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[指针和引用的区别]]></title>
+    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[空值问题 初值问题 赋值问题 重载操作符]]></content>
+      <categories>
+        <category>C++面试</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>指针</tag>
+        <tag>引用</tag>
       </tags>
   </entry>
   <entry>
