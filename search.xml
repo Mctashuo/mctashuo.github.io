@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[二叉搜索树的后序]]></title>
+    <title><![CDATA[best-time-to-buy-and-sell-stock]]></title>
+    <url>%2F2018%2F12%2F20%2FACM%2Fleetcode%2F121.best-time-to-buy-and-sell-stock%2F</url>
+    <content type="text"><![CDATA[best-time-to-buy-and-sell-stock best-time-to-buy-and-sell-stock-ii best-time-to-buy-and-sell-stock-iii 121. best-time-to-buy-and-sell-stockSay you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit. Note that you cannot sell a stock before you buy one. Example 1: Input: [7,1,5,3,6,4]Output: 5Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5. Not 7-1 = 6, as selling price needs to be larger than buying price.Example 2: Input: [7,6,4,3,1]Output: 0Explanation: In this case, no transaction is done, i.e. max profit = 0.12345678910111213141516class Solution &#123;public: int maxProfit(vector&lt;int&gt;&amp; prices) &#123; int len = prices.size(); if(len &lt;= 0) return 0; int res = 0; int mn = prices[0]; for(int i = 1;i &lt; len;i++) &#123; mn = min(mn,prices[i-1]); res = max(res,prices[i] - mn); &#125; return res; &#125;&#125;; 123456789101112131415class Solution: def maxProfit(self, prices): """ :type prices: List[int] :rtype: int """ length = len(prices); if length &lt;= 0: return 0 res = 0; mn = prices[0] for i in range(1,length): mn = min(mn,prices[i]) res = max(res,prices[i] - mn) return res 122.best-time-to-buy-and-sell-stock-ii参考链接Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times). Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again). Example 1: Input: [7,1,5,3,6,4]Output: 7Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4. Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.Example 2: Input: [1,2,3,4,5]Output: 4Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4. Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are engaging multiple transactions at the same time. You must sell before buying again.Example 3: Input: [7,6,4,3,1]Output: 0Explanation: In this case, no transaction is done, i.e. max profit = 0.123456789101112class Solution &#123;public: int maxProfit(vector&lt;int&gt;&amp; prices) &#123; int len = prices.size(); int res = 0; for(int i = 1;i &lt; len;i++) &#123; if(prices[i] &gt; prices[i-1]) res += prices[i] - prices[i-1]; &#125; return res; &#125;&#125;; 1234567891011class Solution: def maxProfit(self, prices): """ :type prices: List[int] :rtype: int """ res = 0 for i in range(1,len(prices)): if prices[i] &gt; prices[i-1]: res += prices[i] - prices[i-1] return res; 123 best-time-to-buy-and-sell-stock-iii]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[236.lowest-common-ancestor-of-a-binary-tree]]></title>
+    <url>%2F2018%2F12%2F20%2FACM%2Fleetcode%2F236.lowest-common-ancestor-of-a-binary-tree%2F</url>
+    <content type="text"><![CDATA[Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).” Given the following binary tree: root = [3,5,1,6,2,0,8,null,null,7,4] Example 1: Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1Output: 3Explanation: The LCA of nodes 5 and 1 is 3.Example 2: Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4Output: 5Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition. Note: All of the nodes’ values will be unique.p and q are different and both values will exist in the binary tree.123456789101112131415161718192021/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) &#123; if(!root || root == p || root == q) return root; auto l = lowestCommonAncestor(root-&gt;left,p,q); auto r = lowestCommonAncestor(root-&gt;right,p,q); if(l &amp;&amp; r) return root; return l?l:r; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>leetcode</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[二叉搜索树的后序序列]]></title>
     <url>%2F2018%2F12%2F19%2FACM%2Foffer%2F%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E5%BA%8F%E5%88%97%2F</url>
     <content type="text"><![CDATA[输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。12345678910111213141516171819202122232425262728293031class Solution &#123;public: bool VerifySquenceOfBST(vector&lt;int&gt; sequence) &#123; int len = sequence.size(); if(len &lt;= 0) return false; return BST(sequence,0,len); &#125; bool BST(vector&lt;int&gt; &amp;sequence,int start,int len) &#123; if(len &lt;= 0) return false; int root = sequence[len-1]; int i; for(i = start;i &lt; len - 1;i++) &#123; if(sequence[i] &gt; root) break; &#125; int j; for(j = i;j &lt; len - 1;j++) &#123; if(sequence[j] &lt; root) return false; &#125; bool left = true; if(i &gt; start) left = BST(sequence,start,i); bool right = true; if(i &lt; len - 1) right = BST(sequence,i,len-1); return left &amp;&amp; right; &#125;&#125;;]]></content>
       <categories>
@@ -296,6 +314,7 @@
     <url>%2F2018%2F11%2F01%2FACM%2Fleetcode%2F78.subset%2F</url>
     <content type="text"><![CDATA[给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。 说明：解集不能包含重复的子集。 示例: 输入: nums = [1,2,3]输出:[ [3], [1], [2], [1,2,3], [1,3], [2,3], [1,2], []] 方法1 Bit manipulation包含n个元素的数组的所有可以的子集为$2^n$个(算法复杂度也为$2^n$)位运算，选择那个数放入子集中就像填充比特位，有三个数对应三个比特位，0 0 0。第0个子集什么都没有，第一个子集只有第一个数0 0 1,第二个子集有第二个数0 1 0…。以此类推，第7个子集包含所有的数1 1 1.j从0到maxn变化，每一次计算j移动i位后判断最后一位是否为1，如果为1就将nums[i]的值放入result[j]123456789101112131415class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; subsets(vector&lt;int&gt;&amp; nums) &#123; int len = nums.size(); int maxn = 1 &lt;&lt; len; vector&lt;vector&lt;int&gt;&gt; result(maxn); for (int i = 0; i &lt; len; i++) &#123; for (int j = 0; j &lt; maxn; j++) &#123; if ((j &gt;&gt; i) &amp; 1) result[j].push_back(nums[i]); &#125; &#125; return result; &#125;&#125;; 方法2]]></content>
       <categories>
+        <category>ACM</category>
         <category>leetcode</category>
       </categories>
   </entry>
@@ -832,18 +851,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[悬空指针和野指针]]></title>
-    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%82%AC%E7%A9%BA%E6%8C%87%E9%92%88%E5%92%8C%E9%87%8E%E6%8C%87%E9%92%88%2F</url>
-    <content type="text"><![CDATA[A dangling pointer is a pointer that used to point to a valid address but now no longer does. This is usually due to that memory location being freed up and no longer available. There is nothing wrong with having a dangling pointer unless you try to access the memory location pointed at by that pointer. It is always best practise not to have or leave dangling pointers.空悬指针是这样一种指针：它曾经指向一个有效地址，但是现在不再指向有效地址（个人添加，其实就是原来的那块地址不能通过这个指针区访问了）。这通常是因为指针所指的内存单位被释放了并且不再有效了。空悬指针存在并没有什么问题，除非你尝试通过这个指针访问指向的地址空间。不遗留任何悬空指针总是最好的实践方式。A wild pointer is a pointer that has not been correctly initialised and therefore points to some random piece of memory. It is a serious error to have wild pointers.而野指针是这样一种指针：它没有被正确的初始化于是指向一个随机的内存地址。存在野指针是一个严重的错误]]></content>
-      <categories>
-        <category>C++面试</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[内存泄漏]]></title>
     <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%2F</url>
     <content type="text"><![CDATA[什么是内存泄漏(Memory Leak)?简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。 如何检测内存泄露第一：良好的编码习惯，尽量在涉及内存的程序段，检测出内存泄露。当程式稳定之后，在来检测内存泄露时，无疑增加了排除的困难和复杂度。使用了内存分配的函数，一旦使用完毕,要记得要使用其相应的函数释放掉。第二：将分配的内存的指针以链表的形式自行管理，使用完毕之后从链表中删除，程序结束时可检查改链表。 第三：Boost 中的smart pointer 第四：一些常见的工具插件，如ccmalloc、Dmalloc、Leaky等等]]></content>
@@ -853,6 +860,18 @@
       </categories>
       <tags>
         <tag>内存</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[悬空指针和野指针]]></title>
+    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%82%AC%E7%A9%BA%E6%8C%87%E9%92%88%E5%92%8C%E9%87%8E%E6%8C%87%E9%92%88%2F</url>
+    <content type="text"><![CDATA[A dangling pointer is a pointer that used to point to a valid address but now no longer does. This is usually due to that memory location being freed up and no longer available. There is nothing wrong with having a dangling pointer unless you try to access the memory location pointed at by that pointer. It is always best practise not to have or leave dangling pointers.空悬指针是这样一种指针：它曾经指向一个有效地址，但是现在不再指向有效地址（个人添加，其实就是原来的那块地址不能通过这个指针区访问了）。这通常是因为指针所指的内存单位被释放了并且不再有效了。空悬指针存在并没有什么问题，除非你尝试通过这个指针访问指向的地址空间。不遗留任何悬空指针总是最好的实践方式。A wild pointer is a pointer that has not been correctly initialised and therefore points to some random piece of memory. It is a serious error to have wild pointers.而野指针是这样一种指针：它没有被正确的初始化于是指向一个随机的内存地址。存在野指针是一个严重的错误]]></content>
+      <categories>
+        <category>C++面试</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>指针</tag>
       </tags>
   </entry>
   <entry>
