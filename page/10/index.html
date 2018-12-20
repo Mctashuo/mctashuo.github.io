@@ -374,6 +374,218 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++ Prime Plus/chapter11/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/C++ Prime Plus/chapter11/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">11 .使用类</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 09:05:13 / 修改时间：09:05:41" itemprop="dateCreated datePublished" datetime="2018-08-27T09:05:13+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/C++ Prime Plus/chapter11/" class="leancloud_visitors" data-flag-title="11 .使用类">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Time Time::<span class="keyword">operator</span> + (<span class="keyword">const</span> Time &amp;t) <span class="keyword">const</span> &#123;</span><br><span class="line">	Time sum;</span><br><span class="line">	sum.minutes = minutes + t.minutes;</span><br><span class="line">	sum.hours = hours + t. hours + sum.minutes / <span class="number">60</span>;</span><br><span class="line">	sum.minutes %= <span class="number">60</span>;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Time t1,t2;</span><br><span class="line">Time t3 = t1 + t2;</span><br><span class="line"><span class="comment">//调用相当于 t3 = operator + (t1,t2);</span></span><br></pre></td></tr></table></figure>
+<h2 id="重载限制"><a href="#重载限制" class="headerlink" title="重载限制"></a>重载限制</h2><p>1．重载后的运算符必须至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（−）重载为计算两个double值的和，而不是它们的差。虽然这种限制将对创造性有所影响，但可以确保程序正常运行。</p>
+<p>2．使用运算符时不能违反运算符原来的句法规则。例如，不能将求模运算符（%）重载成使用一个操作数：<br>同样，不能修改运算符的优先级。因此，如果将加号运算符重载成将两个类相加，则新的运算符与原来的加号具有相同的优先级。</p>
+<p>3．不能创建新运算符。例如，不能定义operator **( )函数来表示求幂。<br>4．不能重载下面的运算符。</p>
+<p>sizeof：sizeof运算符。<br>.：成员运算符。<br>. *：成员指针运算符。<br>::：作用域解析运算符。<br>?:：条件运算符。<br>typeid：一个RTTI运算符。<br>const_cast：强制类型转换运算符。<br>dynamic_cast：强制类型转换运算符。<br>reinterpret_cast：强制类型转换运算符。<br>static_cast：强制类型转换运算符。<br>然而，表11.1中所有的运算符都可以被重载。</p>
+<p>5．表11.1中的大多数运算符都可以通过成员或非成员函数进行重载，但下面的运算符只能通过成员函数进行重载。</p>
+<p>=：赋值运算符。<br>( )：函数调用运算符。<br>[ ]：下标运算符。<br>-&gt;：通过指针访问类成员的运算符。</p>
+<h1 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h1><p>非成员函数不能直接访问类的私有数据，至少常规非成员函数不能访问。然而，有一类特殊的非成员函数可以访问类的私有成员，它们被称为友元函数。</p>
+<h2 id="创建友元"><a href="#创建友元" class="headerlink" title="创建友元"></a>创建友元</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> Time <span class="keyword">operator</span> * (<span class="keyword">double</span> m,<span class="keyword">const</span> Time &amp;t);</span><br></pre></td></tr></table></figure>
+<p>虽然operator <em>( )函数是在类声明中声明的，但它不是成员函数，因此不能使用成员运算符来调用；<br>虽然operator </em>( )函数不是成员函数，但它与成员函数的访问权限相同。<br>第二步是编写函数定义。因为它不是成员函数，所以不要使用Time::限定符。另外，不要在定义中使用关键字friend，</p>
+<h2 id="重载-lt-lt-运算符"><a href="#重载-lt-lt-运算符" class="headerlink" title="重载&lt;&lt;运算符"></a>重载&lt;&lt;运算符</h2><p>1．&lt;&lt;的第一种重载版本</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> &lt;&lt;(ostream &amp;os,<span class="keyword">const</span> Time &amp;t) &#123;</span><br><span class="line">	os&lt;&lt;t.hours&lt;&lt;<span class="string">"hours ."</span>&lt;&lt;t.minutes&lt;&lt;<span class="string">"minutes"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2．&lt;&lt;的第二种重载版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ostream &amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp; os,<span class="keyword">const</span> Time &amp; t) &#123;</span><br><span class="line">	os&lt;&lt;t.hours&lt;&lt;<span class="string">"hours"</span>&lt;&lt;t.minutex&lt;&lt;<span class="string">"minute"</span>;</span><br><span class="line">	<span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="重载运算符：作为成员函数还是非成员函数"><a href="#重载运算符：作为成员函数还是非成员函数" class="headerlink" title="重载运算符：作为成员函数还是非成员函数"></a>重载运算符：作为成员函数还是非成员函数</h2><h2 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> VECTOR&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Vector</span> &#123;</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="comment">//end namespace Vector</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> VECTOR::Vector;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h1><p>随机数。标准ANSI C库（C++也有）中有一个rand( )函数，它返回一个从0到某个值（取决于实现）之间的随机整数。该程序使用求模操作数来获得一个0～359的角度值。rand( )函数将一种算法用于一个初始种子值来获得随机数，该随机值将用作下一次函数调用的种子）依此类推。这些数实际上是伪随机数，因为10次连续的调用通常将生成10个同样的随机数（具体值取决于实现）。然而，srand( )函数允许覆盖默认的种子值，重新启动另一个随机数序列。该程序使用time（0）的返回值来设置种子。time（0）函数返回当前时间，通常为从某一个日期开始的秒数（更广义地，time( )接受time_t变量的地址，将时间放到该变量中，并返回它。将0用作地址参数，可以省略time_t变量声明）。<br>文件cstdlib（以前为stdlib.h）包含了srand( )和rand( )的原型，而ctime（以前是time.h）包含了time( )的原型。C++11使用头文件radom中的函数提供了更强大的随机数支持。</p>
+<h1 id="类的自动转换和强制类型转换"><a href="#类的自动转换和强制类型转换" class="headerlink" title="类的自动转换和强制类型转换"></a>类的自动转换和强制类型转换</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Stonewt(<span class="keyword">double</span> lbs);</span><br><span class="line">Stonewt Mycat;</span><br><span class="line">myCat = <span class="number">19.6</span>;</span><br><span class="line"><span class="comment">//构造函数作为转换函数</span></span><br><span class="line"><span class="comment">//只有一个参数的构造函数或者有默认参数才行</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">Stonewt</span><span class="params">(<span class="keyword">double</span> lbs)</span></span>;	<span class="comment">//关闭自动转换特性</span></span><br><span class="line"></span><br><span class="line">Stonewt myCat;</span><br><span class="line">myCat = <span class="number">19.6</span>;	<span class="comment">//not allow</span></span><br><span class="line">myCat = Stonewt(<span class="number">19.6</span>);  <span class="comment">//valid</span></span><br><span class="line">myCat = (Stonewt) <span class="number">19.6</span>;	<span class="comment">//old style</span></span><br></pre></td></tr></table></figure>
+<p>编译器在什么时候将使用Stonewt(double)函数呢？如果在声明中使用了关键字explicit，则Stonewt(double)将只用于显式强制类型转换，否则还可以用于下面的隐式转换。</p>
+<p>将Stonewt对象初始化为double值时。<br>将double值赋给Stonewt对象时。<br>将double值传递给接受Stonewt参数的函数时。<br>返回值被声明为Stonewt的函数试图返回double值时。<br>在上述任意一种情况下，使用可转换为double类型的内置类型时。</p>
+<h2 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h2><p>构造函数只用于从某种类型到类类型的转换。要进行相反的转换，必须使用特殊的C++运算符函数——转换函数。<br>创建转换函数呢？要转换为typeName类型，需要使用这种形式的转换函数：</p>
+<p>operator typeName();</p>
+<p>请注意以下几点：</p>
+<ul>
+<li>转换函数必须是类方法；</li>
+<li>转换函数不能指定返回类型；</li>
+<li>转换函数不能有参数。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">STonewt::<span class="function"><span class="keyword">operator</span> <span class="title">int</span> <span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">int</span> (pounds + <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>应谨慎地使用隐式转换函数。通常，最好选择仅在被显式地调用时才会执行的函数。<br>总之，C++为类提供了下面的类型转换。</p>
+<ul>
+<li>只有一个参数的类构造函数用于将类型与该参数相同的值转换为类类型。例如，将int值赋给Stonewt对象时，接受int参数的Stonewt类构造函数将自动被调用。然而，在构造函数声明中使用explicit可防止隐式转换，而只允许显式转换。</li>
+<li>被称为转换函数的特殊类成员运算符函数，用于将类对象转换为其他类型。转换函数是类成员，没有返回类型、没有参数、名为operator typeName( )，其中，typeName是对象将被转换成的类型。将类对象赋给typeName变量或将其强制转换为typeName类型时，该转换函数将自动被调用。</li>
+</ul>
+<h3 id="转换和友元函数"><a href="#转换和友元函数" class="headerlink" title="转换和友元函数"></a>转换和友元函数</h3><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>一般来说，访问私有类成员的唯一方法是使用类方法。C++使用友元函数来避开这种限制。要让函数成为友元，需要在类声明中声明该函数，并在声明前加上关键字friend。</p>
+<p>C++扩展了对运算符的重载，允许自定义特殊的运算符函数，这种函数描述了特定的运算符与类之间的关系。运算符函数可以是类成员函数，也可以是友元函数（有一些运算符函数只能是类成员函数）。要调用运算符函数，可以直接调用该函数，也可以以通常的句法使用被重载的运算符。对于运算符op，其运算符函数的格式如下：<br><code>operatorop (argument-list)</code><br>argument-list表示该运算符的操作数。如果运算符函数是类成员函数，则第一个操作数是调用对象，它不在argument-list中。例如，本章通过为Vector类定义operator +( )成员函数重载了加法。如果up、right和result都是Vector对象，则可以使用下面的任何一条语句来调用矢量加法：<br><code>result = up.operator + (right);</code><br><code>result = up + right;</code><br>在第二条语句中，由于操作数up和right的类型都是Vector，因此C++将使用Vector的加法定义。</p>
+<p>当运算符函数是成员函数时，则第一个操作数将是调用该函数的对象。例如，在前面的语句中，up对象是调用函数的对象。定义运算符函数时，如果要使其第一个操作数不是类对象，则必须使用友元函数。这样就可以将操作数按所需的顺序传递给函数了。</p>
+<p>最常见的运算符重载任务之一是定义&lt;&lt;运算符，使之可与cout一起使用，来显示对象的内容。要让ostream对象成为第一个操作数，需要将运算符函数定义为友元；要使重新定义的运算符能与其自身拼接，需要将返回类型声明为ostream &amp;。下面的通用格式能够满足这种要求：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ostream &amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp; os,<span class="keyword">const</span> c_name &amp; obj) &#123;</span><br><span class="line">	os&lt;&lt;...;</span><br><span class="line">	<span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然而，如果类包含这样的方法，它返回需要显示的数据成员的值，则可以使用这些方法，无需在operator&lt;&lt;( )中直接访问这些成员。在这种情况下，函数不必（也不应当）是友元。</p>
+<p>C++允许指定在类和基本类型之间进行转换的方式。首先，任何接受唯一一个参数的构造函数都可被用作转换函数，将类型与该参数相同的值转换为类。如果将类型与该参数相同的值赋给对象，则C++将自动调用该构造函数。例如，假设有一个String类，它包含一个将char <em>值作为其唯一参数的构造函数，那么如果bean是String对象，则可以使用下面的语句：<br>`bean = “pinto”;//converts type char </em> to type string<code>然而，如果在该构造函数的声明前加上了关键字explicit，则该构造函数将只能用于显式转换：</code>bean = String(“pinto”); //converts type char * to type string explicitly`</p>
+<p>要将类对象转换为其他类型，必须定义转换函数，指出如何进行这种转换。转换函数必须是成员函数。将类对象转换为typeName类型的转换函数的原型如下：<br><code>operator typeName();</code><br>注意，转换函数没有返回类型、没有参数，但必须返回转换后的值（虽然没有声明返回类型）。例如，下面是将Vector转换为double类型的函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vector::<span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a_double_value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经验表明，最好不要依赖于这种隐式转换函数。</p>
+<p>您可能已经注意到了，与简单的C-风格结构相比，使用类时，必须更谨慎、更小心，但作为补偿，它们为我们完成的工作也更多。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/计算机网络/TCP的三次握手/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -895,7 +1107,8 @@
 <li>输入流对象有一个统计系统，用于跟踪流的错误状态。在这个系统中，检测到文件尾后将设置eofbit寄存器，检测到输入错误时将设置failbit寄存器，出现无法识别的故障（如硬盘故障）时将设置badbit寄存器，一切顺利时将设置goodbit寄存器。</li>
 </ul>
 <p>string版本的operator&gt;&gt;( )函数的行为与此类似，只是它不断读取，直到遇到空白字符并将其留在输入队列中，而不是不断读取，直到遇到分界字符并将其丢弃。空白字符指的是空格、换行符和制表符，更普遍地说，是任何将其作为参数来调用isspace( )时，该函数返回ture的字符。</p>
-<h2 id="string-方法"><a href="#string-方法" class="headerlink" title="string 方法"></a>string 方法</h2><table>
+<h2 id="string-方法"><a href="#string-方法" class="headerlink" title="string 方法"></a>string 方法</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">方法原型</th>
@@ -921,6 +1134,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>string库还提供了相关的方法：rfind( )、find_first_of( )、find_last_of( )、find_first_not_of( )和find_last_not_of( )，它们的重载函数特征标都与find( )方法相同。rfind( )方法查找子字符串或字符最后一次出现的位置；find_first_of( )方法在字符串中查找参数中任何一个字符首次出现的位置。</p>
 <p>find_last_of( )方法的功能与此相同，只是它查找的是最后一次出现的位置。<br>find_first_not_of( )方法在字符串中查找第一个不包含在参数中的字符</p>
 <h2 id="string-的其他功能"><a href="#string-的其他功能" class="headerlink" title="string 的其他功能"></a>string 的其他功能</h2><p>string库提供了很多其他的工具，包括完成下述功能的函数：删除字符串的部分或全部内容、用一个字符串的部分或全部内容替换另一个字符串的部分或全部内容、将数据插入到字符串中或删除字符串中的数据、将一个字符串的部分或全部内容与另一个字符串的部分或全部内容进行比较、从字符串中提取子字符串、将一个字符串中的内容复制到另一个字符串中、交换两个字符串的内容。</p>
@@ -978,7 +1192,7 @@
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span> <span class="comment">//使用&lt;操作符来比较</span></span></span><br></pre></td></tr></table></figure>
 <p><img src="/uploads/list_成员函数.jpg" alt="list常用函数"></p>
-<ol start="4">
+<ol>
 <li><p>forward_list(C++11)<br>单链表</p>
 </li>
 <li><p>queue<br>队列的基本操作<br>不允许随机访问,不允许遍历</p>
@@ -1164,8 +1378,7 @@
       
         
           
-            <p># </p>
-
+            <h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>
           
         
       
@@ -1909,7 +2122,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-count">98</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1994,7 +2207,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2702,6 +2917,8 @@
 
   
   
+    
+      
     
       
     
