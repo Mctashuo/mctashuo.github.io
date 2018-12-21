@@ -497,12 +497,12 @@
 <p>The man touches the woman’s breasts.</p>
 <p>“Hey” she says. “Those are private!”</p>
 <p>The man says, “But we are in the same class!”</p>
-<ol>
+<ol start="2">
 <li>现在是什么模式?</li>
 </ol>
 <p>打开显示模式: :set showmode</p>
 <p>关闭显示模式: :set noshowmode</p>
-<ol>
+<ol start="3">
 <li>模式之灾</li>
 </ol>
 <p>使用Vim经常忘记自己身在何种模式,或者不经意敲了哪个字符就切换到别的模式去了.按再次<esc>,如果Vim以一声蜂鸣来回答你,那说明你已经是&gt;在Normal模式了.</esc></p>
@@ -515,11 +515,11 @@
 <li>删除一个字符命令:x</li>
 </ol>
 <p>这是在追忆古老的打字机的时代,在打字机上删除字符就是用xxxx来覆盖它的.</p>
-<ol>
+<ol start="2">
 <li>删除一行命令:dd</li>
 </ol>
 <p>删除后下面的行会移上来填补空缺.</p>
-<ol>
+<ol start="3">
 <li>删除换行符命令:J</li>
 </ol>
 <p>把两行合并为一行,也就是说两行之间的换行符被删除了.</p>
@@ -528,7 +528,7 @@
 </ol>
 <p>如果误删了过多的内容,命令u更简便,它可以撤消上一次的操作.</p>
 <p>撤消命令还有另一种形式,U命令,它一次撤消对一行的全部操作,即打开文件时的状态.</p>
-<ol>
+<ol start="2">
 <li>重做命令:ctrl + r(repeat)</li>
 </ol>
 <p>如果你撤消了多次,可以用ctrl+r来反转撤消的动作.换名话说它是对撤消的撤消.</p>
@@ -538,14 +538,14 @@
 <p>(1) 光标之后插入文本命令:a (append)</p>
 <p>(2) 另起一行命令:o/O</p>
 <p>o命令可以在当前行的下面另起一行,并使当前模式转为Insert模式,而大写的O,是在当前行的上面另起一行.</p>
-<ol>
+<ol start="2">
 <li>使用命令计数</li>
 </ol>
 <p>指定的数字要紧挨在它所要修饰的命令前面.</p>
 <p>假设你要向上移动9行,这可以用”kkkkkkkkk”或”9k”来完成.</p>
 <p>行尾追加三个感叹号,可以用a!!!另一个办法是3a!<esc>命令.</esc></p>
 <p>删除3个字符可以用3x.</p>
-<ol>
+<ol start="3">
 <li>退出</li>
 </ol>
 <p>(1) 放弃编辑命令:q!  (quit)</p>
@@ -726,7 +726,8 @@
             <h1 id="命令选项和参数"><a href="#命令选项和参数" class="headerlink" title="命令选项和参数"></a>命令选项和参数</h1><p>-k 在发现错误时仍继续执行,而不是在检测到第一个错误时就停下.<br>-n 输出要执行的操作而不执行<br>-f <filename> 告诉make命令将那个文件作为makefile的文件</filename></p>
 <h1 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myapp: main.o 3.o 2.o</span><br><span class="line">main.o: main.c</span><br><span class="line">2.o: 2.c</span><br><span class="line">3.o: a.c</span><br></pre></td></tr></table></figure>
 <h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">myapp: main.o 3.o 2.o</span><br><span class="line">    gcc -o myapp main.o 3.o 2.o</span><br><span class="line">main.o: main.c</span><br><span class="line">    gcc -c main.c</span><br><span class="line">2.o: 2.c</span><br><span class="line">    gcc -c 2.c</span><br><span class="line">3.o: 3.c</span><br><span class="line">    gcc -c 3.c</span><br></pre></td></tr></table></figure>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h1 id="号开头"><a href="#号开头" class="headerlink" title="号开头"></a>号开头</h1><h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//定义</span><br><span class="line">MACRONAME=value</span><br><span class="line">//使用</span><br><span class="line">$(MACRONAME)</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line"></span><br><span class="line">CC = gcc</span><br><span class="line"></span><br><span class="line">INCLUDE = .</span><br><span class="line"></span><br><span class="line">CFLAGS = -g -Wall -ansi</span><br><span class="line"></span><br><span class="line">CFLAGS = -O -Wall -ansi</span><br><span class="line"></span><br><span class="line">myapp:main.o 2.o 3.o</span><br><span class="line">    $(CC) -o myapp main.o 2.o 3.o</span><br><span class="line">main.o:main.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c main.c</span><br><span class="line">2.o:2.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c 2.c</span><br><span class="line">3.o:3.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c 3.c</span><br></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>#号开头</p>
+<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//定义</span><br><span class="line">MACRONAME=value</span><br><span class="line">//使用</span><br><span class="line">$(MACRONAME)</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line"></span><br><span class="line">CC = gcc</span><br><span class="line"></span><br><span class="line">INCLUDE = .</span><br><span class="line"></span><br><span class="line">CFLAGS = -g -Wall -ansi</span><br><span class="line"></span><br><span class="line">CFLAGS = -O -Wall -ansi</span><br><span class="line"></span><br><span class="line">myapp:main.o 2.o 3.o</span><br><span class="line">    $(CC) -o myapp main.o 2.o 3.o</span><br><span class="line">main.o:main.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c main.c</span><br><span class="line">2.o:2.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c 2.c</span><br><span class="line">3.o:3.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c 3.c</span><br></pre></td></tr></table></figure>
 <h3 id="内置宏"><a href="#内置宏" class="headerlink" title="内置宏"></a>内置宏</h3><p><code>$? 当前目标所依赖的文件列表中比当前目标文件还要新的文件</code><br><code>$@ 当前目标的名字</code><br><code>$&lt; 当前依赖文件的名字</code><br><code>$* 不包括后缀名的当前依赖文件的名字</code></p>
 <p>命令之前的特殊字符<br><code>- 告诉命令忽略所有错误</code><br><code>@ 不要将该命令显示在标准输出上</code></p>
 <h1 id="多个目标"><a href="#多个目标" class="headerlink" title="多个目标"></a>多个目标</h1>
@@ -912,7 +913,7 @@
 </li>
 </ol>
 <p>该使用哪个操作技巧.</p>
-<ol>
+<ol start="3">
 <li>Vim的目的只有一个,节省敲击键盘的次数,最好不用鼠标.</li>
 </ol>
 <p>1.3 VIM安装</p>
@@ -921,7 +922,7 @@
 </ol>
 <p>a) Ubuntu Debian<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure></p>
 <p>b) Centos RedHat Fedora<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install vim</span><br></pre></td></tr></table></figure></p>
-<ol>
+<ol start="2">
 <li>Windows</li>
 </ol>
 <p>Gvim  8.0.281.0</p>
@@ -931,7 +932,7 @@
 </ol>
 <p>a) Ubuntu Debian<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove vim</span><br></pre></td></tr></table></figure></p>
 <p>b) Centos RedHat Fedora<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove vim</span><br></pre></td></tr></table></figure></p>
-<ol>
+<ol start="2">
 <li>Windows</li>
 </ol>
 <p>控制面板-程序-更改或删除,软件管理软件.</p>
@@ -940,7 +941,7 @@
 <li>Linux</li>
 </ol>
 <p>vim filename</p>
-<ol>
+<ol start="2">
 <li>Windows</li>
 </ol>
 <p>Gvim</p>
@@ -957,11 +958,11 @@
 <p>a) :version</p>
 <p>b) Vim documentation chinese version下载</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://nchc.dl.sourceforge.net/project/vimcdoc/vimcdoc/vimcdoc-1.9.0.tar.gz</span><br><span class="line">tar -xzvf vimdoc-1.9.0.tar.gz</span><br><span class="line">./vimcdoc.sh -i</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="4">
 <li>中英文帮助切换</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set helplang=en</span><br><span class="line">:set helplang=cn</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="5">
 <li>帮助主题(超级链接)之间的跳转:</li>
 </ol>
 <p>a) :help 打开帮助手册</p>
@@ -2117,7 +2118,7 @@
 </li>
 </ol>
 <p>new operator 由两步构成，分别是 operator new 和 construct</p>
-<ol>
+<ol start="3">
 <li>operator new对应于malloc，但operator new可以重载，可以自定义内存分配策略，甚至不做内存分配，甚至分配到非内存设备上。而malloc无能为力</li>
 <li>new将调用constructor，而malloc不能；delete将调用destructor，而free不能。</li>
 <li>malloc/free要库文件支持，new/delete则不要。</li>
