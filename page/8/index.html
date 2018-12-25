@@ -1994,11 +1994,11 @@
 <p>4.在文本中查找下一个word</p>
 <p><code>*</code>命令:向下搜索下一个当前光标所在的单词.</p>
 <p><code>#</code>命令:向上搜索上一个当前光标所在的单词.</p>
-<p>备注:\&lt;word>:完整的单词搜索.</p>
+<p>备注:\<word\>:完整的单词搜索.</word\></p>
 <p>5.查找整个word</p>
 <p>>:单词结束符.</p>
 <p>\&lt;:单词开始符.</p>
-<p>\&lt;word>:完整的单词搜索.</p>
+<p>\<word\>:完整的单词搜索.</word\></p>
 <p>6.高亮显示搜索结果</p>
 <p>:set hlsearch(highlight search):开启高亮显示搜索结果.</p>
 <p>:set nohlsearch(highlight search):关闭高亮显示搜索结果.</p>
@@ -2016,7 +2016,7 @@
 <p>$字符:匹配一行的结尾.</p>
 <p>the solder holding one of the chips melted and the</p>
 <p>/^the   / the     /the$</p>
-<ol start="2">
+<ol>
 <li>匹配任何一个字符</li>
 </ol>
 <p>.字符:匹配任何一个字符.</p>
@@ -2031,14 +2031,13 @@
 <p>CTRL-o命令(old):跳转到前一个光标停留的位置.</p>
 <p>CTRL-i命令:跳转到下一个光标停留的位置,<tab>键作用功能相同.</tab></p>
 <p>jumps命令:显示你曾经跳转过的位置.</p>
-<ol start="2">
+<ol>
 <li>具体的命令的标记命令</li>
 </ol>
 <p>m命令(mark):定义一个标记,如ms,名为s(start)的标记.</p>
 <p>‘命令:跳转到某个名字的标记.如’s.</p>
 <p>:marks :查看所有的标记.</p>
-<p>#define …….</p>
-<p>特殊的标记:</p>
+<h1 id="define-……"><a href="#define-……" class="headerlink" title="define ……."></a>define …….</h1><p>特殊的标记:</p>
 <p>`  进行此次跳转之前的跳点.</p>
 <p>‘’ 到上次跳转的位置.</p>
 <p>[  最后一次修改的起始位置.</p>
