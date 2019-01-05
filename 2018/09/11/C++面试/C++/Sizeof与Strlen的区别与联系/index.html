@@ -515,10 +515,9 @@
 <p>9.数组作为参数传给函数时传的是指针而不是数组，传递的是数组的首地址，<br>如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fun(<span class="keyword">char</span> [<span class="number">8</span>]) </span><br><span class="line">fun(<span class="keyword">char</span> [])</span><br></pre></td></tr></table></figure></p>
 <p>都等价于 fun(char *)<br>在C++里参数传递数组永远都是传递指向数组首元素的指针，编译器不知道数组的大小<br>如果想在函数内知道数组的大小， 需要这样做：<br>进入函数后用memcpy拷贝出来，长度由另一个形参传进去<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun(unsiged <span class="keyword">char</span> *p1, <span class="keyword">int</span> len) </span><br><span class="line">&#123;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">char</span>* buf = <span class="keyword">new</span> <span class="keyword">unsigned</span> <span class="keyword">char</span>[len+<span class="number">1</span>] </span><br><span class="line"> <span class="built_in">memcpy</span>(buf, p1, len); </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p> 我们能常在用到 sizeof 和 strlen 的时候，通常是计算字符串数组的长度<br> 看了上面的详细解释，发现两者的使用还是有区别的，从这个例子可以看得很清楚： </p>
-<pre><code class="c++"><span class="keyword">char</span> str[<span class="number">20</span>]=<span class="string">"0123456789"</span>; 
-<span class="keyword">int</span> a=<span class="built_in">strlen</span>(str); <span class="comment">//a=10; &gt;&gt;&gt;&gt; strlen 计算字符串的长度，以结束符 0x00 为字符串结束。 </span>
-<span class="keyword">int</span> b=<span class="keyword">sizeof</span>(str); <span class="comment">//而b=20; &gt;&gt;&gt;&gt; sizeof 计算的则是分配的数组 str[20] 所占的内存空间的大小，不受里面存储的内容改变。 </span>
-
+<pre><code class="lang-c++"> char str[20]=&quot;0123456789&quot;; 
+ int a=strlen(str); //a=10; &gt;&gt;&gt;&gt; strlen 计算字符串的长度，以结束符 0x00 为字符串结束。 
+ int b=sizeof(str); //而b=20; &gt;&gt;&gt;&gt; sizeof 计算的则是分配的数组 str[20] 所占的内存空间的大小，不受里面存储的内容改变。
 </code></pre>
 <p> 上面是对静态数组处理的结果，如果是对指针，结果就不一样了 </p>
 <p> char* ss = “0123456789”;<br> sizeof(ss) 结果 4 ＝＝＝》ss是指向字符串常量的字符指针，sizeof 获得的是一个指针的之所占的空间,应该是 </p>
@@ -638,7 +637,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">102</span>
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -885,7 +884,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

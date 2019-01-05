@@ -113,7 +113,9 @@
 <meta property="og:image" content="https://www.mctashuo.cn/uploads/strategy.png">
 <meta property="og:image" content="https://www.mctashuo.cn/uploads/lishidaozhuan.png">
 <meta property="og:image" content="https://www.mctashuo.cn/uploads/zhuangshimoshi.png">
-<meta property="og:updated_time" content="2018-12-20T00:57:15.526Z">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/proxy.png">
+<meta property="og:image" content="https://www.mctashuo.cn/uploads/factory.png">
+<meta property="og:updated_time" content="2019-01-05T13:07:36.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
 <meta name="twitter:description" content="UML类图三层类图:第一层名称（斜体表示抽象类）第二层属性第三层方法+public-private#protected&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;">
@@ -442,7 +444,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-20 08:57:15" itemprop="dateModified" datetime="2018-12-20T08:57:15+08:00">2018-12-20</time>
+                <time title="修改时间：2019-01-05 21:07:36" itemprop="dateModified" datetime="2019-01-05T21:07:36+08:00">2019-01-05</time>
               
             
           </span>
@@ -521,6 +523,15 @@
 <h1 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h1><p>动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活[DP]<br><img src="/uploads/zhuangshimoshi.png" alt="装饰模式"><br>Component是定义一个对象接口，可以给这些对象动态地添加职责，ConcreteComponent是定义了一个具体的对象<br>，也可以给这个对象添加一些职责，Decorator，装饰抽象类，继承了Component，从外类来扩展Component的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能[DPE]</p>
 <p>装饰模式是复用SetComponent来对对象进行包装的。这个每个装饰对象的实现就和如何使用这个对象分离开了。每个对象只关心自己的功能，不需要关心如何被添加到对象链当中[DPE]<br>如果只有一个ConcreteComponent类而没有抽象Component类，那么Decorator类可以是ConcreteComponent的一个子类，<br>同样道理，如果只有一个ConcreteDecorator类，那么就没有必要建立一个单独的Decorator类，而可以把Decorator和ConcreteDecorator的责任合并成一个类</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>装饰模式是为已有的功能动态地添加更多功能的一种方式。<br>当系统需要新功能的时候，是向旧的类中添加新的代码，这些新加的代码通常装饰了原有类的核心职责或主要<br>行为。<br>在主类加入了新的字段，新的方法或新的逻辑，从而增加了主类的复杂度，而这些新加入的东西仅仅是为了<br>满足一些只在某种特定情况下才会执行的特殊行为的需要。<br>装饰模式却提供了一个非常好的解决文案，它把每个要装饰的功能放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有我选择地，按顺序地使用装饰功能包装对象了<br>优点：把类中的装饰功能从类中搬移去除，这样可以简化原有的类<br>有效地把类的核心职责和装饰功能区分开了，而且这样可以去除相关类中重复的逻辑。</p>
+<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><p>为共创对象提供一种代理以控制这个对象的访问<br><img src="/uploads/proxy.png" alt="代理模式"><br>代理模式的应用场景</p>
+<ol>
+<li>远程代理，也就是一个对象在不同的地址空间提供局部代表，这样可以隐藏一个对象存在于不同地址空间的事实</li>
+<li>虚拟代理，是根据需要创建开销很大的对象，通过它来存放实例化需要很长时间的真实对象，以达到性能的最优化。</li>
+<li>安全代理，用来控制真实对象访问时的权限。</li>
+<li>智能指引，是指调用真实的对象时，代理处理另外一些事。</li>
+</ol>
+<h1 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h1><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到子类。<br><img src="/uploads/factory.png" alt="工厂"><br>和简单工厂的比较<br>简单工厂的最大优点在于工厂类中包含了必要的逻辑判断，根据客户端的选择条件动态实例化相关的类，对于客户端来说，去除了与具体产品的依赖。但可能要修改代码，违反了开闭原则。<br>工厂方法模式实现时，客户端需要决定实例化哪一个工厂来实现运算类，选择判断的问题还是存在的，也就是说，工厂方法把简单工厂的内部逻辑判断移到了客户端代码来进行。你想要加功能，本来是改工厂类，而现在是修改客户端。<br>工厂方法克服了简单工厂违背开放-封闭原则的缺点，又保持了封闭对象创建过程的优点。它们都是集中封闭了对象的创建，使得要更换对象时，不需要做大的改动就可实现，降低了客户程序与产品对象的耦合。工厂方法模式是简单工厂模式的进一步抽象和推广。</p>
+<h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><p>由于使用了多态性，，工厂方法模式保持了简单工厂模式的优点，而且克服了它的缺点，但缺点是由于每加一个产品，就需要加一个产品工厂的类，增加了额外的开发量。</p>
 
       
     </div>
@@ -635,7 +646,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">102</span>
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -878,7 +889,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UML类图"><span class="nav-number">1.</span> <span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单工厂"><span class="nav-number">2.</span> <span class="nav-text">简单工厂</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式"><span class="nav-number">3.</span> <span class="nav-text">策略模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单一职责原则"><span class="nav-number">4.</span> <span class="nav-text">单一职责原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开放-封闭原则"><span class="nav-number">5.</span> <span class="nav-text">开放-封闭原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖倒转原则"><span class="nav-number">6.</span> <span class="nav-text">依赖倒转原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#里氏代换原则"><span class="nav-number">6.1.</span> <span class="nav-text">里氏代换原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#装饰模式"><span class="nav-number">7.</span> <span class="nav-text">装饰模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UML类图"><span class="nav-number">1.</span> <span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单工厂"><span class="nav-number">2.</span> <span class="nav-text">简单工厂</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#策略模式"><span class="nav-number">3.</span> <span class="nav-text">策略模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单一职责原则"><span class="nav-number">4.</span> <span class="nav-text">单一职责原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开放-封闭原则"><span class="nav-number">5.</span> <span class="nav-text">开放-封闭原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖倒转原则"><span class="nav-number">6.</span> <span class="nav-text">依赖倒转原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#里氏代换原则"><span class="nav-number">6.1.</span> <span class="nav-text">里氏代换原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#装饰模式"><span class="nav-number">7.</span> <span class="nav-text">装饰模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.1.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代理模式"><span class="nav-number">8.</span> <span class="nav-text">代理模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">9.</span> <span class="nav-text">工厂方法模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺点"><span class="nav-number">10.</span> <span class="nav-text">缺点</span></a></li></ol></div>
             
 
           </div>
@@ -898,7 +909,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

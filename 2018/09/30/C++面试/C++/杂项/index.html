@@ -498,7 +498,7 @@
 <p>实测都打印为0</p>
 <a id="more"></a>
 <h1 id="等概率输出m个随机数"><a href="#等概率输出m个随机数" class="headerlink" title="等概率输出m个随机数"></a>等概率输出m个随机数</h1><p>假设n远大于m<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">knuth(<span class="keyword">int</span> n,<span class="keyword">int</span> m) &#123;</span><br><span class="line">    srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(rand() % (n - i) &lt; m) &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            m--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>由这个for循环循环n次，且在满足条件时才输出i,可知，输出m个不同值的要求已满足，因为每次输出的都是i值，而i值每次都是不一样的，m–保证了程序在输出了m个值后就停止循环。<br>在i=0时，rand()%(n-i)的取值范围为0到n-1，共n个数，此时要输出0只需要rand()%(n-i)小于m，故i=0被输出的概率为m/n;<br>在i=1时，rand()%(n-i)的取值范围为0到n-2，共n-1个数，若i=0没有被输出，则m–未被执行，此时i=1被输出的概率为m/(n-1)，若i=0已经被输出了，则m变为m-1，此时i=1被输出的概率为(m-1)/(n-1)；由概率论的知识，可知此时i=1被输出的概率为<br>P=(1-m/n)<em>(m/(n-1))+m/n</em>((m-1)/(n-1))=m/n；以此类推，可知每个数被输出的概率都为m/n</p>
+<p>由这个for循环循环n次，且在满足条件时才输出i,可知，输出m个不同值的要求已满足，因为每次输出的都是i值，而i值每次都是不一样的，m—保证了程序在输出了m个值后就停止循环。<br>在i=0时，rand()%(n-i)的取值范围为0到n-1，共n个数，此时要输出0只需要rand()%(n-i)小于m，故i=0被输出的概率为m/n;<br>在i=1时，rand()%(n-i)的取值范围为0到n-2，共n-1个数，若i=0没有被输出，则m—未被执行，此时i=1被输出的概率为m/(n-1)，若i=0已经被输出了，则m变为m-1，此时i=1被输出的概率为(m-1)/(n-1)；由概率论的知识，可知此时i=1被输出的概率为<br>P=(1-m/n)<em>(m/(n-1))+m/n</em>((m-1)/(n-1))=m/n；以此类推，可知每个数被输出的概率都为m/n</p>
 
       
     </div>
@@ -613,7 +613,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">102</span>
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -876,7 +876,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
