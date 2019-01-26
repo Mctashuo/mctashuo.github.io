@@ -374,6 +374,898 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/30/Vim/04移动/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/30/Vim/04移动/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">04移动</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-30 21:31:00 / 修改时间：21:34:53" itemprop="dateCreated datePublished" datetime="2018-08-30T21:31:00+08:00">2018-08-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/30/Vim/04移动/" class="leancloud_visitors" data-flag-title="04移动">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="以word为单位的移动"><a href="#以word为单位的移动" class="headerlink" title="以word为单位的移动"></a>以word为单位的移动</h1><p>w命令(word):光标向前移动一个word,光标会移动到下一个word的首字符上,同时可以加计数前缀,如3w,将光标向前移动3个word.</p>
+<p>b命令(backward):光标向后移动到前一个word的首字符上,同时可以加计数前缀,如3b,将光标向后移动3个word.</p>
+<p>e命令(end of word):光标向前移动到下一个word的最后一个字符上.</p>
+<p>ge命令:光标向后移动到前一个word的最后一个字符上.</p>
+<p>This is a line with example text.</p>
+<p>This is-a line,with special/separated/words(and some more).</p>
+<p>有一些被认为是non-word的特殊字符,比如”.”、”-“、”/“、”(“.</p>
+<p>大写命令：W B E gE.</p>
+<p>备注：混合使用这几种不同的大小写命令，可以让你更快的在文本前后移动。</p>
+<h1 id="移动到行首或行尾"><a href="#移动到行首或行尾" class="headerlink" title="移动到行首或行尾"></a>移动到行首或行尾</h1><p>$命令:光标移动当前行行尾,与<end>键作用相同,可以接受计数命令,如2$表示下一行的行尾.</end></p>
+<p>^命令:光标移动到当前行第一个非空白的字符上.</p>
+<p>0命令:光标移动到当前行第一个字符上,与<home>键作用相同.</home></p>
+<p>This is a line with example text.</p>
+<h1 id="移动到指定的字符上"><a href="#移动到指定的字符上" class="headerlink" title="移动到指定的字符上"></a>移动到指定的字符上</h1><p>f命令(find):向后单字符搜索命令,如fx在当前行查找下一个字符x,同时也可以使用计数命令,如3fx.</p>
+<p>F命令:向左单字符搜索命令.</p>
+<p>t命令(to):向右单字符搜索命令,只不过不是把光标停留在被搜索字符上,而是它之前的一个字符上.</p>
+<p>T命令:向左单字符搜索命令.</p>
+<p>This is-a line,with special/separated/words(and some more).</p>
+<p>备注: 可以同时与;键来重复使用这些命令.</p>
+<h1 id="以匹配一个括号为目的的移动"><a href="#以匹配一个括号为目的的移动" class="headerlink" title="以匹配一个括号为目的的移动"></a>以匹配一个括号为目的的移动</h1><p>%命令:光标跳转到与当前光标相匹配的括号上.括号:() [] {}</p>
+<p><code>if (a==(b*c)/d)</code></p>
+<p>如果当前光标没有停留在一个可用的括号字符上,会向前找到第一个括号,与之匹配.</p>
+<h1 id="移动到指定行"><a href="#移动到指定行" class="headerlink" title="移动到指定行"></a>移动到指定行</h1><p>G命令(go):光标定位到计数指定的行,如果没有指定计数,光标会定位到最后一行.</p>
+<p>gg命令:定位到第一行与1G的效果相同.</p>
+<p>%命令:光标定位到计数指定的行上,如50%,90%等.</p>
+<h1 id="告诉你当前的位置"><a href="#告诉你当前的位置" class="headerlink" title="告诉你当前的位置"></a>告诉你当前的位置</h1><p>CTRL-g命令:显示信息行,如行号,总行数,以及当前行在文件中的百分比.</p>
+<p>set number命令:显示行号.</p>
+<p>set nonumber命令:关闭显示行号.</p>
+<p>set ruler命令:显示当前光标的位置.</p>
+<p>set noruler命令:关闭显示当前光标的位置.</p>
+<h1 id="滚屏"><a href="#滚屏" class="headerlink" title="滚屏"></a>滚屏</h1><p>CTRL-u命令(up): 文本向下滚动半屏,窗口向上滚动半屏.</p>
+<p>CTRL-d命令(down): 文本向上滚动半屏,窗口向下滚动半屏.</p>
+<p>CTRL-e命令(extra): 文本向上滚动一行,窗口向下滚动一行.</p>
+<p>CTRL-y命令: 本文向上滚动一行,窗口向下滚动一行.</p>
+<p>CTRL-f命令(forward): 本文向下滚动一屏,窗口向上滚动一屏.</p>
+<p>CTRL-b命令(backward): 本文向上滚动一屏,窗口向下滚动一屏.</p>
+<p>zz命令:当前行置于正中央.</p>
+<p>zt命令(top):当前行置于屏幕顶端.</p>
+<p>zb命令(bottom):当前行置于屏幕底端.</p>
+<h1 id="简单搜索"><a href="#简单搜索" class="headerlink" title="简单搜索"></a>简单搜索</h1><p>1.常用命令</p>
+<p>/string命令:向下搜索一个字符串.</p>
+<p>?string命令:向上搜索一个字符串.</p>
+<p>n命令:下一次搜索,可以加计数命令.</p>
+<p>N命令:前一次搜索,可以加计数命令.</p>
+<p>备注: . ^ ~ $有特殊的意义,需要一个反斜杠,.</p>
+<p>2.大小定问题</p>
+<p>:set ignorecase: 开启搜索忽略大小写.</p>
+<p>:set noignorecase: 闭关搜索忽略大小写.</p>
+<p>3.命令历史记录</p>
+<p>按下/来搜索,先别按回车键,上箭头键会显示你上一次进行搜索的命令.</p>
+<p>4.在文本中查找下一个word</p>
+<p><code>*</code>命令:向下搜索下一个当前光标所在的单词.</p>
+<p><code>#</code>命令:向上搜索上一个当前光标所在的单词.</p>
+<p>备注:\<word\>:完整的单词搜索.</word\></p>
+<p>5.查找整个word</p>
+<p>>:单词结束符.</p>
+<p>\&lt;:单词开始符.</p>
+<p>\<word\>:完整的单词搜索.</word\></p>
+<p>6.高亮显示搜索结果</p>
+<p>:set hlsearch(highlight search):开启高亮显示搜索结果.</p>
+<p>:set nohlsearch(highlight search):关闭高亮显示搜索结果.</p>
+<p>:nohlsearch :去掉当前的高亮显示.</p>
+<p>7.调整搜索</p>
+<p>:set incsearch :使用键入目标字符串同时就开始搜索.</p>
+<p>:set noincsearch :关闭使用键入目标字符串同时就开始搜索.</p>
+<p>:set wrapscan :到达文件的尾部会向另一个方向进行搜索.</p>
+<p>:set nowrapscan :关闭到达文件的尾部会向另一个方向进行搜索.</p>
+<h1 id="简单的搜索模式"><a href="#简单的搜索模式" class="headerlink" title="简单的搜索模式"></a>简单的搜索模式</h1><p>Vim使用正则表达式进行搜索的,功能十分的强大.</p>
+<ol>
+<li>一行的开关与结尾</li>
+</ol>
+<p>^字符:匹配一行的开头.</p>
+<p>$字符:匹配一行的结尾.</p>
+<p>the solder holding one of the chips melted and the</p>
+<p>/^the   / the     /the$</p>
+<ol>
+<li>匹配任何一个字符</li>
+</ol>
+<p>.字符:匹配任何一个字符.</p>
+<p>We use a computer that became the cumin winter.</p>
+<p>com cam cum   /c.m</p>
+<p>备注:如果是特殊字符,需要反斜杠.如ter.</p>
+<h1 id="使用标记"><a href="#使用标记" class="headerlink" title="使用标记"></a>使用标记</h1><ol>
+<li>常用命令</li>
+</ol>
+<p>``命令:当使用G命令进行跳转时,回到原来的跳转位置.</p>
+<p>跳转:包括G /与n等搜索命令,但不包括fx或tx,以及word为单位的移动命令,或者光标的移动均不包括.</p>
+<p>CTRL-o命令(old):跳转到前一个光标停留的位置.</p>
+<p>CTRL-i命令:跳转到下一个光标停留的位置,<tab>键作用功能相同.</tab></p>
+<p>jumps命令:显示你曾经跳转过的位置.</p>
+<ol>
+<li>具体的命令的标记命令</li>
+</ol>
+<p>m命令(mark):定义一个标记,如ms,名为s(start)的标记.</p>
+<p>‘命令:跳转到某个名字的标记.如’s.</p>
+<p>:marks :查看所有的标记.</p>
+<h1 id="define-……"><a href="#define-……" class="headerlink" title="define ……."></a>define …….</h1><p>特殊的标记:</p>
+<p>`  进行此次跳转之前的跳点.</p>
+<p>‘’ 到上次跳转的位置.</p>
+<p>[  最后一次修改的起始位置.</p>
+<p>]  最后一次修改的结束位置.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/30/Vim/03帮助/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/30/Vim/03帮助/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">03帮助</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-30 21:29:02 / 修改时间：21:30:41" itemprop="dateCreated datePublished" datetime="2018-08-30T21:29:02+08:00">2018-08-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/30/Vim/03帮助/" class="leancloud_visitors" data-flag-title="03帮助">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>打开帮助命令: :help 或 <f1></f1></p>
+</li>
+<li><p>打开用户手册的目录: :help usr_toc.txt</p>
+</li>
+<li><p>常用的帮助命令的使用:</p>
+</li>
+</ol>
+<p>(1) 查看关于某个特殊主题的帮助  :help {subject}</p>
+<p>:help x            关于x命令的帮助</p>
+<p>:help deleting     关于如何删除的内容</p>
+<p>:help index        所有Vim命令的索引</p>
+<p>(2) 关于某个控制字符的帮助 CTRL -</p>
+<p>:help CTRL-A</p>
+<p>(3) 查找其它模式下的帮助</p>
+<p>:help i_CTRL-H     insert模式</p>
+<p>:help v_CTRL-A     Visual模式</p>
+<p>:help c_CTRL-B     Command模式</p>
+<p>(4) 关于命令行选项 -subject</p>
+<p>:help -R                 vim -R file.txt 以只读的形式打开文档</p>
+<p>(5) 关于命令选项的说明 ‘showmode’</p>
+<p>:help ‘showmode’</p>
+<p>(6) 特殊键用尖括号中的简单的描述性名字表示</p>
+<p><code>:help i_&lt;UP&gt;</code></p>
+<p>(7) 错误ID号的作为帮助的主题</p>
+<p>:help E37</p>
+<p>(8) 关于函数”subject”的帮助</p>
+<p>:help add()    //Vimscript 中使用</p>
+<p>(9) 关于编译时特性”+subject”的帮助</p>
+<p>:help +visual<br>(10) 查找一个以”pattern”开始的帮助标记.重复按<tab>查看其它匹配的帮助标记.</tab></p>
+<p>:help pattern<tab></tab></p>
+<p>(11) 同时列出匹配”pattern”的所有可能的帮助主题.</p>
+<p>:help pattern<ctrl-d></ctrl-d></p>
+<p>(12) 在所有帮助文件中搜索全部文本查找指定的pattern.</p>
+<p>:helpgrep pattern</p>
+<p>下一个匹配  :cn</p>
+<p>前一个匹配  :cprev :cN</p>
+<p>第一个/最后一个匹配项 :cfirst :clast</p>
+<p>打开/关闭快速修改窗口  :copen   直接回车进行进入编辑</p>
+<p>:cclose 关闭快速修改窗口</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/30/Vim/02小试牛刀/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/30/Vim/02小试牛刀/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">02小试牛刀</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-30 20:33:54 / 修改时间：21:26:29" itemprop="dateCreated datePublished" datetime="2018-08-30T20:33:54+08:00">2018-08-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/30/Vim/02小试牛刀/" class="leancloud_visitors" data-flag-title="02小试牛刀">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h1><ol>
+<li>Normal模式与Insert模式</li>
+</ol>
+<p>Normal模式:键入的每个字符都被视为一个命令.</p>
+<p>Insert模式:键入的字符作为实际要输入的文本内容.使用i命令(insert).</p>
+<p>A man and woman are in a computer programming lecture.</p>
+<p>The man touches the woman’s breasts.</p>
+<p>“Hey” she says. “Those are private!”</p>
+<p>The man says, “But we are in the same class!”</p>
+<ol>
+<li>现在是什么模式?</li>
+</ol>
+<p>打开显示模式: :set showmode</p>
+<p>关闭显示模式: :set noshowmode</p>
+<ol>
+<li>模式之灾</li>
+</ol>
+<p>使用Vim经常忘记自己身在何种模式,或者不经意敲了哪个字符就切换到别的模式去了.按再次<esc>,如果Vim以一声蜂鸣来回答你,那说明你已经是&gt;在Normal模式了.</esc></p>
+<h1 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h1><ol>
+<li>移动光标命令:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    k 上</span><br><span class="line"></span><br><span class="line">h 左      l 右</span><br><span class="line"></span><br><span class="line">    j 下</span><br></pre></td></tr></table></figure>
+<p>也可以用箭头键来移动光标,会大大的降低效率.想象一下要是你在一小时内这样的做一百次会占用你多少时间?在编辑器中移动光标是十分常用的操作,这些字符在键盘上都分布在你右手周围,精心挑选的.</p>
+<h1 id="删除字符"><a href="#删除字符" class="headerlink" title="删除字符"></a>删除字符</h1><ol>
+<li>删除一个字符命令:x</li>
+</ol>
+<p>这是在追忆古老的打字机的时代,在打字机上删除字符就是用xxxx来覆盖它的.</p>
+<ol>
+<li>删除一行命令:dd</li>
+</ol>
+<p>删除后下面的行会移上来填补空缺.</p>
+<ol>
+<li>删除换行符命令:J</li>
+</ol>
+<p>把两行合并为一行,也就是说两行之间的换行符被删除了.</p>
+<h1 id="撤消和重做"><a href="#撤消和重做" class="headerlink" title="撤消和重做"></a>撤消和重做</h1><ol>
+<li>撤消命令:u (undo)</li>
+</ol>
+<p>如果误删了过多的内容,命令u更简便,它可以撤消上一次的操作.</p>
+<p>撤消命令还有另一种形式,U命令,它一次撤消对一行的全部操作,即打开文件时的状态.</p>
+<ol>
+<li>重做命令:ctrl + r(repeat)</li>
+</ol>
+<p>如果你撤消了多次,可以用ctrl+r来反转撤消的动作.换名话说它是对撤消的撤消.</p>
+<h1 id="其它编辑命令"><a href="#其它编辑命令" class="headerlink" title="其它编辑命令"></a>其它编辑命令</h1><ol>
+<li>追加</li>
+</ol>
+<p>(1) 光标之后插入文本命令:a (append)</p>
+<p>(2) 另起一行命令:o/O</p>
+<p>o命令可以在当前行的下面另起一行,并使当前模式转为Insert模式,而大写的O,是在当前行的上面另起一行.</p>
+<ol>
+<li>使用命令计数</li>
+</ol>
+<p>指定的数字要紧挨在它所要修饰的命令前面.</p>
+<p>假设你要向上移动9行,这可以用”kkkkkkkkk”或”9k”来完成.</p>
+<p>行尾追加三个感叹号,可以用a!!!另一个办法是3a!<esc>命令.</esc></p>
+<p>删除3个字符可以用3x.</p>
+<ol>
+<li>退出</li>
+</ol>
+<p>(1) 放弃编辑命令:q!  (quit)</p>
+<p>有时你会在做了一连串修改之后突然意识到最好是放弃所有的修改重新来过,这个命令由3个部分组成:冒号,用以进入冒号命令行模式;q命令,告诉</p>
+<p>编辑器退出;最后是强制命令执行的修饰符(!)</p>
+<p>(2) 放弃所有修改后还想以该文件的初始内容作为开始继续编辑:e!  (edit)</p>
+<p>(3) 保存并退出命令:ZZ 或 :wq  (write quit)</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/linuxC/make和makefile/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/linuxC/make和makefile/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">make和makefile</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 23:07:54 / 修改时间：23:29:05" itemprop="dateCreated datePublished" datetime="2018-08-27T23:07:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/linuxC/" itemprop="url" rel="index"><span itemprop="name">linuxC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/linuxC/make和makefile/" class="leancloud_visitors" data-flag-title="make和makefile">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="命令选项和参数"><a href="#命令选项和参数" class="headerlink" title="命令选项和参数"></a>命令选项和参数</h1><p>-k 在发现错误时仍继续执行,而不是在检测到第一个错误时就停下.<br>-n 输出要执行的操作而不执行<br>-f <filename> 告诉make命令将那个文件作为makefile的文件</filename></p>
+<h1 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myapp: main.o 3.o 2.o</span><br><span class="line">main.o: main.c</span><br><span class="line">2.o: 2.c</span><br><span class="line">3.o: a.c</span><br></pre></td></tr></table></figure>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">myapp: main.o 3.o 2.o</span><br><span class="line">    gcc -o myapp main.o 3.o 2.o</span><br><span class="line">main.o: main.c</span><br><span class="line">    gcc -c main.c</span><br><span class="line">2.o: 2.c</span><br><span class="line">    gcc -c 2.c</span><br><span class="line">3.o: 3.c</span><br><span class="line">    gcc -c 3.c</span><br></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h1 id="号开头"><a href="#号开头" class="headerlink" title="号开头"></a>号开头</h1><h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//定义</span><br><span class="line">MACRONAME=value</span><br><span class="line">//使用</span><br><span class="line">$(MACRONAME)</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line"></span><br><span class="line">CC = gcc</span><br><span class="line"></span><br><span class="line">INCLUDE = .</span><br><span class="line"></span><br><span class="line">CFLAGS = -g -Wall -ansi</span><br><span class="line"></span><br><span class="line">CFLAGS = -O -Wall -ansi</span><br><span class="line"></span><br><span class="line">myapp:main.o 2.o 3.o</span><br><span class="line">    $(CC) -o myapp main.o 2.o 3.o</span><br><span class="line">main.o:main.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c main.c</span><br><span class="line">2.o:2.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c 2.c</span><br><span class="line">3.o:3.c</span><br><span class="line">    $(CC) -I$(INCLUDE) $(CFLAGS) -c 3.c</span><br></pre></td></tr></table></figure>
+<h3 id="内置宏"><a href="#内置宏" class="headerlink" title="内置宏"></a>内置宏</h3><p><code>$? 当前目标所依赖的文件列表中比当前目标文件还要新的文件</code><br><code>$@ 当前目标的名字</code><br><code>$&lt; 当前依赖文件的名字</code><br><code>$* 不包括后缀名的当前依赖文件的名字</code></p>
+<p>命令之前的特殊字符<br><code>- 告诉命令忽略所有错误</code><br><code>@ 不要将该命令显示在标准输出上</code></p>
+<h1 id="多个目标"><a href="#多个目标" class="headerlink" title="多个目标"></a>多个目标</h1>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/Vim/01.前言/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1541,810 +2433,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/C++/指针和引用的区别/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++面试/C++/指针和引用的区别/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">指针和引用的区别</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 09:09:54" itemprop="dateCreated datePublished" datetime="2018-08-27T09:09:54+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-11 17:54:26" itemprop="dateModified" datetime="2018-09-11T17:54:26+08:00">2018-09-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++面试/C++/指针和引用的区别/" class="leancloud_visitors" data-flag-title="指针和引用的区别">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>空值问题</li>
-<li>初值问题</li>
-<li>赋值问题</li>
-<li>重载操作符<br><img src="/uploads/指针和引用.jpg" alt="指针和引用的区别"></li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/C++/malloc和new的区别/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++面试/C++/malloc和new的区别/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">malloc和new的区别</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 09:09:54" itemprop="dateCreated datePublished" datetime="2018-08-27T09:09:54+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-06 16:34:50" itemprop="dateModified" datetime="2018-09-06T16:34:50+08:00">2018-09-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++面试/C++/malloc和new的区别/" class="leancloud_visitors" data-flag-title="malloc和new的区别">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>相同点：都可用于申请动态内存和释放内存</p>
-<p>不同点：<br>（1）操作对象有所不同。<br>malloc与free是C++/C 语言的标准库函数，new/delete 是C++的运算符。对于非内部数据类的对象而言，光用maloc/free 无法满足动态对象的要求。对象在创建的同时要自动执行构造函数， 对象消亡之前要自动执行析构函数。由于malloc/free 是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加malloc/free。</p>
-<p>（2）用法上也有所不同。<br>函数malloc 的原型如下：<br><code>void * malloc(size_t size);</code></p>
-<p>用malloc 申请一块长度为length 的整数类型的内存，程序如下：<br><code>int *p = (int *) malloc(sizeof(int) * length);</code><br>我们应当把注意力集中在两个要素上：“类型转换”和“sizeof”。</p>
-<ol>
-<li>malloc 返回值的类型是void <code>*</code>，所以在调用malloc 时要显式地进行类型转换，将<code>void *</code>转换成所需要的指针类型。</li>
-<li>malloc 函数本身并不识别要申请的内存是什么类型，它只关心内存的总字节数。<br>函数free 的原型如下：<br><code>void free( void * memblock );</code><br>为什么free 函数不象malloc 函数那样复杂呢？这是因为指针p 的类型以及它所指的内存的容量事先都是知道的，语句free(p)能正确地释放内存。如果p 是NULL 指针，那么free<br>对p 无论操作多少次都不会出问题。如果p 不是NULL 指针，那么free 对p连续操作两次就会导致程序运行错误。</li>
-</ol>
-<p>new/delete 的使用要点：<br>运算符new 使用起来要比函数malloc 简单得多，例如：<br><code>int *p1 = (int *)malloc(sizeof(int) * length);</code><br><code>int *p2 = new int[length];</code><br>这是因为new 内置了sizeof、类型转换和类型安全检查功能。对于非内部数据类型的对象而言，new 在创建动态对象的同时完成了初始化工作。如果对象有多个构造函数，那么new 的语句也可以有多种形式。<br>如果用new 创建对象数组，那么只能使用对象的无参数构造函数。例如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Obj *objects = <span class="keyword">new</span> Obj[<span class="number">100</span>];       <span class="comment">// 创建100 个动态对象</span></span><br><span class="line">不能写成</span><br><span class="line">Obj *objects = <span class="keyword">new</span> Obj[<span class="number">100</span>](<span class="number">1</span>);        <span class="comment">// 创建100 个动态对象的同时赋初值1</span></span><br></pre></td></tr></table></figure></p>
-<p>在用delete 释放对象数组时，留意不要丢了符号‘[]’。例如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> []objects; <span class="comment">// 正确的用法</span></span><br><span class="line"><span class="keyword">delete</span> objects; <span class="comment">// 错误的用法</span></span><br></pre></td></tr></table></figure></p>
-<p>后者相当于delete objects[0]，漏掉了另外99 个对象。</p>
-<ol>
-<li>new自动计算需要分配的空间，而malloc需要手工计算字节数</li>
-<li>new是类型安全的，而malloc不是，比如：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">2</span>]; <span class="comment">// 编译时指出错误</span></span><br><span class="line"><span class="keyword">int</span>* p = <span class="built_in">malloc</span>(<span class="number">2</span>*<span class="keyword">sizeof</span>(<span class="keyword">float</span>)); <span class="comment">// 编译时无法指出错误</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>new operator 由两步构成，分别是 operator new 和 construct</p>
-<ol>
-<li>operator new对应于malloc，但operator new可以重载，可以自定义内存分配策略，甚至不做内存分配，甚至分配到非内存设备上。而malloc无能为力</li>
-<li>new将调用constructor，而malloc不能；delete将调用destructor，而free不能。</li>
-<li>malloc/free要库文件支持，new/delete则不要。</li>
-<li>本质区别<br>malloc/free是C/C++语言的标准库函数，new/delete是C++的运算符。<br>对于用户自定义的对象而言，用maloc/free无法满足动态管理对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free。因此C++需要一个能完成动态内存分配和初始化工作的运算符new，以及一个能完成清理与释放内存工作的运算符delete</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Obj( ) </span><br><span class="line">    &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Initialization"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    ~ Obj( )</span><br><span class="line">    &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Destroy"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Initialize</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">    </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Initialization"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Destroy</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">    </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Destroy"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;obj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">UseMallocFree</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Obj   * a  =  (Obj  *) <span class="built_in">malloc</span>( <span class="keyword">sizeof</span> ( obj ) );      <span class="comment">//  allocate memory </span></span><br><span class="line">    a -&gt; Initialize();                                    <span class="comment">//  initialization</span></span><br><span class="line">    <span class="comment">// … </span></span><br><span class="line">    a -&gt; Destroy();                                        <span class="comment">// deconstruction </span></span><br><span class="line">    <span class="built_in">free</span>(a);                                               <span class="comment">// release memory</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">UseNewDelete</span><span class="params">( <span class="keyword">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Obj   * a  =   <span class="keyword">new</span>  Obj;                                           </span><br><span class="line">    <span class="comment">// … </span></span><br><span class="line">    <span class="keyword">delete</span> a; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>类Obj的函数Initialize实现了构造函数的功能，函数Destroy实现了析构函数的功能。函数UseMallocFree中，由于malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成“构造”与“析构”。所以我们不要用malloc/free来完成动态对象的内存管理，应该用new/delete。由于内部数据类型的“对象”没有构造与析构的过程，对它们而言malloc/free和new/delete是等价的。</p>
-<p>2、联系<br>既然new/delete的功能完全覆盖了malloc/free，为什么C++还保留malloc/free呢？因为C++程序经常要调用C函数，而C程序只能用malloc/free管理动态内存。如果用free释放“new创建的动态对象”，那么该对象因无法执行析构函数而可能导致程序出错。如果用delete释放“malloc申请的动态内存”，理论上讲程序不会出错，但是该程序的可读性很差。所以new/delete、malloc/free必须配对使用。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++ Prime Plus/chapter9/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++ Prime Plus/chapter9/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">9. 内存模型和名称空间</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 09:07:13 / 修改时间：09:08:05" itemprop="dateCreated datePublished" datetime="2018-08-27T09:07:13+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++ Prime Plus/chapter9/" class="leancloud_visitors" data-flag-title="9. 内存模型和名称空间">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="存储持续性"><a href="#存储持续性" class="headerlink" title="存储持续性"></a>存储持续性</h1><p>自动存储持续性：在函数定义中声明的变量（包括函数参数）的存储持续性为自动的。它们在程序开始执行其所属的函数或代码块时被创建，在执行完函数或代码块时，它们使用的内存被释放。C++有两种存储持续性为自动的变量。<br>静态存储持续性：在函数定义外定义的变量和使用关键字static定义的变量的存储持续性都为静态。它们在程序整个运行过程中都存在。C++有3种存储持续性为静态的变量。<br>线程存储持续性（C++11）：当前，多核处理器很常见，这些CPU可同时处理多个执行任务。这让程序能够将计算放在可并行处理的不同线程中。如果变量是使用关键字thread_local声明的，则其生命周期与所属的线程一样长。本书不探讨并行编程。动态存储持续性：用new运算符分配的内存将一直存在，直到使用delete运算符将其释放或程序结束为止。这种内存的存储持续性为动态，有时被称为自由存储（free store）或堆（heap）。</p>
-<h1 id="作用域和链接"><a href="#作用域和链接" class="headerlink" title="作用域和链接"></a>作用域和链接</h1><p>作用域（scope）描述了名称在文件（翻译单元）的多大范围内可见。例如，函数中定义的变量可在该函数中使用，但不能在其他函数中使用；而在文件中的函数定义之前定义的变量则可在所有函数中使用。链接性（linkage）描述了名称如何在不同单元间共享。链接性为外部的名称可在文件间共享，链接性为内部的名称只能由一个文件中的函数共享。自动变量的名称没有链接性，因为它们不能共享。<br>C++变量的作用域有多种。作用域为局部的变量只在定义它的代码块中可用。代码块是由花括号括起的一系列语句。例如函数体就是代码块，但可以在函数体中嵌入其他代码块。作用域为全局（也叫文件作用域）的变量在定义位置到文件结尾之间都可用。自动变量的作用域为局部，静态变量的作用域是全局还是局部取决于它是如何被定义的。在函数原型作用域（function prototype scope）中使用的名称只在包含参数列表的括号内可用（这就是为什么这些名称是什么以及是否出现都不重要的原因）。在类中声明的成员的作用域为整个类（参见第10章）。在名称空间中声明的变量的作用域为整个名称空间（由于名称空间已经引入到C++语言中，因此全局作用域是名称空间作用域的特例）。</p>
-<p></p><p>C++函数的作用域可以是整个类或整个名称空间（包括全局的），但不能是局部的（因为不能在代码块内定义函数，如果函数的作用域为局部，则只对它自己是可见的，因此不能被其他函数调用。这样的函数将无法运行）。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">int</span> teledeli = <span class="number">9</span>;</span><br><span class="line">	 &#123;</span><br><span class="line">		 <span class="keyword">int</span> websight = <span class="number">0</span>;</span><br><span class="line">		 <span class="comment">//websight expires</span></span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="comment">//teledeli expires</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使得有两个同名的变量（一个位于外部代码块中，另一个位于内部代码块中），情况将如何呢？在这种情况下，程序执行内部代码块中的语句时，将teledeli解释为局部代码块变量。我们说，新的定义隐藏了（hide）以前的定义，新定义可见，旧定义暂时不可见。在程序离开该代码块时，原来的定义又重新可见</p>
-<h1 id="静态持续变量"><a href="#静态持续变量" class="headerlink" title="静态持续变量"></a>静态持续变量</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> global = <span class="number">1000</span>; <span class="comment">//static duration,external linkage</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> one_file = <span class="number">50</span>;	<span class="comment">//static duration,internal linkage</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">functl</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//static duration ,no linkage</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="静态持续性-外部链接性"><a href="#静态持续性-外部链接性" class="headerlink" title="静态持续性,外部链接性"></a>静态持续性,外部链接性</h1><p>外部链接性（可在其他文件中访问）、内部链接性（只能在当前文件中访问）和无链接性（只能在当前函数或代码块中访问）。这3种链接性都在整个程序执行期间存在，与自动变量相比，它们的寿命更长。由于静态变量的数目在程序运行期间是不变的，因此程序不需要使用特殊的装置（如栈）来管理它们。编译器将分配固定的内存块来存储所有的静态变量，这些变量在整个程序执行期间一直存在。</p>
-<p>要想创建链接性为外部的静态持续变量，必须在代码块的外面声明它；要创建链接性为内部的静态持续变量，必须在代码块的外面声明它，并使用static限定符；要创建没有链接性的静态持续变量，必须在代码块内声明它，并使用static限定符。</p>
-<p><img src="https://mctashuo.cn/wp-content/uploads/2018/08/QQ%E6%88%AA%E5%9B%BE20180818111958.jpg" alt=""></p>
-<blockquote>
-<p>链接性为外部的变量通常简称为外部变量，它们的存储持续性为静态，作用域为整个文件。外部变量是在函数外部定义的，因此对所有函数而言都是外部的。</p>
-</blockquote>
-<h2 id="单定义规则"><a href="#单定义规则" class="headerlink" title="单定义规则."></a>单定义规则.</h2><p>一方面，在每个使用外部变量的文件中，都必须声明它；另一方面，C++有“单定义规则”（One Definition Rule，ODR），该规则指出，变量只能有一次定义。为满足这种需求，C++提供了两种变量声明。一种是定义声明（defining declaration）或简称为定义（definition），它给变量分配存储空间；另一种是引用声明（referencing declaration）或简称为声明（declaration），它不给变量分配存储空间，因为它引用已有的变量。</p>
-<p>引用声明使用关键字extern，且不进行初始化；否则，声明为定义，导致分配存储空间：</p>
-<p>如果要在多个文件中使用外部变量，只需在一个文件中包含该变量的定义（单定义规则），但在使用该变量的其他所有文件中，都必须使用关键字extern声明它：</p>
-<h1 id="静态持续性、内部链接性"><a href="#静态持续性、内部链接性" class="headerlink" title="静态持续性、内部链接性"></a>静态持续性、内部链接性</h1><p>将static限定符用于作用域为整个文件的变量时，该变量的链接性将为内部的。在多文件程序中，内部链接性和外部链接性之间的差别很有意义。链接性为内部的变量只能在其所属的文件中使用；但常规外部变量都具有外部链接性，即可以在其他文件中使用.<br>可使用外部变量在多文件程序的不同部分之间共享数据；可使用链接性为内部的静态变量在同一个文件中的多个函数之间共享数据（名称空间提供了另外一种共享数据的方法）。另外，如果将作用域为整个文件的变量变为静态的，就不必担心其名称与其他文件中的作用域为整个文件的变量发生冲突。</p>
-<h1 id="静态存储持续性、无链接性"><a href="#静态存储持续性、无链接性" class="headerlink" title="静态存储持续性、无链接性"></a>静态存储持续性、无链接性</h1><p>将static限定符用于在代码块中定义的变量。在代码块中使用static时，将导致局部变量的存储持续性为静态的。这意味着虽然该变量只在该代码块中可用，但它在该代码块不处于活动状态时仍然存在。因此在两次函数调用之间，静态局部变量的值将保持不变。（静态变量适用于再生——可以用它们将瑞士银行的秘密账号传递到下一个要去的地方）。另外，如果初始化了静态局部变量，则程序只在启动时进行一次初始化。<br>即试图使用get(char *, int)读取空行将导致cin为false。</p>
-<h1 id="说明符和限定符"><a href="#说明符和限定符" class="headerlink" title="说明符和限定符"></a>说明符和限定符</h1><p>关键字volatile表明，即使程序代码没有对内存单元进行修改，其值也可能发生变化<br>mutable。可以用它来指出，即使结构（或类）变量为const，其某个成员也可以被修改。<br>const限定符对默认存储类型稍有影响。在默认情况下全局变量的链接性为外部的，但const全局变量的链接性为内部的。也就是说，在C++看来，全局const定义（如下述代码段所示）就像使用了static说明符一样。</p>
-<h1 id="函数和链接性"><a href="#函数和链接性" class="headerlink" title="函数和链接性"></a>函数和链接性</h1><p>默认情况下，函数的链接性为外部的，即可以在文件间共享。实际上，可以在函数原型中使用关键字extern来指出函数是在另一个文件中定义的，不过这是可选的（要让程序在另一个文件中查找函数，该文件必须作为程序的组成部分被编译，或者是由链接程序搜索的库文件）。还可以使用关键字static将函数的链接性设置为内部的，使之只能在一个文件中使用。必须同时在原型和函数定义中使用该关键字：</p>
-<p>这意味着该函数只在这个文件中可见，还意味着可以在其他文件中定义同名的的函数。和变量一样，在定义静态函数的文件中，静态函数将覆盖外部定义，因此即使在外部定义了同名的函数，该文件仍将使用静态函数。</p>
-<p>单定义规则也适用于非内联函数，因此对于每个非内联函数，程序只能包含一个定义。对于链接性为外部的函数来说，这意味着在多文件程序中，只能有一个文件（该文件可能是库文件，而不是您提供的）包含该函数的定义，但使用该函数的每个文件都应包含其函数原型。</p>
-<p>内联函数不受这项规则的约束，这允许程序员能够将内联函数的定义放在头文件中。这样，包含了头文件的每个文件都有内联函数的定义。然而，C++要求同一个函数的所有内联定义都必须相同。</p>
-<p>C++在哪里查找函数</p>
-<blockquote>
-<p>假设在程序的某个文件中调用一个函数，C++将到哪里去寻找该函数的定义呢？如果该文件中的函数原型指出该函数是静态的，则编译器将只在该文件中查找函数定义；否则，编译器（包括链接程序）将在所有的程序文件中查找。如果找到两个定义，编译器将发出错误消息，因为每个外部函数只能有一个定义。如果在程序文件中没有找到，编译器将在库中搜索。这意味着如果定义了一个与库函数同名的函数，编译器将使用程序员定义的版本，而不是库函数（然而，C++保留了标准库函数的名称，即程序员不应使用它们）。有些编译器-链接程序要求显式地指出要搜索哪些库。</p>
-</blockquote>
-<h1 id="语言链接性"><a href="#语言链接性" class="headerlink" title="语言链接性"></a>语言链接性</h1><h1 id="存储方案和动态分配"><a href="#存储方案和动态分配" class="headerlink" title="存储方案和动态分配"></a>存储方案和动态分配</h1><p>由new分配的80个字节（假设float为4个字节）的内存将一直保留在内存中，直到使用delete运算符将其释放。但当包含该声明的语句块执行完毕时，p_fees指针将消失。如果希望另一个函数能够使用这80个字节中的内容，则必须将其地址传递或返回给该函数。另一方面，如果将p_fees的链接性声明为外部的，则文件中位于该声明后面的所有函数都可以使用它。另外，通过在另一个文件中使用下述声明，便可在其中使用该指针：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> * prss;</span><br></pre></td></tr></table></figure></p>
-<h2 id="定位new运算符"><a href="#定位new运算符" class="headerlink" title="定位new运算符"></a>定位new运算符</h2><p>将信息放在特定的硬件地址处</p>
-<h1 id="名称空间"><a href="#名称空间" class="headerlink" title="名称空间"></a>名称空间</h1><p>名称空间可以是全局的，也可以位于另一个名称空间中，但不能位于代码块中。因此，在默认情况下，在名称空间中声明的名称的链接性为外部的（除非它引用了常量）。<br>using声明使一个名称可用，而using编译指令使所有的名称都可用。</p>
-<h2 id="未命名的名称空间"><a href="#未命名的名称空间" class="headerlink" title="未命名的名称空间"></a>未命名的名称空间</h2><p>这就像后面跟着using编译指令一样，也就是说，在该名称空间中声明的名称的潜在作用域为：从声明点到该声明区域末尾。</p>
-<h1 id="名称空间及其前途"><a href="#名称空间及其前途" class="headerlink" title="名称空间及其前途"></a>名称空间及其前途</h1><p>使用在已命名的名称空间中声明的变量，而不是使用外部全局变量。<br>使用在已命名的名称空间中声明的变量，而不是使用静态全局变量。<br>如果开发了一个函数库或类库，将其放在一个名称空间中。事实上，C++当前提倡将标准函数库放在名称空间std中，这种做法扩展到了来自C语言中的函数。例如，头文件math.h是与C语言兼容的，没有使用名称空间，但C++头文件cmath应将各种数学库函数放在名称空间std中。实际上，并非所有的编译器都完成了这种过渡。<br>仅将编译指令using作为一种将旧代码转换为使用名称空间的权宜之计。<br>不要在头文件中使用using编译指令。首先，这样做掩盖了要让哪些名称可用；另外，包含头文件的顺序可能影响程序的行为。如果非要使用编译指令using，应将其放在所有预处理器编译指令#include之后。<br>导入名称时，首选使用作用域解析运算符或using声明的方法。<br>对于using声明，首选将其作用域设置为局部而不是全局。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>C++鼓励程序员在开发程序时使用多个文件。一种有效的组织策略是，使用头文件来定义用户类型，为操纵用户类型的函数提供函数原型；并将函数定义放在一个独立的源代码文件中。头文件和源代码文件一起定义和实现了用户定义的类型及其使用方式。最后，将main( )和其他使用这些函数的函数放在第三个文件中。</p>
-<p>C++的存储方案决定了变量保留在内存中的时间（储存持续性）以及程序的哪一部分可以访问它（作用域和链接性）。自动变量是在代码块（如函数体或函数体中的代码块）中定义的变量，仅当程序执行到包含定义的代码块时，它们才存在，并且可见。自动变量可以通过使用存储类型说明符register或根本不使用说明符来声明，没有使用说明符时，变量将默认为自动的。register说明符提示编译器，该变量的使用频率很高，但C++11摒弃了这种用法。</p>
-<p>静态变量在整个程序执行期间都存在。对于在函数外面定义的变量，其所属文件中位于该变量的定义后面的所有函数都可以使用它（文件作用域），并可在程序的其他文件中使用（外部链接性）。另一个文件要使用这种变量，必须使用extern关键字来声明它。对于文件间共享的变量，应在一个文件中包含其定义声明（无需使用extern，但如果同时进行初始化，也可使用它），并在其他文件中包含引用声明（使用extern且不初始化）。在函数的外面使用关键字static定义的变量的作用域为整个文件，但是不能用于其他文件（内部链接性）。在代码块中使用关键字static定义的变量被限制在该代码块内（局部作用域、无链接性），但在整个程序执行期间，它都一直存在并且保持原值。</p>
-<p>在默认情况下，C++函数的链接性为外部，因此可在文件间共享；但使用关键字static限定的函数的链接性为内部的，被限制在定义它的文件中。</p>
-<p>动态内存分配和释放是使用new和delete进行的，它使用自由存储区或堆来存储数据。调用new占用内存，而调用delete释放内存。程序使用指针来跟踪这些内存单元。</p>
-<p>名称空间允许定义一个可在其中声明标识符的命名区域。这样做的目的是减少名称冲突，尤其当程序非常大，并使用多个厂商的代码时。可以通过使用作用域解析运算符、using声明或using编译指令，来使名称空间中的标识符可用。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++ Prime Plus/chapter10/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++ Prime Plus/chapter10/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/10/index.html">10 .对象和类</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 09:07:13 / 修改时间：09:07:15" itemprop="dateCreated datePublished" datetime="2018-08-27T09:07:13+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++ Prime Plus/chapter10/" class="leancloud_visitors" data-flag-title="10 .对象和类">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>在C++11中，可将列表初始化语法用于类吗？可以，只要提供与某个构造函数的参数列表匹配的内容，并用大括号将它们括起</p>
-<h2 id="const函数"><a href="#const函数" class="headerlink" title="const函数"></a>const函数</h2><p>需要一种新的语法——保证函数不会修改调用对象。C++的解决方法是将const关键字放在函数的括号后面。</p>
-<h1 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h1><p>C++解决这种问题的方法是：使用被称为this的特殊指针。this指针指向用来调用成员函数的对象（this被作为隐藏参数传递给方法）。<br>每个成员函数（包括构造函数和析构函数）都有一个this指针。this指针指向调用对象。如果方法需要引用整个调用对象，则可以使用表达式*this。在函数的括号后面使用const限定符将this限定为const，这样将不能使用this来修改对象的值。</p>
-<p>然而，要返回的并不是this，因为this是对象的地址，而是对象本身，即<em>this（将解除引用运算符</em>用于指针，将得到指针指向的值）。现在，可以将*this作为调用对象的别名来完成前面的方法定义。</p>
-<h1 id="类作用域"><a href="#类作用域" class="headerlink" title="类作用域"></a>类作用域</h1><p>在其他情况下，使用类成员名时，必须根据上下文使用直接成员运算符（．）、间接成员运算符（-&gt;）或作用域解析运算符（::）</p>
-<h2 id="作用域为类的常量"><a href="#作用域为类的常量" class="headerlink" title="作用域为类的常量"></a>作用域为类的常量</h2><p>第一种方式是在类中声明一个枚举。在类声明中声明的枚举的作用域为整个类，因此可以用枚举为整型常量提供作用域为整个类的符号名称<br>C++提供了另一种在类中定义常量的方式——使用关键字static：</p>
-<h2 id="作用域内枚举（C-11）"><a href="#作用域内枚举（C-11）" class="headerlink" title="作用域内枚举（C++11）"></a>作用域内枚举（C++11）</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>面向对象编程强调的是程序如何表示数据。使用OOP方法解决编程问题的第一步是根据它与程序之间的接口来描述数据，从而指定如何使用数据。然后，设计一个类来实现该接口。一般来说，私有数据成员存储信息，公有成员函数（又称为方法）提供访问数据的唯一途径。类将数据和方法组合成一个单元，其私有性实现数据隐藏。</p>
-<p>通常，将类声明分成两部分组成，这两部分通常保存在不同的文件中。类声明（包括由函数原型表示的方法）应放到头文件中。定义成员函数的源代码放在方法文件中。这样便将接口描述与实现细节分开了。从理论上说，只需知道公有接口就可以使用类。当然，可以查看实现方法（除非只提供了编译形式），但程序不应依赖于其实现细节，如知道某个值被存储为int。只要程序和类只通过定义接口的方法进行通信，程序员就可以随意地对任何部分做独立的改进，而不必担心这样做会导致意外的不良影响。</p>
-<p>类是用户定义的类型，对象是类的实例。这意味着对象是这种类型的变量，例如由new按类描述分配的内存。C++试图让用户定义的类型尽可能与标准类型类似，因此可以声明对象、指向对象的指针和对象数组。可以按值传递对象、将对象作为函数返回值、将一个对象赋给同类型的另一个对象。如果提供了构造函数，则在创建对象时，可以初始化对象。如果提供了析构函数方法，则在对象消亡后，程序将执行该函数。</p>
-<p>每个对象都存储自己的数据，而共享类方法。如果mr_object是对象名，try_me( )是成员函数，则可以使用成员运算符句点调用成员函数：mr_object.try_me( )。在OOP中，这种函数调用被称为将try_me消息发送给mr_object对象。在try_me( )方法中引用类数据成员时，将使用mr_object对象相应的数据成员。同样，函数调用i_object.try_me( )将访问i_object对象的数据成员。</p>
-<p>如果希望成员函数对多个对象进行操作，可以将额外的对象作为参数传递给它。如果方法需要显式地引用调用它的对象，则可以使用this指针。由于this指针被设置为调用对象的地址，因此*this是该对象的别名。</p>
-<p>类很适合用于描述ADT。公有成员函数接口提供了ADT描述的服务，类的私有部分和类方法的代码提供了实现，这些实现对类的客户隐藏。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2389,7 +2482,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
