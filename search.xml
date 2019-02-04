@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[平衡二叉树]]></title>
+    <url>%2F2019%2F02%2F04%2FACM%2Foffer%2F%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[输入一棵二叉树，判断该二叉树是否是平衡二叉树。leetcode 110简洁写法，会重复遍历节点12345678910111213141516171819202122class Solution &#123;public: bool IsBalanced_Solution(TreeNode* pRoot) &#123; if(!pRoot) return true; int left,right; left = TreeDepth(pRoot-&gt;left); right = TreeDepth(pRoot-&gt;right); int dif = (left - right); if(dif &gt; 1 || dif &lt; -1) return false; return IsBalanced_Solution(pRoot-&gt;left) &amp;&amp; IsBalanced_Solution(pRoot-&gt;right); &#125; int TreeDepth(TreeNode * pRoot) &#123; if(!pRoot) return 0; int left,right; left = 1 + TreeDepth(pRoot-&gt;left); right = 1 + TreeDepth(pRoot-&gt;right); return max(left,right); &#125;&#125;; 后序遍历，避免重复遍历节点12345678910111213141516171819202122class Solution &#123;public: bool IsBalanced_Solution(TreeNode* pRoot) &#123; int depth = 0; return IsBalanced(pRoot,depth); &#125; bool IsBalanced(TreeNode *pRoot,int &amp;depth) &#123; if(!pRoot) &#123; depth = 0; return true; &#125; int left,right; if(IsBalanced(pRoot-&gt;left,left) &amp;&amp; IsBalanced(pRoot-&gt;right,right)) &#123; int dif = left - right; if(dif &gt;= -1 &amp;&amp; dif &lt;= 1) &#123; depth = 1 + max(left,right); return true; &#125; &#125; return false; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[二叉树的深度]]></title>
+    <url>%2F2019%2F02%2F02%2FACM%2Foffer%2F%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。123456789101112131415161718192021/*struct TreeNode &#123; int val; struct TreeNode *left; struct TreeNode *right; TreeNode(int x) : val(x), left(NULL), right(NULL) &#123; &#125;&#125;;*/class Solution &#123;public: int TreeDepth(TreeNode* pRoot) &#123; if(!pRoot) return 0; int left,right; left = TreeDepth(pRoot-&gt;left) + 1; right = TreeDepth(pRoot-&gt;right) + 1; return max(left,right); &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[数字在排序数组中出现的次数]]></title>
+    <url>%2F2019%2F02%2F02%2FACM%2Foffer%2F%E6%95%B0%E5%AD%97%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[统计一个数字在排序数组中出现的次数。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354class Solution &#123;public: int GetNumberOfK(vector&lt;int&gt; data ,int k) &#123; int len = data.size(); if(len == 0) return 0; int firstK = GetFirstK(data,0,len-1,k); if(firstK == -1) return 0; int lastK = GetLastK(data,firstK,len-1,k); return lastK - firstK + 1; &#125; int GetFirstK(vector&lt;int&gt; &amp;data,int start, int end,int k) &#123; int mData,mid; while(start &lt;= end) &#123; mid = (start + end) / 2; mData = data[mid]; if(k == mData) &#123; if(data[mid-1] != k) return mid; else end = mid - 1; &#125; else if(mData &lt; k) &#123; start = mid + 1; &#125; else end = mid - 1; &#125; if(mData != k) return -1; return mid; &#125; int GetLastK(vector&lt;int&gt; &amp;data,int start, int end, int k) &#123; int mData,mid; while(start &lt;= end) &#123; mid = (start + end) / 2; mData = data[mid]; if(mData == k) &#123; if(data[mid + 1] != k) return mid; else start = mid + 1; &#125; else if(mData &lt; k) start = mid + 1; else end = mid - 1; &#125; if(mData != k) return -1; return mid; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[两个链表的第一个公共结点]]></title>
+    <url>%2F2019%2F02%2F02%2FACM%2Foffer%2F%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[输入两个链表，找出它们的第一个公共结点。12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758/*struct ListNode &#123; int val; struct ListNode *next; ListNode(int x) : val(x), next(NULL) &#123; &#125;&#125;;*/class Solution &#123;public: ListNode* FindFirstCommonNode( ListNode* pHead1, ListNode* pHead2) &#123; if(!pHead1 || !pHead2) return NULL; ListNode * pCur1 = pHead1; ListNode * pCur2 = pHead2; int shortLen = 0; while(pCur1 &amp;&amp; pCur2) &#123; pCur1 = pCur1-&gt;next; pCur2 = pCur2-&gt;next; shortLen++; &#125; int longLen = shortLen; bool flag = false; if(pCur1) flag = true; while(pCur1) &#123; pCur1 = pCur1-&gt;next; longLen++; &#125; while(pCur2) &#123; pCur2 = pCur2-&gt;next; longLen++; &#125; pCur1 = pHead1; pCur2 = pHead2; int len = longLen - shortLen; if(flag) &#123; while(len--) &#123; pCur1 = pCur1-&gt;next; &#125; &#125; else &#123; while(len--) &#123; pCur2 = pCur2-&gt;next; &#125; &#125; while(shortLen--) &#123; if(pCur1 == pCur2) return pCur1; else &#123; pCur1 = pCur1-&gt;next; pCur2 = pCur2-&gt;next; &#125; &#125; return NULL; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[数组中的逆序对]]></title>
     <url>%2F2019%2F02%2F02%2FACM%2Foffer%2F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9%2F</url>
     <content type="text"><![CDATA[在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007输入描述:题目保证输入的数组中没有的相同的数字 数据范围： 对于%50的数据,size&lt;=10^4 对于%75的数据,size&lt;=10^5 对于%100的数据,size&lt;=2*10^5 示例1输入1,2,3,4,5,6,7,0输出71234567891011121314151617181920212223242526272829303132333435class Solution &#123;public: int InversePairs(vector&lt;int&gt; data) &#123; int len = data.size(); if(len &lt;= 0) return 0; int mid = (len - 1) / 2; return InversePairsCore(data,0,mid,len-1); &#125; int InversePairsCore(vector&lt;int&gt; &amp; data, int low, int mid, int high) &#123; if(low == high) return 0; int left = InversePairsCore(data,low,(low+mid) / 2,mid); int right = InversePairsCore(data,mid+1,(mid + 1 + high) / 2,high); int tmp[high - low + 1]; int i = low,j = mid + 1,size = 0,count = 0; while(i &lt;= mid &amp;&amp; j &lt;= high) &#123; if(data[i] &lt; data[j]) tmp[size++] = data[i++]; else &#123; tmp[size++] = data[j++]; count += mid - i + 1; count %= 1000000007; &#125; &#125; while(i &lt;= mid) tmp[size++] = data[i++]; while(j &lt;= high) tmp[size++] = data[j++]; for(i = 0;i &lt; size;i++) &#123; data[i+low] = tmp[i]; &#125; return (left + right + count) % 1000000007; &#125;&#125;;]]></content>
@@ -1022,18 +1058,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[悬空指针和野指针]]></title>
-    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%82%AC%E7%A9%BA%E6%8C%87%E9%92%88%E5%92%8C%E9%87%8E%E6%8C%87%E9%92%88%2F</url>
-    <content type="text"><![CDATA[A dangling pointer is a pointer that used to point to a valid address but now no longer does. This is usually due to that memory location being freed up and no longer available. There is nothing wrong with having a dangling pointer unless you try to access the memory location pointed at by that pointer. It is always best practise not to have or leave dangling pointers.空悬指针是这样一种指针：它曾经指向一个有效地址，但是现在不再指向有效地址（个人添加，其实就是原来的那块地址不能通过这个指针区访问了）。这通常是因为指针所指的内存单位被释放了并且不再有效了。空悬指针存在并没有什么问题，除非你尝试通过这个指针访问指向的地址空间。不遗留任何悬空指针总是最好的实践方式。A wild pointer is a pointer that has not been correctly initialised and therefore points to some random piece of memory. It is a serious error to have wild pointers.而野指针是这样一种指针：它没有被正确的初始化于是指向一个随机的内存地址。存在野指针是一个严重的错误]]></content>
-      <categories>
-        <category>C++面试</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>指针</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[内存泄漏]]></title>
     <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%2F</url>
     <content type="text"><![CDATA[什么是内存泄漏(Memory Leak)?简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。 如何检测内存泄露第一：良好的编码习惯，尽量在涉及内存的程序段，检测出内存泄露。当程式稳定之后，在来检测内存泄露时，无疑增加了排除的困难和复杂度。使用了内存分配的函数，一旦使用完毕,要记得要使用其相应的函数释放掉。第二：将分配的内存的指针以链表的形式自行管理，使用完毕之后从链表中删除，程序结束时可检查改链表。 第三：Boost 中的smart pointer 第四：一些常见的工具插件，如ccmalloc、Dmalloc、Leaky等等]]></content>
@@ -1043,6 +1067,18 @@
       </categories>
       <tags>
         <tag>内存</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[悬空指针和野指针]]></title>
+    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%82%AC%E7%A9%BA%E6%8C%87%E9%92%88%E5%92%8C%E9%87%8E%E6%8C%87%E9%92%88%2F</url>
+    <content type="text"><![CDATA[A dangling pointer is a pointer that used to point to a valid address but now no longer does. This is usually due to that memory location being freed up and no longer available. There is nothing wrong with having a dangling pointer unless you try to access the memory location pointed at by that pointer. It is always best practise not to have or leave dangling pointers.空悬指针是这样一种指针：它曾经指向一个有效地址，但是现在不再指向有效地址（个人添加，其实就是原来的那块地址不能通过这个指针区访问了）。这通常是因为指针所指的内存单位被释放了并且不再有效了。空悬指针存在并没有什么问题，除非你尝试通过这个指针访问指向的地址空间。不遗留任何悬空指针总是最好的实践方式。A wild pointer is a pointer that has not been correctly initialised and therefore points to some random piece of memory. It is a serious error to have wild pointers.而野指针是这样一种指针：它没有被正确的初始化于是指向一个随机的内存地址。存在野指针是一个严重的错误]]></content>
+      <categories>
+        <category>C++面试</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>指针</tag>
       </tags>
   </entry>
   <entry>
