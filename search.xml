@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[不能继承的类]]></title>
+    <url>%2F2019%2F02%2F16%2FACM%2Foffer%2F%E4%B8%8D%E8%83%BD%E7%BB%A7%E6%89%BF%E7%9A%84%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[用C++设计一个不能被继承的类构造函数设为私有函数，缺点只能得到位于堆上的实例123456789101112class Class &#123;public: static Class * GetInstance() &#123; return new Class(); &#125; static void DeleteInstance(Class * pInstance) &#123; delete pInstance; &#125;private: Class() &#123;&#125; ~Class() &#123;&#125;&#125; 利用虚拟继承,可移植性不好，最新的GCC可能不支持模板参数类型作为友元类型1234567891011template&lt;typename T&gt; class MakeSealed &#123; friend T;private: MakeSealed() &#123;&#125; ~MakeSealed() &#123;&#125;&#125;;class SealedClass2:virtual public MakeSealed&lt;SealedClass2&gt; &#123;public: SealedClass2() &#123;&#125; ~SealedClass2() &#123;&#125;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[不用加减乘除做加法]]></title>
+    <url>%2F2019%2F02%2F16%2FACM%2Foffer%2F%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。1234567891011121314class Solution &#123;public: int Add(int num1, int num2) &#123; int sum,carry; do &#123; sum = num1 ^ num2; carry = (num1 &amp; num2) &lt;&lt; 1; num1 = sum; num2 = carry; &#125;while(carry != 0); return sum; &#125;&#125;;]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[求1+2+...+n]]></title>
+    <url>%2F2019%2F02%2F16%2FACM%2Foffer%2F%E6%B1%821%2B2%2B...%2Bn%2F</url>
+    <content type="text"><![CDATA[求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。除高斯公式外只能用循环和递归 利用构造函数1234567891011121314151617181920212223242526272829class Temp &#123;private: static int N; static int sum;public: Temp() &#123; N++; sum += N; &#125; static void Reset() &#123; N = 0; sum = 0; &#125; static int getRes() &#123; return sum; &#125;&#125;;int Temp::N = 0;int Temp::sum = 0;class Solution &#123;public: int Sum_Solution(int n) &#123; Temp::Reset(); Temp *t = new Temp[n]; delete []t; t = NULL; return Temp::getRes(); &#125;&#125;; 利用虚函数来构造123456789101112131415161718192021222324class A;A* Array[2];class A&#123;public: virtual int getSum(int n) &#123; return 0; &#125;&#125;;class B: public A &#123;public: virtual int getSum(int n) &#123; return Array[!!n]-&gt;getSum(n-1) + n; &#125;&#125;;class Solution &#123;public: int Sum_Solution(int n) &#123; A a; B b; Array[0] = &amp;a; Array[1] = &amp;b; return Array[1]-&gt;getSum(n); &#125;&#125;; 函数指针1234567891011121314typedef int (*fun)(int);int terminate(int n) &#123; return 0;&#125;int getSum(int n) &#123; static fun f[2] = &#123;terminate,getSum&#125;; return n + f[!!n](n-1);&#125;class Solution &#123;public: int Sum_Solution(int n) &#123; return getSum(n); &#125;&#125;; 作用模板类型求解]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[扑克牌的顺子]]></title>
+    <url>%2F2019%2F02%2F15%2FACM%2Foffer%2F%E6%89%91%E5%85%8B%E5%A4%84%E7%89%8C%E9%A1%BA%E5%AD%90%2F</url>
+    <content type="text"><![CDATA[从扑克牌中随机抽5张牌，判断是不是一个顺子，大小五可以看成任意数字1234567891011121314151617181920class Solution &#123;public: bool IsContinuous( vector&lt;int&gt; numbers ) &#123; int len = numbers.size(); if(len != 5) return false; sort(numbers.begin(),numbers.end()); int numberZero = 0; for(int i = 0;i &lt; len &amp;&amp; numbers[i]==0;++i) numberZero++; int gap = 0; for(int i = numberZero;i &lt; len - 1;i++) &#123; if(numbers[i] == numbers[i+1]) return false; if(numbers[i+1] - numbers[i] &gt; 1) gap += (numbers[i+1] - numbers[i] -1); &#125; return gap &lt;= numberZero; &#125;&#125;; 或14哈希]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>offer</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[翻转单词序列]]></title>
     <url>%2F2019%2F02%2F09%2FACM%2Foffer%2F%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E5%BA%8F%E5%88%97%2F</url>
     <content type="text"><![CDATA[牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？123456789101112131415161718192021222324252627class Solution &#123;public: string ReverseSentence(string str) &#123; int len = str.size(); if(len &lt;= 0) return str; reverse(str,0,len-1); for(int i = 0;i &lt; len;i++) &#123; if(str[i] != ' ') &#123; int j = i; while(j &lt; len &amp;&amp; str[j] != ' ') j++; reverse(str,i,j-1); i = j; &#125; &#125; return str; &#125; void reverse(string &amp;str,int i,int j) &#123; while(i &lt; j) &#123; char tmp = str[i]; str[i] = str[j]; str[j] = tmp; i++;j--; &#125; &#125;&#125;;]]></content>
@@ -462,7 +498,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[longest-substring-without-repeating-characters]]></title>
+    <title><![CDATA[3.longest-substring-without-repeating-characters]]></title>
     <url>%2F2018%2F12%2F07%2FACM%2Fleetcode%2F3.longest-substring-without-repeating-characters%2F</url>
     <content type="text"><![CDATA[Given a string, find the length of the longest substring without repeating characters. 123456789101112131415161718class Solution &#123;public: int lengthOfLongestSubstring(string s) &#123; int last[256];//记录字符上次出现的位置 int start=0;//当前起始 memset(last,-1,sizeof(last)); int len = s.length(); int m_max = 0; for(int i = 0;i &lt; len;i++) &#123; if(last[s[i]] &gt;= start) &#123; //重复出现 m_max = max(i-start,m_max); start = last[s[i]] + 1; &#125; last[s[i]] = i; &#125; return max(len-start,m_max); &#125;&#125;;]]></content>
       <categories>
@@ -1162,19 +1198,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[指针和引用的区别]]></title>
-    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[空值问题 初值问题 赋值问题 重载操作符]]></content>
-      <categories>
-        <category>C++面试</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>指针</tag>
-        <tag>引用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[malloc和new的区别]]></title>
     <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2Fmalloc%E5%92%8Cnew%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[相同点：都可用于申请动态内存和释放内存 不同点：（1）操作对象有所不同。malloc与free是C++/C 语言的标准库函数，new/delete 是C++的运算符。对于非内部数据类的对象而言，光用maloc/free 无法满足动态对象的要求。对象在创建的同时要自动执行构造函数， 对象消亡之前要自动执行析构函数。由于malloc/free 是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加malloc/free。 （2）用法上也有所不同。函数malloc 的原型如下：void * malloc(size_t size); 用malloc 申请一块长度为length 的整数类型的内存，程序如下：int *p = (int *) malloc(sizeof(int) * length);我们应当把注意力集中在两个要素上：“类型转换”和“sizeof”。 malloc 返回值的类型是void *，所以在调用malloc 时要显式地进行类型转换，将void *转换成所需要的指针类型。 malloc 函数本身并不识别要申请的内存是什么类型，它只关心内存的总字节数。函数free 的原型如下：void free( void * memblock );为什么free 函数不象malloc 函数那样复杂呢？这是因为指针p 的类型以及它所指的内存的容量事先都是知道的，语句free(p)能正确地释放内存。如果p 是NULL 指针，那么free对p 无论操作多少次都不会出问题。如果p 不是NULL 指针，那么free 对p连续操作两次就会导致程序运行错误。 new/delete 的使用要点：运算符new 使用起来要比函数malloc 简单得多，例如：int *p1 = (int *)malloc(sizeof(int) * length);int *p2 = new int[length];这是因为new 内置了sizeof、类型转换和类型安全检查功能。对于非内部数据类型的对象而言，new 在创建动态对象的同时完成了初始化工作。如果对象有多个构造函数，那么new 的语句也可以有多种形式。如果用new 创建对象数组，那么只能使用对象的无参数构造函数。例如123Obj *objects = new Obj[100]; // 创建100 个动态对象不能写成Obj *objects = new Obj[100](1); // 创建100 个动态对象的同时赋初值1 在用delete 释放对象数组时，留意不要丢了符号‘[]’。例如12delete []objects; // 正确的用法delete objects; // 错误的用法 后者相当于delete objects[0]，漏掉了另外99 个对象。 new自动计算需要分配的空间，而malloc需要手工计算字节数 new是类型安全的，而malloc不是，比如：12int* p = new float[2]; // 编译时指出错误int* p = malloc(2*sizeof(float)); // 编译时无法指出错误 new operator 由两步构成，分别是 operator new 和 construct operator new对应于malloc，但operator new可以重载，可以自定义内存分配策略，甚至不做内存分配，甚至分配到非内存设备上。而malloc无能为力 new将调用constructor，而malloc不能；delete将调用destructor，而free不能。 malloc/free要库文件支持，new/delete则不要。 本质区别malloc/free是C/C++语言的标准库函数，new/delete是C++的运算符。对于用户自定义的对象而言，用maloc/free无法满足动态管理对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free。因此C++需要一个能完成动态内存分配和初始化工作的运算符new，以及一个能完成清理与释放内存工作的运算符delete 12345678910111213141516171819202122232425262728class Obj&#123;public: Obj( ) &#123; cout &lt;&lt; "Initialization" &lt;&lt; endl; &#125; ~ Obj( ) &#123; cout &lt;&lt; "Destroy" &lt;&lt; endl; &#125; void Initialize( ) &#123; cout &lt;&lt; "Initialization" &lt;&lt; endl; &#125; void Destroy( ) &#123; cout &lt;&lt; "Destroy" &lt;&lt; endl; &#125;&#125;obj;void UseMallocFree( )&#123; Obj * a = (Obj *) malloc( sizeof ( obj ) ); // allocate memory a -&gt; Initialize(); // initialization // … a -&gt; Destroy(); // deconstruction free(a); // release memory&#125;void UseNewDelete( void )&#123; Obj * a = new Obj; // … delete a; &#125; 类Obj的函数Initialize实现了构造函数的功能，函数Destroy实现了析构函数的功能。函数UseMallocFree中，由于malloc/free不能执行构造函数与析构函数，必须调用成员函数Initialize和Destroy来完成“构造”与“析构”。所以我们不要用malloc/free来完成动态对象的内存管理，应该用new/delete。由于内部数据类型的“对象”没有构造与析构的过程，对它们而言malloc/free和new/delete是等价的。 2、联系既然new/delete的功能完全覆盖了malloc/free，为什么C++还保留malloc/free呢？因为C++程序经常要调用C函数，而C程序只能用malloc/free管理动态内存。如果用free释放“new创建的动态对象”，那么该对象因无法执行析构函数而可能导致程序出错。如果用delete释放“malloc申请的动态内存”，理论上讲程序不会出错，但是该程序的可读性很差。所以new/delete、malloc/free必须配对使用。]]></content>
@@ -1185,6 +1208,19 @@
       <tags>
         <tag>malloc</tag>
         <tag>new</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[指针和引用的区别]]></title>
+    <url>%2F2018%2F08%2F27%2FC%2B%2B%E9%9D%A2%E8%AF%95%2FC%2B%2B%2F%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[空值问题 初值问题 赋值问题 重载操作符]]></content>
+      <categories>
+        <category>C++面试</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>指针</tag>
+        <tag>引用</tag>
       </tags>
   </entry>
   <entry>
