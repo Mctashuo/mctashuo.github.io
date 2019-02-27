@@ -509,7 +509,8 @@
 <li>输入流对象有一个统计系统，用于跟踪流的错误状态。在这个系统中，检测到文件尾后将设置eofbit寄存器，检测到输入错误时将设置failbit寄存器，出现无法识别的故障（如硬盘故障）时将设置badbit寄存器，一切顺利时将设置goodbit寄存器。</li>
 </ul>
 <p>string版本的operator&gt;&gt;( )函数的行为与此类似，只是它不断读取，直到遇到空白字符并将其留在输入队列中，而不是不断读取，直到遇到分界字符并将其丢弃。空白字符指的是空格、换行符和制表符，更普遍地说，是任何将其作为参数来调用isspace( )时，该函数返回ture的字符。</p>
-<h2 id="string-方法"><a href="#string-方法" class="headerlink" title="string 方法"></a>string 方法</h2><table>
+<h2 id="string-方法"><a href="#string-方法" class="headerlink" title="string 方法"></a>string 方法</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">方法原型</th>
@@ -535,6 +536,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>string库还提供了相关的方法：rfind( )、find_first_of( )、find_last_of( )、find_first_not_of( )和find_last_not_of( )，它们的重载函数特征标都与find( )方法相同。rfind( )方法查找子字符串或字符最后一次出现的位置；find_first_of( )方法在字符串中查找参数中任何一个字符首次出现的位置。</p>
 <p>find_last_of( )方法的功能与此相同，只是它查找的是最后一次出现的位置。<br>find_first_not_of( )方法在字符串中查找第一个不包含在参数中的字符</p>
 <h2 id="string-的其他功能"><a href="#string-的其他功能" class="headerlink" title="string 的其他功能"></a>string 的其他功能</h2><p>string库提供了很多其他的工具，包括完成下述功能的函数：删除字符串的部分或全部内容、用一个字符串的部分或全部内容替换另一个字符串的部分或全部内容、将数据插入到字符串中或删除字符串中的数据、将一个字符串的部分或全部内容与另一个字符串的部分或全部内容进行比较、从字符串中提取子字符串、将一个字符串中的内容复制到另一个字符串中、交换两个字符串的内容。</p>
@@ -592,7 +594,7 @@
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span> <span class="comment">//使用&lt;操作符来比较</span></span></span><br></pre></td></tr></table></figure>
 <p><img src="/uploads/list_成员函数.jpg" alt="list常用函数"></p>
-<ol start="4">
+<ol>
 <li><p>forward_list(C++11)<br>单链表</p>
 </li>
 <li><p>queue<br>队列的基本操作<br>不允许随机访问,不允许遍历</p>
@@ -728,7 +730,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">145</span>
+                    <span class="site-state-item-count">149</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -827,8 +829,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     

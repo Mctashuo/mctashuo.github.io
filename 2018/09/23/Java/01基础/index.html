@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="#数据类型的长度byte 1字节 -128 - 127short 2字节 -32768-32767char 2字节int 4字节 -2147483648-2147483647long 8字节float 4字节double 8字节">
+  <meta name="description" content="数据类型的长度byte 1字节 -128 - 127short 2字节 -32768-32767char 2字节int 4字节 -2147483648-2147483647long 8字节float 4字节double 8字节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java和C的一些基础不同">
 <meta property="og:url" content="https://www.mctashuo.cn/2018/09/23/Java/01基础/index.html">
 <meta property="og:site_name" content="Mctahuo">
-<meta property="og:description" content="#数据类型的长度byte 1字节 -128 - 127short 2字节 -32768-32767char 2字节int 4字节 -2147483648-2147483647long 8字节float 4字节double 8字节">
+<meta property="og:description" content="数据类型的长度byte 1字节 -128 - 127short 2字节 -32768-32767char 2字节int 4字节 -2147483648-2147483647long 8字节float 4字节double 8字节">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-09-24T14:01:16.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java和C的一些基础不同">
-<meta name="twitter:description" content="#数据类型的长度byte 1字节 -128 - 127short 2字节 -32768-32767char 2字节int 4字节 -2147483648-2147483647long 8字节float 4字节double 8字节">
+<meta name="twitter:description" content="数据类型的长度byte 1字节 -128 - 127short 2字节 -32768-32767char 2字节int 4字节 -2147483648-2147483647long 8字节float 4字节double 8字节">
 
 
 
@@ -499,13 +499,12 @@
       
 
       
-        <p>#数据类型的长度<br>byte 1字节 -128 - 127<br>short 2字节 -32768-32767<br>char 2字节<br>int 4字节 -2147483648-2147483647<br>long 8字节<br>float 4字节<br>double 8字节<br><a id="more"></a></p>
+        <h1 id="数据类型的长度"><a href="#数据类型的长度" class="headerlink" title="数据类型的长度"></a>数据类型的长度</h1><p>byte 1字节 -128 - 127<br>short 2字节 -32768-32767<br>char 2字节<br>int 4字节 -2147483648-2147483647<br>long 8字节<br>float 4字节<br>double 8字节<br><a id="more"></a></p>
 <h1 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h1><p>布尔类型通过关键字boolean来定义布尔类型变量只有true和false两个值,分别代表布尔逻辑的真和假,布尔值不能与整数类型<br>进行转换,</p>
 <h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>final 数据类型 常量名称</p>
 <h1 id="短路"><a href="#短路" class="headerlink" title="短路"></a>短路</h1><p>&amp;&amp;短路 &amp; 不短路</p>
 <h1 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h1><p>可以是字符串类型</p>
-<p>#foreach</p>
-<p>for(元素变量x:遍历对象obj) {<br>    引用了x的java语句<br>}</p>
+<h1 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h1><p>for(元素变量x:遍历对象obj) {<br>    引用了x的java语句<br>}</p>
 <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="字符串基本"><a href="#字符串基本" class="headerlink" title="字符串基本"></a>字符串基本</h2><ol>
 <li><p>创建</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a[] = &#123;</span><br><span class="line"><span class="string">'g'</span>,<span class="string">'o'</span>,<span class="string">'o'</span>,<span class="string">'d'</span></span><br><span class="line">&#125;;</span><br><span class="line">String s = <span class="keyword">new</span> String(a); <span class="comment">//good</span></span><br><span class="line">String s = <span class="keyword">new</span> String(a,<span class="number">2</span>,<span class="number">3</span>);<span class="comment">//od</span></span><br></pre></td></tr></table></figure>
@@ -517,7 +516,7 @@
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">indexOf(String s) <span class="comment">//返回首次出现的索引位置</span></span><br><span class="line">lastIndexOf <span class="comment">//最后一次出现索引位置</span></span><br></pre></td></tr></table></figure>
-<ol start="4">
+<ol>
 <li>指定索引位置的字符<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.charAt(<span class="keyword">int</span> index);  <span class="comment">//char</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -536,7 +535,7 @@
 </li>
 </ol>
 <p>//返回布尔</p>
-<ol start="5">
+<ol>
 <li><p>字符串相等<br>不能简单使用==因为比较运算符比较的是两个字符串的地址是否相同<br>equals()方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str.equals(String otherstr);</span><br><span class="line">str.equalsIgnoreCase(String otherstr);</span><br></pre></td></tr></table></figure>
 </li>
@@ -685,7 +684,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">145</span>
+                    <span class="site-state-item-count">149</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -895,8 +894,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
@@ -932,7 +929,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#布尔值"><span class="nav-number">1.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常量"><span class="nav-number">2.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短路"><span class="nav-number">3.</span> <span class="nav-text">短路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#switch"><span class="nav-number">4.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">5.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串基本"><span class="nav-number">5.1.</span> <span class="nav-text">字符串基本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串操作"><span class="nav-number">5.2.</span> <span class="nav-text">字符串操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化字符串"><span class="nav-number">5.3.</span> <span class="nav-text">格式化字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串生成器"><span class="nav-number">5.4.</span> <span class="nav-text">字符串生成器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">6.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#填充数组元素"><span class="nav-number">6.1.</span> <span class="nav-text">填充数组元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">6.2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制"><span class="nav-number">6.3.</span> <span class="nav-text">复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">6.4.</span> <span class="nav-text">查询</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型的长度"><span class="nav-number">1.</span> <span class="nav-text">数据类型的长度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布尔值"><span class="nav-number">2.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常量"><span class="nav-number">3.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#短路"><span class="nav-number">4.</span> <span class="nav-text">短路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#switch"><span class="nav-number">5.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#foreach"><span class="nav-number">6.</span> <span class="nav-text">foreach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">7.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串基本"><span class="nav-number">7.1.</span> <span class="nav-text">字符串基本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串操作"><span class="nav-number">7.2.</span> <span class="nav-text">字符串操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化字符串"><span class="nav-number">7.3.</span> <span class="nav-text">格式化字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串生成器"><span class="nav-number">7.4.</span> <span class="nav-text">字符串生成器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">8.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#填充数组元素"><span class="nav-number">8.1.</span> <span class="nav-text">填充数组元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">8.2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制"><span class="nav-number">8.3.</span> <span class="nav-text">复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">8.4.</span> <span class="nav-text">查询</span></a></li></ol></li></ol></div>
             
 
           </div>
