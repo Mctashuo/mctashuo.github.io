@@ -102,13 +102,13 @@
 
 
 
-  <meta name="description" content="最短路径问题图Consider a digraph G=(V,E) with edge-weight function w:E-&amp;gt;R. The weigth of path  $p=v{1}\rightarrow v{2}\rightarrow \ldots \rightarrow v_{k}$is defined to be W\left( p\right) =\sum ^{k-1}_{i">
+  <meta name="description" content="最短路径问题图Consider a digraph G=(V,E) with edge-weight function w:E-&amp;gt;R. The weigth of path  $p=v_{1}\rightarrow v_{2}\rightarrow \ldots \rightarrow v_{k}$is defined to be$$W\left( p\right) =\sum ^{k-1}">
 <meta name="keywords" content="路径">
 <meta property="og:type" content="article">
 <meta property="og:title" content="17最短路径算法">
 <meta property="og:url" content="https://www.mctashuo.cn/2018/11/11/ACM/CLR/17_路径问题/index.html">
 <meta property="og:site_name" content="Mctahuo">
-<meta property="og:description" content="最短路径问题图Consider a digraph G=(V,E) with edge-weight function w:E-&amp;gt;R. The weigth of path  $p=v{1}\rightarrow v{2}\rightarrow \ldots \rightarrow v_{k}$is defined to be W\left( p\right) =\sum ^{k-1}_{i">
+<meta property="og:description" content="最短路径问题图Consider a digraph G=(V,E) with edge-weight function w:E-&amp;gt;R. The weigth of path  $p=v_{1}\rightarrow v_{2}\rightarrow \ldots \rightarrow v_{k}$is defined to be$$W\left( p\right) =\sum ^{k-1}">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.mctashuo.cn/uploads/Johnson1-300x238.png">
 <meta property="og:image" content="https://www.mctashuo.cn/uploads/Johnson2-300x196.png">
@@ -116,7 +116,7 @@
 <meta property="og:updated_time" content="2018-12-11T11:29:55.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="17最短路径算法">
-<meta name="twitter:description" content="最短路径问题图Consider a digraph G=(V,E) with edge-weight function w:E-&amp;gt;R. The weigth of path  $p=v{1}\rightarrow v{2}\rightarrow \ldots \rightarrow v_{k}$is defined to be W\left( p\right) =\sum ^{k-1}_{i">
+<meta name="twitter:description" content="最短路径问题图Consider a digraph G=(V,E) with edge-weight function w:E-&amp;gt;R. The weigth of path  $p=v_{1}\rightarrow v_{2}\rightarrow \ldots \rightarrow v_{k}$is defined to be$$W\left( p\right) =\sum ^{k-1}">
 <meta name="twitter:image" content="https://www.mctashuo.cn/uploads/Johnson1-300x238.png">
 
 
@@ -511,8 +511,8 @@
       
 
       
-        <h1 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h1><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>Consider a digraph G=(V,E) with edge-weight function w:E-&gt;<strong>R</strong>. The <em>weigth</em> of path <em> $p=v<em>{1}\rightarrow v</em>{2}\rightarrow \ldots \rightarrow v_{k}$</em>is defined to be</p>
-<script type="math/tex; mode=display">W\left( p\right) =\sum ^{k-1}_{i=1}w\left( v_{i},v_{i+1}\right)</script><h2 id="Shortest-paths"><a href="#Shortest-paths" class="headerlink" title="Shortest paths"></a>Shortest paths</h2><p>A shortest path from u to v is a path of<br>minimum weight from u to v. The shortestpath weight from u to v is defined as<br>δ(u, v) = min{w(p) : p is a path from u to v}.<br>Note:  δ(u, v) = ∞ if no path from u to v exists.</p>
+        <h1 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h1><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>Consider a digraph G=(V,E) with edge-weight function w:E-&gt;<strong>R</strong>. The <em>weigth</em> of path <em> $p=v_{1}\rightarrow v_{2}\rightarrow \ldots \rightarrow v_{k}$</em>is defined to be<br>$$W\left( p\right) =\sum ^{k-1}<em>{i=1}w\left( v</em>{i},v_{i+1}\right)$$</p>
+<h2 id="Shortest-paths"><a href="#Shortest-paths" class="headerlink" title="Shortest paths"></a>Shortest paths</h2><p>A shortest path from u to v is a path of<br>minimum weight from u to v. The shortestpath weight from u to v is defined as<br>δ(u, v) = min{w(p) : p is a path from u to v}.<br>Note:  δ(u, v) = ∞ if no path from u to v exists.</p>
 <a id="more"></a>
 <h2 id="Optimal-substructure"><a href="#Optimal-substructure" class="headerlink" title="Optimal substructure"></a>Optimal substructure</h2><p>证明最优子结构是最优选择的组成部分，使用剪切法证明<br>Theorem. A subpath of a shortest path is a<br>shortest path<br>Proof. Cut and paste:</p>
 <h2 id="Triangle-inequality"><a href="#Triangle-inequality" class="headerlink" title="Triangle inequality"></a>Triangle inequality</h2><p>三角不等式，证明简单路径大于等于最短路径<br>Theorem. For all u, v, x ∈ V, we have<br>δ(u, v) ≤ δ(u, x) + δ(x, v).</p>
@@ -669,7 +669,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">152</span>
+                    <span class="site-state-item-count">158</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -879,7 +879,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">55</span>
+                      
+                    
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

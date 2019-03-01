@@ -374,6 +374,1188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/Vim/01.前言/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/Vim/01.前言/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">前言</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 22:18:54 / 修改时间：22:30:00" itemprop="dateCreated datePublished" datetime="2018-08-27T22:18:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/Vim/01.前言/" class="leancloud_visitors" data-flag-title="前言">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h3 id="编辑器的三个层次"><a href="#编辑器的三个层次" class="headerlink" title="编辑器的三个层次"></a>编辑器的三个层次</h3><ol>
+<li><p>Edit Notepad Gedit,垄断着你的大脑,并且已经根深蒂固,挥之不去,那么VIM的使用不是提高你的工作效率,而是降低,一场噩梦.</p>
+</li>
+<li><p>Editplus Notepad++ Ultraedit,是Windows上目前比较流行的3种文本编辑器,都支持多种编程语言,并且都可以进行语法着色,对于各个代码的编写者使用起来也是非常便利的.</p>
+</li>
+<li><p>如果是嵌入式方面的开发或编程,或者是在Linux服务器上写服务,基本上Windows所支持的编辑器都不能使用了.江湖传言:世界上的程序员分三种:一种使用Emacs,一种使用VIM,剩下就是使用其它的. Emacs是神的编辑器,Vim是编辑器之神,而我喜欢把Vim称为上古神器. </p>
+</li>
+<li><p>VIM是一种技能而不是一种知识,不要试图从本课程中获取任何什么知识.</p>
+</li>
+<li><p>在学习VIM时,不用贪图一下全部掌握众多的精致的技巧,而是最好看一条技巧后,马上在编辑器上进行操作,这样可以建立一种自然的反射,不是由头脑来搜索应</p>
+</li>
+</ol>
+<p>该使用哪个操作技巧.</p>
+<ol start="3">
+<li>Vim的目的只有一个,节省敲击键盘的次数,最好不用鼠标.</li>
+</ol>
+<p>1.3 VIM安装</p>
+<ol>
+<li>Linux</li>
+</ol>
+<p>a) Ubuntu Debian<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure></p>
+<p>b) Centos RedHat Fedora<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install vim</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>Windows</li>
+</ol>
+<p>Gvim  8.0.281.0</p>
+<p>1.4 VIM卸载</p>
+<ol>
+<li>Linux</li>
+</ol>
+<p>a) Ubuntu Debian<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove vim</span><br></pre></td></tr></table></figure></p>
+<p>b) Centos RedHat Fedora<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove vim</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>Windows</li>
+</ol>
+<p>控制面板-程序-更改或删除,软件管理软件.</p>
+<p>1.5 首次运行Vim</p>
+<ol>
+<li>Linux</li>
+</ol>
+<p>vim filename</p>
+<ol start="2">
+<li>Windows</li>
+</ol>
+<p>Gvim</p>
+<p>gvim filename</p>
+<p>1.6 Vim文档帮助手册 </p>
+<ol>
+<li><p>用户手册面向问题,可以像读一本书一样从头到尾的进行学习.</p>
+</li>
+<li><p>用户手册包含了VIM方方面面的细节.</p>
+</li>
+<li><p>中文帮助的手册的安装</p>
+</li>
+</ol>
+<p>a) :version</p>
+<p>b) Vim documentation chinese version下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://nchc.dl.sourceforge.net/project/vimcdoc/vimcdoc/vimcdoc-1.9.0.tar.gz</span><br><span class="line">tar -xzvf vimdoc-1.9.0.tar.gz</span><br><span class="line">./vimcdoc.sh -i</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>中英文帮助切换</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:set helplang=en</span><br><span class="line">:set helplang=cn</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>帮助主题(超级链接)之间的跳转:</li>
+</ol>
+<p>a) :help 打开帮助手册</p>
+<p>b) ctrl + ] 跳转到当前光标所在单词的对应的主题.</p>
+<p>c) ctrl + o 回到前一个主题.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/C++/悬空指针和野指针/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/C++面试/C++/悬空指针和野指针/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">悬空指针和野指针</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 22:12:54" itemprop="dateCreated datePublished" datetime="2018-08-27T22:12:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-06 16:37:36" itemprop="dateModified" datetime="2018-09-06T16:37:36+08:00">2018-09-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/C++面试/C++/悬空指针和野指针/" class="leancloud_visitors" data-flag-title="悬空指针和野指针">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>A dangling pointer is a pointer that used to point to a valid address but now no longer does. This is usually due to that memory location being freed up and no longer available. There is nothing wrong with having a dangling pointer unless you try to access the memory location pointed at by that pointer. It is always best practise not to have or leave dangling pointers.<br>空悬指针是这样一种指针：它曾经指向一个有效地址，但是现在不再指向有效地址（个人添加，其实就是原来的那块地址不能通过这个指针区访问了）。这通常是因为指针所指的内存单位被释放了并且不再有效了。空悬指针存在并没有什么问题，除非你尝试通过这个指针访问指向的地址空间。不遗留任何悬空指针总是最好的实践方式。<br>A wild pointer is a pointer that has not been correctly initialised and therefore points to some random piece of memory. It is a serious error to have wild pointers.<br>而野指针是这样一种指针：它没有被正确的初始化于是指向一个随机的内存地址。存在野指针是一个严重的错误</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/C++/内存泄漏/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/C++面试/C++/内存泄漏/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">内存泄漏</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 22:12:54" itemprop="dateCreated datePublished" datetime="2018-08-27T22:12:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-06 16:37:22" itemprop="dateModified" datetime="2018-09-06T16:37:22+08:00">2018-09-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/C++面试/C++/内存泄漏/" class="leancloud_visitors" data-flag-title="内存泄漏">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>什么是内存泄漏(Memory Leak)?<br>简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。</p>
+</li>
+<li><p>如何检测内存泄露<br>第一：良好的编码习惯，尽量在涉及内存的程序段，检测出内存泄露。当程式稳定之后，在来检测内存泄露时，无疑增加了排除的困难和复杂度。使用了内存分配的函数，一旦使用完毕,要记得要使用其相应的函数释放掉。<br>第二：将分配的内存的指针以链表的形式自行管理，使用完毕之后从链表中删除，程序结束时可检查改链表。</p>
+</li>
+</ol>
+<p>第三：Boost 中的smart pointer</p>
+<p>第四：一些常见的工具插件，如ccmalloc、Dmalloc、Leaky等等</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/算法/排序算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/C++面试/算法/排序算法/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">排序算法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 09:47:54" itemprop="dateCreated datePublished" datetime="2018-08-27T09:47:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-06 16:38:24" itemprop="dateModified" datetime="2018-09-06T16:38:24+08:00">2018-09-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/算法/排序/" itemprop="url" rel="index"><span itemprop="name">排序</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/C++面试/算法/排序算法/" class="leancloud_visitors" data-flag-title="排序算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/hustcc/JS-Sorting-Algorithm" target="_blank" rel="noopener">十大经典排序算法</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/服务器配置/在一个已经 “exit” 的docker容器中修改配置文件/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/服务器配置/在一个已经 “exit” 的docker容器中修改配置文件/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">在一个已经 “exit” 的docker容器中修改配置文件</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 09:22:54 / 修改时间：09:23:03" itemprop="dateCreated datePublished" datetime="2018-08-27T09:22:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/服务器配置/" itemprop="url" rel="index"><span itemprop="name">服务器配置</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/服务器配置/在一个已经 “exit” 的docker容器中修改配置文件/" class="leancloud_visitors" data-flag-title="在一个已经 “exit” 的docker容器中修改配置文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、运行命令 docker inspect [CONTAINER ID] ,可以找到如下的内容</p>
+<p>复制 MergedDir 中的路径，切换到对应的目录下，可以看到</p>
+<p>可以惊奇地发现前者的目录文件和直接进入容器中的可以看到的目录文件是一样的，这样我们就可以在前者中，也就是在容器已经 “exit” 的情况下，修改容器中的配置文件，比如 nginx 的话，就进入到 etc/nginx/ 下边去修改那个“忘记添加分号的” nginx.conf </p>
+<p><a href="https://blog.csdn.net/u011241780/article/details/79459074" target="_blank" rel="noopener">原文链接</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/服务器配置/Apache2.4安装SSL证书/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/27/服务器配置/Apache2.4安装SSL证书/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">Apache2.4安装SSL证书教程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-27 09:19:54 / 修改时间：09:21:22" itemprop="dateCreated datePublished" datetime="2018-08-27T09:19:54+08:00">2018-08-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/服务器配置/" itemprop="url" rel="index"><span itemprop="name">服务器配置</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/27/服务器配置/Apache2.4安装SSL证书/" class="leancloud_visitors" data-flag-title="Apache2.4安装SSL证书教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>从证书提供商获取CA证书</p>
+</li>
+<li><p>开启Ubuntu的OpenSSL，并使Apache加载SSL模块</p>
+</li>
+<li><p>配置conf文件，安装CA证书</p>
+</li>
+<li><p>加载Apache的ReWrite模式</p>
+</li>
+<li><p>增加.htaccess文件，同时配置Apache2.conf使其生效</p>
+</li>
+</ol>
+<p>安装ssl模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod ssl</span><br></pre></td></tr></table></figure>
+<p>Apache加载SSL模块后，会在/etc/apache2/sites-available下生成default-ssl.conf文件，我们在终端使用sudo权限，通过vi编辑器打开</p>
+<p><a href="https://blog.csdn.net/mgsky1/article/details/53844332" target="_blank" rel="noopener">原文链接</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/C++/malloc和new的区别/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -524,7 +1706,7 @@
 </li>
 </ol>
 <p>new operator 由两步构成，分别是 operator new 和 construct</p>
-<ol>
+<ol start="3">
 <li>operator new对应于malloc，但operator new可以重载，可以自定义内存分配策略，甚至不做内存分配，甚至分配到非内存设备上。而malloc无能为力</li>
 <li>new将调用constructor，而malloc不能；delete将调用destructor，而free不能。</li>
 <li>malloc/free要库文件支持，new/delete则不要。</li>
@@ -1158,1259 +2340,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++ Prime Plus/chapter11/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++ Prime Plus/chapter11/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">11 .使用类</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 09:05:13 / 修改时间：09:05:41" itemprop="dateCreated datePublished" datetime="2018-08-27T09:05:13+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++ Prime Plus/chapter11/" class="leancloud_visitors" data-flag-title="11 .使用类">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Time Time::<span class="keyword">operator</span> + (<span class="keyword">const</span> Time &amp;t) <span class="keyword">const</span> &#123;</span><br><span class="line">	Time sum;</span><br><span class="line">	sum.minutes = minutes + t.minutes;</span><br><span class="line">	sum.hours = hours + t. hours + sum.minutes / <span class="number">60</span>;</span><br><span class="line">	sum.minutes %= <span class="number">60</span>;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Time t1,t2;</span><br><span class="line">Time t3 = t1 + t2;</span><br><span class="line"><span class="comment">//调用相当于 t3 = operator + (t1,t2);</span></span><br></pre></td></tr></table></figure>
-<h2 id="重载限制"><a href="#重载限制" class="headerlink" title="重载限制"></a>重载限制</h2><p>1．重载后的运算符必须至少有一个操作数是用户定义的类型，这将防止用户为标准类型重载运算符。因此，不能将减法运算符（−）重载为计算两个double值的和，而不是它们的差。虽然这种限制将对创造性有所影响，但可以确保程序正常运行。</p>
-<p>2．使用运算符时不能违反运算符原来的句法规则。例如，不能将求模运算符（%）重载成使用一个操作数：<br>同样，不能修改运算符的优先级。因此，如果将加号运算符重载成将两个类相加，则新的运算符与原来的加号具有相同的优先级。</p>
-<p>3．不能创建新运算符。例如，不能定义operator **( )函数来表示求幂。<br>4．不能重载下面的运算符。</p>
-<p>sizeof：sizeof运算符。<br>.：成员运算符。<br>. *：成员指针运算符。<br>::：作用域解析运算符。<br>?:：条件运算符。<br>typeid：一个RTTI运算符。<br>const_cast：强制类型转换运算符。<br>dynamic_cast：强制类型转换运算符。<br>reinterpret_cast：强制类型转换运算符。<br>static_cast：强制类型转换运算符。<br>然而，表11.1中所有的运算符都可以被重载。</p>
-<p>5．表11.1中的大多数运算符都可以通过成员或非成员函数进行重载，但下面的运算符只能通过成员函数进行重载。</p>
-<p>=：赋值运算符。<br>( )：函数调用运算符。<br>[ ]：下标运算符。<br>-&gt;：通过指针访问类成员的运算符。</p>
-<h1 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h1><p>非成员函数不能直接访问类的私有数据，至少常规非成员函数不能访问。然而，有一类特殊的非成员函数可以访问类的私有成员，它们被称为友元函数。</p>
-<h2 id="创建友元"><a href="#创建友元" class="headerlink" title="创建友元"></a>创建友元</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> Time <span class="keyword">operator</span> * (<span class="keyword">double</span> m,<span class="keyword">const</span> Time &amp;t);</span><br></pre></td></tr></table></figure>
-<p>虽然operator <em>( )函数是在类声明中声明的，但它不是成员函数，因此不能使用成员运算符来调用；<br>虽然operator </em>( )函数不是成员函数，但它与成员函数的访问权限相同。<br>第二步是编写函数定义。因为它不是成员函数，所以不要使用Time::限定符。另外，不要在定义中使用关键字friend，</p>
-<h2 id="重载-lt-lt-运算符"><a href="#重载-lt-lt-运算符" class="headerlink" title="重载&lt;&lt;运算符"></a>重载&lt;&lt;运算符</h2><p>1．&lt;&lt;的第一种重载版本</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> &lt;&lt;(ostream &amp;os,<span class="keyword">const</span> Time &amp;t) &#123;</span><br><span class="line">	os&lt;&lt;t.hours&lt;&lt;<span class="string">"hours ."</span>&lt;&lt;t.minutes&lt;&lt;<span class="string">"minutes"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2．&lt;&lt;的第二种重载版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ostream &amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp; os,<span class="keyword">const</span> Time &amp; t) &#123;</span><br><span class="line">	os&lt;&lt;t.hours&lt;&lt;<span class="string">"hours"</span>&lt;&lt;t.minutex&lt;&lt;<span class="string">"minute"</span>;</span><br><span class="line">	<span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="重载运算符：作为成员函数还是非成员函数"><a href="#重载运算符：作为成员函数还是非成员函数" class="headerlink" title="重载运算符：作为成员函数还是非成员函数"></a>重载运算符：作为成员函数还是非成员函数</h2><h2 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> VECTOR&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Vector</span> &#123;</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="comment">//end namespace Vector</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">using</span> VECTOR::Vector;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h1><p>随机数。标准ANSI C库（C++也有）中有一个rand( )函数，它返回一个从0到某个值（取决于实现）之间的随机整数。该程序使用求模操作数来获得一个0～359的角度值。rand( )函数将一种算法用于一个初始种子值来获得随机数，该随机值将用作下一次函数调用的种子）依此类推。这些数实际上是伪随机数，因为10次连续的调用通常将生成10个同样的随机数（具体值取决于实现）。然而，srand( )函数允许覆盖默认的种子值，重新启动另一个随机数序列。该程序使用time（0）的返回值来设置种子。time（0）函数返回当前时间，通常为从某一个日期开始的秒数（更广义地，time( )接受time_t变量的地址，将时间放到该变量中，并返回它。将0用作地址参数，可以省略time_t变量声明）。<br>文件cstdlib（以前为stdlib.h）包含了srand( )和rand( )的原型，而ctime（以前是time.h）包含了time( )的原型。C++11使用头文件radom中的函数提供了更强大的随机数支持。</p>
-<h1 id="类的自动转换和强制类型转换"><a href="#类的自动转换和强制类型转换" class="headerlink" title="类的自动转换和强制类型转换"></a>类的自动转换和强制类型转换</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Stonewt(<span class="keyword">double</span> lbs);</span><br><span class="line">Stonewt Mycat;</span><br><span class="line">myCat = <span class="number">19.6</span>;</span><br><span class="line"><span class="comment">//构造函数作为转换函数</span></span><br><span class="line"><span class="comment">//只有一个参数的构造函数或者有默认参数才行</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">Stonewt</span><span class="params">(<span class="keyword">double</span> lbs)</span></span>;	<span class="comment">//关闭自动转换特性</span></span><br><span class="line"></span><br><span class="line">Stonewt myCat;</span><br><span class="line">myCat = <span class="number">19.6</span>;	<span class="comment">//not allow</span></span><br><span class="line">myCat = Stonewt(<span class="number">19.6</span>);  <span class="comment">//valid</span></span><br><span class="line">myCat = (Stonewt) <span class="number">19.6</span>;	<span class="comment">//old style</span></span><br></pre></td></tr></table></figure>
-<p>编译器在什么时候将使用Stonewt(double)函数呢？如果在声明中使用了关键字explicit，则Stonewt(double)将只用于显式强制类型转换，否则还可以用于下面的隐式转换。</p>
-<p>将Stonewt对象初始化为double值时。<br>将double值赋给Stonewt对象时。<br>将double值传递给接受Stonewt参数的函数时。<br>返回值被声明为Stonewt的函数试图返回double值时。<br>在上述任意一种情况下，使用可转换为double类型的内置类型时。</p>
-<h2 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h2><p>构造函数只用于从某种类型到类类型的转换。要进行相反的转换，必须使用特殊的C++运算符函数——转换函数。<br>创建转换函数呢？要转换为typeName类型，需要使用这种形式的转换函数：</p>
-<p>operator typeName();</p>
-<p>请注意以下几点：</p>
-<ul>
-<li>转换函数必须是类方法；</li>
-<li>转换函数不能指定返回类型；</li>
-<li>转换函数不能有参数。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line"></span><br><span class="line">STonewt::<span class="function"><span class="keyword">operator</span> <span class="title">int</span> <span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">int</span> (pounds + <span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>应谨慎地使用隐式转换函数。通常，最好选择仅在被显式地调用时才会执行的函数。<br>总之，C++为类提供了下面的类型转换。</p>
-<ul>
-<li>只有一个参数的类构造函数用于将类型与该参数相同的值转换为类类型。例如，将int值赋给Stonewt对象时，接受int参数的Stonewt类构造函数将自动被调用。然而，在构造函数声明中使用explicit可防止隐式转换，而只允许显式转换。</li>
-<li>被称为转换函数的特殊类成员运算符函数，用于将类对象转换为其他类型。转换函数是类成员，没有返回类型、没有参数、名为operator typeName( )，其中，typeName是对象将被转换成的类型。将类对象赋给typeName变量或将其强制转换为typeName类型时，该转换函数将自动被调用。</li>
-</ul>
-<h3 id="转换和友元函数"><a href="#转换和友元函数" class="headerlink" title="转换和友元函数"></a>转换和友元函数</h3><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>一般来说，访问私有类成员的唯一方法是使用类方法。C++使用友元函数来避开这种限制。要让函数成为友元，需要在类声明中声明该函数，并在声明前加上关键字friend。</p>
-<p>C++扩展了对运算符的重载，允许自定义特殊的运算符函数，这种函数描述了特定的运算符与类之间的关系。运算符函数可以是类成员函数，也可以是友元函数（有一些运算符函数只能是类成员函数）。要调用运算符函数，可以直接调用该函数，也可以以通常的句法使用被重载的运算符。对于运算符op，其运算符函数的格式如下：<br><code>operatorop (argument-list)</code><br>argument-list表示该运算符的操作数。如果运算符函数是类成员函数，则第一个操作数是调用对象，它不在argument-list中。例如，本章通过为Vector类定义operator +( )成员函数重载了加法。如果up、right和result都是Vector对象，则可以使用下面的任何一条语句来调用矢量加法：<br><code>result = up.operator + (right);</code><br><code>result = up + right;</code><br>在第二条语句中，由于操作数up和right的类型都是Vector，因此C++将使用Vector的加法定义。</p>
-<p>当运算符函数是成员函数时，则第一个操作数将是调用该函数的对象。例如，在前面的语句中，up对象是调用函数的对象。定义运算符函数时，如果要使其第一个操作数不是类对象，则必须使用友元函数。这样就可以将操作数按所需的顺序传递给函数了。</p>
-<p>最常见的运算符重载任务之一是定义&lt;&lt;运算符，使之可与cout一起使用，来显示对象的内容。要让ostream对象成为第一个操作数，需要将运算符函数定义为友元；要使重新定义的运算符能与其自身拼接，需要将返回类型声明为ostream &amp;。下面的通用格式能够满足这种要求：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ostream &amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp; os,<span class="keyword">const</span> c_name &amp; obj) &#123;</span><br><span class="line">	os&lt;&lt;...;</span><br><span class="line">	<span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然而，如果类包含这样的方法，它返回需要显示的数据成员的值，则可以使用这些方法，无需在operator&lt;&lt;( )中直接访问这些成员。在这种情况下，函数不必（也不应当）是友元。</p>
-<p>C++允许指定在类和基本类型之间进行转换的方式。首先，任何接受唯一一个参数的构造函数都可被用作转换函数，将类型与该参数相同的值转换为类。如果将类型与该参数相同的值赋给对象，则C++将自动调用该构造函数。例如，假设有一个String类，它包含一个将char <em>值作为其唯一参数的构造函数，那么如果bean是String对象，则可以使用下面的语句：<br>`bean = “pinto”;//converts type char </em> to type string<code>然而，如果在该构造函数的声明前加上了关键字explicit，则该构造函数将只能用于显式转换：</code>bean = String(“pinto”); //converts type char * to type string explicitly`</p>
-<p>要将类对象转换为其他类型，必须定义转换函数，指出如何进行这种转换。转换函数必须是成员函数。将类对象转换为typeName类型的转换函数的原型如下：<br><code>operator typeName();</code><br>注意，转换函数没有返回类型、没有参数，但必须返回转换后的值（虽然没有声明返回类型）。例如，下面是将Vector转换为double类型的函数：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vector::<span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a_double_value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>经验表明，最好不要依赖于这种隐式转换函数。</p>
-<p>您可能已经注意到了，与简单的C-风格结构相比，使用类时，必须更谨慎、更小心，但作为补偿，它们为我们完成的工作也更多。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/计算机网络/TCP的三次握手/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++面试/计算机网络/TCP的三次握手/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">TCP的三次握手和四次分手</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 08:27:54" itemprop="dateCreated datePublished" datetime="2018-08-27T08:27:54+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-06 16:39:11" itemprop="dateModified" datetime="2018-09-06T16:39:11+08:00">2018-09-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++面试/计算机网络/TCP的三次握手/" class="leancloud_visitors" data-flag-title="TCP的三次握手和四次分手">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://github.com/jawil/blog/issues/14" target="_blank" rel="noopener">TCP的三次握手和四次分手</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/27/C++面试/计算机网络/TCP和UDP的区别/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/27/C++面试/计算机网络/TCP和UDP的区别/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">TCP和UDP的区别</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-27 08:11:54" itemprop="dateCreated datePublished" datetime="2018-08-27T08:11:54+08:00">2018-08-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-06 16:38:56" itemprop="dateModified" datetime="2018-09-06T16:38:56+08:00">2018-09-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/C++面试/计算机网络/TCP和UDP的区别/" class="leancloud_visitors" data-flag-title="TCP和UDP的区别">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>TCP和UDP区别<br><img src="/uploads/tcp_udp区别.jpg" alt="tcp和udp的区别"><br>TCP协议和UDP协议特性区别总结：</p>
-<ol>
-<li>TCP协议在传送数据段的时候要给段标号；UDP协议不</li>
-<li>TCP协议可靠；UDP协议不可靠</li>
-<li>TCP协议是面向连接；UDP协议采用无连接</li>
-<li>TCP协议负载较高，采用虚电路；UDP采用无连接</li>
-<li>TCP协议的发送方要确认接收方是否收到数据段（3次握手协议）</li>
-<li>TCP协议采用窗口技术和流控制<br>OSI 和 TCP/IP 模型在传输层定义两种传输协议：TCP（或传输控制协议）和 UDP（或用户数据报协议）。<br>UDP<br> UDP 与 TCP 的主要区别在于 UDP 不一定提供可靠的数据传输。事实上，该协议不能保证数据准确无误地到达目的地。UDP 在许多方面非常有效。当某个程序的目标是尽快地传输尽可能多的信息时（其中任意给定数据的重要性相对较低），可使用 UDP。ICQ 短消息使用 UDP 协议发送消息。<br> 许多程序将使用单独的TCP连接和单独的UDP连接。重要的状态信息随可靠的TCP连接发送，而主数据流通过UDP发送。<br>TCP<br> TCP的目的是提供可靠的数据传输，并在相互进行通信的设备或服务之间保持一个虚拟连接。TCP在数据包接收无序、丢失或在交付期间被破坏时，负责数据恢复。它通过为其发送的每个数据包提供一个序号来完成此恢复。记住，较低的网络层会将每个数据包视为一个独立的单元，因此，数据包可以沿完全不同的路径发送，即使它们都是同一消息的组成部分。这种路由与网络层处理分段和重新组装数据包的方式非常相似，只是级别更高而已。<br> 为确保正确地接收数据，TCP要求在目标计算机成功收到数据时发回一个确认（即 ACK）。如果在某个时限内未收到相应的 ACK，将重新传送数据包。如果网络拥塞，这种重新传送将导致发送的数据包重复。但是，接收计算机可使用数据包的序号来确定它是否为重复数据包，并在必要时丢弃它。<br>TCP与UDP的选择<br> 如果比较UDP包和TCP包的结构，很明显UDP包不具备TCP包复杂的可靠性与控制机制。与TCP协议相同，UDP的源端口数和目的端口数也都支持一台主机上的多个应用。一个16位的UDP包包含了一个字节长的头部和数据的长度，校验码域使其可以进行整体校验。（许多应用只支持UDP，如：多媒体数据流，不产生任何额外的数据，即使知道有破坏的包也不进行重发。）<br> 很明显，当数据传输的性能必须让位于数据传输的完整性、可控制性和可靠性时，TCP协议是当然的选择。当强调传输性能而不是传输的完整性时，如：音频和多媒体应用，UDP是最好的选择。在数据传输时间很短，以至于此前的连接过程成为整个流量主体的情况下，UDP也是一个好的选择，如：DNS交换。把SNMP建立在UDP上的部分原因是设计者认为当发生网络阻塞时，UDP较低的开销使其有更好的机会去传送管理数据。TCP丰富的功能有时会导致不可预料的性能低下，但是我们相信在不远的将来，TCP可靠的点对点连接将会用于绝大多数的网络应用。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/23/C++ Prime Plus/chapter16/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/23/C++ Prime Plus/chapter16/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">16.string类和标准模板库</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-23 11:00:51" itemprop="dateCreated datePublished" datetime="2018-08-23T11:00:51+08:00">2018-08-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-27 23:31:11" itemprop="dateModified" datetime="2018-08-27T23:31:11+08:00">2018-08-27</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/23/C++ Prime Plus/chapter16/" class="leancloud_visitors" data-flag-title="16.string类和标准模板库">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="string类"><a href="#string类" class="headerlink" title="string类"></a>string类</h1><p>string版本的getline( )函数从输入中读取字符，并将其存储到目标string中，直到发生下列三种情况之一：</p>
-<ul>
-<li>到达文件尾，在这种情况下，输入流的eofbit将被设置，这意味着方法fail( )和eof( )都将返回true；</li>
-<li>遇到分界字符（默认为\n），在这种情况下，将把分界字符从输入流中删除，但不存储它；<br>读取的字符数达到最大允许值（string::npos和可供分配的内存字节数中较小的一个），在这种情况下，将设置输入流的failbit，这意味着方法fail( )将返回true。</li>
-<li>输入流对象有一个统计系统，用于跟踪流的错误状态。在这个系统中，检测到文件尾后将设置eofbit寄存器，检测到输入错误时将设置failbit寄存器，出现无法识别的故障（如硬盘故障）时将设置badbit寄存器，一切顺利时将设置goodbit寄存器。</li>
-</ul>
-<p>string版本的operator&gt;&gt;( )函数的行为与此类似，只是它不断读取，直到遇到空白字符并将其留在输入队列中，而不是不断读取，直到遇到分界字符并将其丢弃。空白字符指的是空格、换行符和制表符，更普遍地说，是任何将其作为参数来调用isspace( )时，该函数返回ture的字符。</p>
-<h2 id="string-方法"><a href="#string-方法" class="headerlink" title="string 方法"></a>string 方法</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法原型</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>size_type find(const string &amp; str, size_type pos = 0)const</code></td>
-<td style="text-align:center">从字符串的pos位置开始，查找子字符串str。如果找到，则返回该子字符串首次出现时其首字符的索引；否则，返回string :: npos</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>size_type find(const char * s, size_type pos = 0)const</code></td>
-<td style="text-align:center">从字符串的pos位置开始，查找子字符串s。如果找到，则返回该子字符串首次出现时其首字符的索引；否则，返回string :: npos</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>size_type find(const char * s, size_type pos = 0, size_type n)</code></td>
-<td style="text-align:center">从字符串的pos位置开始，查找s的前n个字符组成的子字符串。如果找到，则返回该子字符串首次出现时其首字符的索引；否则，返回string :: npos</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>size_type find(char ch, size_type pos = 0)const</code></td>
-<td style="text-align:center">从字符串的pos位置开始，查找字符ch。如果找到，则返回该字符首次出现的位置；否则，返回string :: npos</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>string库还提供了相关的方法：rfind( )、find_first_of( )、find_last_of( )、find_first_not_of( )和find_last_not_of( )，它们的重载函数特征标都与find( )方法相同。rfind( )方法查找子字符串或字符最后一次出现的位置；find_first_of( )方法在字符串中查找参数中任何一个字符首次出现的位置。</p>
-<p>find_last_of( )方法的功能与此相同，只是它查找的是最后一次出现的位置。<br>find_first_not_of( )方法在字符串中查找第一个不包含在参数中的字符</p>
-<h2 id="string-的其他功能"><a href="#string-的其他功能" class="headerlink" title="string 的其他功能"></a>string 的其他功能</h2><p>string库提供了很多其他的工具，包括完成下述功能的函数：删除字符串的部分或全部内容、用一个字符串的部分或全部内容替换另一个字符串的部分或全部内容、将数据插入到字符串中或删除字符串中的数据、将一个字符串的部分或全部内容与另一个字符串的部分或全部内容进行比较、从字符串中提取子字符串、将一个字符串中的内容复制到另一个字符串中、交换两个字符串的内容。</p>
-<h2 id="自动调整大小"><a href="#自动调整大小" class="headerlink" title="自动调整大小"></a>自动调整大小</h2><p>每当程序将一个字母附加到字符串末尾时将发生什么呢？不能仅仅将已有的字符串加大，因为相邻的内存可能被占用了。因此，可能需要分配一个新的内存块，并将原来的内容复制到新的内存单元中。如果执行大量这样的操作，效率将非常低，因此很多C++实现分配一个比实际字符串大的内存块，为字符串提供了增大空间。然而，如果字符串不断增大，超过了内存块的大小，程序将分配一个大小为原来两倍的新内存块，以提供足够的增大空间，避免不断地分配新的内存块。方法capacity( )返回当前分配给字符串的内存块的大小，而reserve( )方法让您能够请求内存块的最小长度。</p>
-<h2 id="字符串种类"><a href="#字符串种类" class="headerlink" title="字符串种类"></a>字符串种类</h2><h1 id="智能指针模板类"><a href="#智能指针模板类" class="headerlink" title="智能指针模板类"></a>智能指针模板类</h1><h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2><p>三个智能指针模板（auto_ptr、unique_ptr和shared_ptr）都定义了类似指针的对象，可以将new获得（直接或间接）的地址赋给这种对象。当智能指针过期时，其析构函数将使用delete来释放内存。因此，如果将new返回的地址赋给这些对象，将无需记住稍后释放这些内存：在智能指针过期时，这些内存将自动被释放。<br>要创建智能指针对象，必须包含头文件memory，该文件模板定义。然后使用通常的模板语法来实例化所需类型的指针。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="keyword">double</span>&gt; pd(<span class="keyword">new</span> <span class="keyword">double</span>);</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; ps(<span class="keyword">new</span> <span class="built_in">string</span>);</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="keyword">double</span>&gt; pdu(<span class="keyword">new</span> <span class="keyword">double</span>);</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; pss(<span class="keyword">new</span> <span class="built_in">string</span>);</span><br></pre></td></tr></table></figure></p>
-<p>智能指针模板位于名称空间std中<br>所有智能指针类都一个explicit构造函数，该构造函数将指针作为参数。因此不需要自动将指针转换为智能指针对象：</p>
-<p>下面代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; ps (<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"I reigned lonely as a cloud."</span>));</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; vocation;</span><br><span class="line">vocation = ps;</span><br></pre></td></tr></table></figure></p>
-<p>如果ps和vocation是常规指针，则两个指针将指向同一个string对象。这是不能接受的，因为程序将试图删除同一个对象两次——一次是ps过期时，另一次是vocation过期时。要避免这种问题，方法有多种。</p>
-<ul>
-<li>定义赋值运算符，使之执行深复制。这样两个指针将指向不同的对象，其中的一个对象是另一个对象的副本。</li>
-<li>建立所有权（ownership）概念，对于特定的对象，只能有一个智能指针可拥有它，这样只有拥有对象的智能指针的构造函数会删除该对象。然后，让赋值操作转让所有权。这就是用于auto_ptr和unique_ptr的策略，但unique_ptr的策略更严格。</li>
-<li>创建智能更高的指针，跟踪引用特定对象的智能指针数。这称为引用计数（reference counting）。例如，赋值时，计数将加1，而指针过期时，计数将减1。仅当最后一个指针过期时，才调用delete。这是shared_ptr采用的策略。<br>当然，同样的策略也适用于复制构造函数。</li>
-</ul>
-<h2 id="auto-ptr的问题"><a href="#auto-ptr的问题" class="headerlink" title="auto_ptr的问题"></a>auto_ptr的问题</h2><p><code>pwin = filem[2];//film[2] loses ownership</code><br>这导致films[2]不再引用该字符串。在auto_ptr放弃对象的所有权后，便可能使用它来访问该对象。当程序打印films[2]指向的字符串时，却发现这是一个空指针，这显然讨厌的意外。<br>这导致films[2]不再引用该字符串。在auto_ptr放弃对象的所有权后，便可能使用它来访问该对象。当程序打印films[2]指向的字符串时，却发现这是一个空指针，这显然讨厌的意外。</p>
-<p>有时候，将一个智能指针赋给另一个并不会留下危险的悬挂指针。假设有如下函数定义：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; demo(<span class="keyword">const</span> <span class="keyword">char</span> * s) &#123;</span><br><span class="line">    <span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; temp&lt;<span class="keyword">new</span> <span class="built_in">string</span>(s)&gt;;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; ps;</span><br><span class="line">ps = demp(<span class="string">"uniquely special"</span>);</span><br></pre></td></tr></table></figure>
-<p>demo( )返回一个临时unique_ptr，然后ps接管了原本归返回的unique_ptr所有的对象，而返回的unique_ptr被销毁。这没有问题，因为ps拥有了string对象的所有权。但这里的另一个好处是，demo( )返回的临时unique_ptr很快被销毁，没有机会使用它来访问无效的数据。换句话说，没有理由禁止这种赋值。神奇的是，编译器确实允许这种赋值！</p>
-<p>程序试图将一个unique_ptr赋给另一个时，如果源unique_ptr是个临时右值，编译器允许这样做；如果源unique_ptr将存在一段时间，编译器将禁止这样做：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; pul(<span class="keyword">new</span> <span class="built_in">string</span> <span class="string">"Hi ho!"</span>);</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; pu2;</span><br><span class="line">pu2 = pu1; <span class="comment">//#1 not allowed</span></span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; pu3;</span><br><span class="line">pu3 = nuique_ptr&lt;<span class="built_in">string</span>&gt; (<span class="keyword">new</span> <span class="built_in">string</span> <span class="string">"Yo:!"</span>);   <span class="comment">//allowed</span></span><br></pre></td></tr></table></figure></p>
-<p>当然，您可能确实想执行类似于语句#1的操作。仅当以非智能的方式使用遗弃的智能指针（如解除引用时），这种赋值才不安全。要安全地重用这种指针，可给它赋新值。C++有一个标准库函数std::move( )，让您能够将一个unique_ptr赋给另一个。下面是一个使用前述demo( )函数的例子，该函数返回一个unique_ptr<string>对象：</string></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; ps1,ps2;</span><br><span class="line">ps1 = demo(<span class="string">"Uniquely special"</span>);</span><br><span class="line">ps2 = move(ps1);</span><br><span class="line">ps1 = demo(<span class="string">"and more"</span>);</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;*ps1&lt;&lt;*ps2&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-<p>相比于auto_ptr，unique_ptr还有另一个优点。它有一个可用于数组的变体。别忘了，必须将delete和new配对，将delete []和new [ ]配对。模板auto_ptr使用delete而不是delete [ ]，因此只能与new一起使用，而不能与new [ ]一起使用。</p>
-<p><em>警告</em> </p>
-<p>使用new分配内存时，才能使用auto_ptr和shared_ptr，使用new [ ]分配内存时，不能使用它们。不使用new分配内存时，不能使用auto_ptr或shared_ptr；不使用new或new []分配内存时，不能使用unique_ptr。</p>
-<h2 id="选择智能指针"><a href="#选择智能指针" class="headerlink" title="选择智能指针"></a>选择智能指针</h2><p>如果程序要使用多个指向同一个对象的指针，应选择shared_ptr。这样的情况包括：有一个指针数组，并使用一些辅助指针来标识特定的元素，如最大的元素和最小的元素；两个对象包含都指向第三个对象的指针；STL容器包含指针。很多STL算法都支持复制和赋值操作，这些操作可用于shared_ptr，但不能用于unique_ptr（编译器发出警告）和auto_ptr（行为不确定）。如果您的编译器没有提供shared_ptr，可使用Boost库提供的shared_ptr。</p>
-<h1 id="标准模板库"><a href="#标准模板库" class="headerlink" title="标准模板库"></a>标准模板库</h1><p>STL提供了一组表示容器、迭代器、函数对象和算法的模板。容器是一个与数组类似的单元，可以存储若干个值。STL容器是同质的，即存储的值的类型相同；算法是完成特定任务（如对数组进行排序或在链表中查找特定值）的处方；迭代器能够用来遍历容器的对象，与能够遍历数组的指针类似，是广义指针；函数对象是类似于函数的对象，可以是类对象或函数指针（包括函数名，因为函数名被用作指针）。STL使得能够构造各种容器（包括数组、队列和链表）和执行各种操作（包括搜索、排序和随机排列）。</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>要创建vector模板对象，可使用通常的<type>表示法来指出要使用的类型。另外，vector模板使用动态内存分配，因此可以用初始化参数来指出需要多少矢量：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ratings(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; scores(n);</span><br></pre></td></tr></table></figure></type></p>
-<p>除分配存储空间外，vector模板还可以完成哪些任务呢？所有的STL容器都提供了一些基本方法，其中包括size( )——返回容器中元素数目、swap( )——交换两个容器的内容、begin( )——返回一个指向容器中第一个元素的迭代器、end( )——返回一个表示超过容器尾的迭代器。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vecotr&lt;<span class="keyword">double</span>&gt;::iterator pd;    <span class="comment">//pd an iterator</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(pd = scores.begin();pd != scores.end();pd++)</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;*pd&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
-<p>push_back()方法将元素添加到末尾</p>
-<p>下述代码删除第一个和第二个元素，即删除begin( )和begin( )+1指向的元素（由于vector提供了随机访问功能，因此vector类迭代器定义了诸如begin( )+2等操作）：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socres.erase(scores.begin(),scores.begin() +<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
-<p>insert( )方法的功能与erase( )相反。它接受3个迭代器参数，第一个参数指定了新元素的插入位置，第二个和第三个迭代器参数定义了被插入区间，该区间通常是另一个容器对象的一部分。例如，下面的代码将矢量new_v中除第一个元素外的所有元素插入到old_v矢量的第一个元素前面：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; old_v;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; new_v;</span><br><span class="line"></span><br><span class="line">old_v.insert(old_v.begin(),new_v.begin()+<span class="number">1</span>,new_v.end());</span><br></pre></td></tr></table></figure></p>
-<p>超尾</p>
-<h1 id="对矢量的其他操作"><a href="#对矢量的其他操作" class="headerlink" title="对矢量的其他操作"></a>对矢量的其他操作</h1><p>即使有执行相同任务的非成员函数，STL有时也会定义一个成员函数。这是因为对有些操作来说，类特定算法的效率比通用算法高，因此，vector的成员函数swap( )的效率比非成员函数swap( )高，但非成员函数让您能够交换两个类型不同的容器的内容。</p>
-<p>3个具有代表性的STL函数：for_each( )、random_shuffle( )和sort( )。for_each( )函数可用于很多容器类，它接受3个参数。前两个是定义容器中区间的迭代器，最后一个是指向函数的指针（更普遍地说，最后一个参数是一个函数对象，函数对象将稍后介绍）。for_each( )函数将被指向的函数应用于容器区间中的各个元素。被指向的函数不能修改容器元素的值。可以用for_each( )函数来代替for循环。</p>
-<p>如果容器元素是用户定义的对象，则要使用sort( )，必须定义能够处理该类型对象的operator&lt;( )函数。例如，如果为Review提供了成员或非成员函数operator&lt;( )，则可以对包含Review对象的矢量进行排序。由于Review是一个结构，因此其成员是公有的，这样的非成员函数将为：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Review &amp; r1,<span class="keyword">const</span> Review &amp;r2) &#123;</span><br><span class="line">    <span class="keyword">if</span>(r1.title &lt; r2.title)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(r1.title == r2.title &amp;&amp; r1.rating &lt; r2.ratig) </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有了这样的函数后，就可以对包含Review对象（如books）的矢量进行排序了：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(books.begin(),books.end());</span><br></pre></td></tr></table></figure>
-<p>可以使用另一种格式的sort( )。它接受3个参数，前两个参数也是指定区间的迭代器，最后一个参数是指向要使用的函数的指针（函数对象），而不是用于比较的operator&lt;( )。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">WorseThan</span><span class="params">(<span class="keyword">const</span> Review &amp; r1,<span class="keyword">const</span> Review &amp; r2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(r1.rating &lt; r2.rating)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(books.begin(),books.end(),worsethan);</span><br></pre></td></tr></table></figure>
-<h2 id="基于范围的for循环"><a href="#基于范围的for循环" class="headerlink" title="基于范围的for循环"></a>基于范围的for循环</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for_each(books.begin(),books.end(),showReview());</span><br><span class="line"><span class="comment">//可将其替换为下述基于范围的for循环</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> x:books) showReview(x);</span><br></pre></td></tr></table></figure>
-<p>不同于for_each( )，基于范围的for循环可修改容器的内容，诀窍是指定一个引用参数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> InflateReview&#123;Review &amp;r)&#123;r.rating++&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:books) InflateReview(x0;</span><br></pre></td></tr></table></figure></p>
-<h1 id="泛型编程"><a href="#泛型编程" class="headerlink" title="泛型编程"></a>泛型编程</h1><p>模板使得算法独立于存储的数据类型，而迭代器使算法独立于使用的容器类型。</p>
-<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><h3 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h3><h3 id="概念改进和模型"><a href="#概念改进和模型" class="headerlink" title="概念改进和模型"></a>概念改进和模型</h3><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p>复杂度</p>
-<ul>
-<li>编译时间</li>
-<li>固定时间</li>
-<li>线性时间<br>类型</li>
-</ul>
-<ol>
-<li>vector<br>简单地说，vector是数组的一种类表示，它提供了自动内存管理功能，可以动态地改变vector对象的长度，并随着元素的添加和删除而增大和缩小。它提供了对元素的随机访问。在尾部添加和删除元素的时间是固定的，但在头部或中间插入和删除元素的复杂度为线性时间。<br>vector还是可反转容器（reversible container）概念的模型<br>两个类方法：rbegin( )和rend( )，前者返回一个指向反转序列的第一个元素的迭代器，后者返回反转序列的超尾迭代器。</li>
-<li>deque<br>deque模板类（在deque头文件中声明）表示双端队列（double-ended queue），通常被简称为deque。在STL中，其实现类似于vector容器，支持随机访问。主要区别在于，从deque对象的开始位置插入和删除元素的时间是固定的，而不像vector中那样是线性时间的。所以，如果多数操作发生在序列的起始和结尾处，则应考虑使用deque数据结构。为实现在deque两端执行插入和删除操作的时间为固定的这一目的，deque对象的设计比vector对象更为复杂。因此，尽管二者都提供对元素的随机访问和在序列中部执行线性时间的插入和删除操作，但vector容器执行这些操作时速度要快些。</li>
-<li>list<br>list模板类（在list头文件中声明）表示双向链表。除了第一个和最后一个元素外，每个元素都与前后的元素相链接，这意味着可以双向遍历链表。list和vector之间关键的区别在于，list在链表中任一位置进行插入和删除的时间都是固定的（vector模板提供了除结尾处外的线性时间的插入和删除，在结尾处，它提供了固定时间的插入和删除）。因此，vector强调的是通过随机访问进行快速访问，而list强调的是元素的快速插入和删除。与vector相似，list也是可反转容器。与vector不同的是，list不支持数组表示法和随机访问。与矢量迭代器不同，从容器中插入或删除元素之后，链表迭代器指向元素将不变。</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span> <span class="comment">//使用&lt;操作符来比较</span></span></span><br></pre></td></tr></table></figure>
-<p><img src="/uploads/list_成员函数.jpg" alt="list常用函数"></p>
-<ol>
-<li><p>forward_list(C++11)<br>单链表</p>
-</li>
-<li><p>queue<br>队列的基本操作<br>不允许随机访问,不允许遍历</p>
-</li>
-<li>priority_queue<br>支持的操作和queue相同.区别在于,最大的元素被移到队首,内部区别,默认底层是vector.</li>
-<li>stack<br>不允许随机访问.不允许遍历</li>
-<li>array<br>非容器</li>
-</ol>
-<h1 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h1><p>4种关联容器<br>set multiset map multimap</p>
-<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>关联集合,可反转,可排序,且键是唯一的,不能存储多个相同的值与vector和list相似,set也使用模板参数来指定要存储的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set&lt;string&gt; A;</span><br><span class="line">set&lt;string less&lt;string&gt; &gt; A;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">6</span>;</span><br><span class="line"><span class="built_in">string</span> s1[N] = &#123;<span class="string">"buffoon"</span>,<span class="string">"thinkers"</span>,<span class="string">"for"</span>,<span class="string">"heavy"</span>,<span class="string">"can"</span>,<span class="string">"for"</span>&#125;;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; A(s1,s1 + N);</span><br><span class="line">ostream_iterator&lt;<span class="built_in">string</span>,<span class="keyword">char</span>&gt; out(<span class="built_in">cout</span>,<span class="string">" "</span>);</span><br><span class="line">copy(A.begin(),A.end(),out);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buffoon can for heavy thinkers</span><br></pre></td></tr></table></figure>
-<h2 id="multimap"><a href="#multimap" class="headerlink" title="multimap"></a>multimap</h2><p>与set相似,multimap也是可以反转,经过排序的关联容器,但键和值的类型不同.且一个键可能和多个值相关联.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">multimap&lt;int,string&gt; codes;</span><br><span class="line">pair&lt;const int,string&gt; item(213,&quot;Los Angeles&quot;);</span><br><span class="line">codes.insert(item);</span><br></pre></td></tr></table></figure>
-<p>数据项按键排序<br>对于pair对象可以使用first和second来访问其两个部分</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/23/C++ Prime Plus/chapter14/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/23/C++ Prime Plus/chapter14/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">14. C++中的代码重用</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-23 10:55:03 / 修改时间：11:00:40" itemprop="dateCreated datePublished" datetime="2018-08-23T10:55:03+08:00">2018-08-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/23/C++ Prime Plus/chapter14/" class="leancloud_visitors" data-flag-title="14. C++中的代码重用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/08/22/linux/git/git-clone-加速/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/22/linux/git/git-clone-加速/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/15/index.html">git_clone_加速</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-22 23:25:51" itemprop="dateCreated datePublished" datetime="2018-08-22T23:25:51+08:00">2018-08-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-06 16:39:37" itemprop="dateModified" datetime="2018-09-06T16:39:37+08:00">2018-09-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/linux/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/22/linux/git/git-clone-加速/" class="leancloud_visitors" data-flag-title="git_clone_加速">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>git clone 特别慢是因为github.global.ssl.fastly.Net域名被限制了。只要找到这个域名对应的ip地址，然后在hosts文件中加上ip–&gt;域名的映射，刷新DNS缓存就可以了：<br>1.查找ip：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup github.global.ssl.fastly.Net。</span><br></pre></td></tr></table></figure></p>
-<p>要的就是Address的ip（151. ｘｘｘｘ）<br>２、打开hosts文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/hosts</span><br></pre></td></tr></table></figure></p>
-<p>2.在该文件末尾空一行填入<br>151.xxx github.global.ssl.fastly.net<br>github.com 上有两种源码获取方式，一是 git clone，一是直接下载 master.zip，后者明显速度快于前者，可以考虑；<br>1）用 proxychains 这类透明代理，间接走系统中运行的代理工具中转；<br>2）用 git 内置代理，直接走系统中运行的代理工具中转，比如，你的 SS 本地端口是 1080，那么可以如下方式走代理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure></p>
-<p>也可以如下方式停走代理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">""</span></span><br><span class="line">git config --global https.proxy <span class="string">""</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2460,7 +2389,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">152</span>
+                    <span class="site-state-item-count">158</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2670,7 +2599,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">55</span>
+                      
+                    
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
