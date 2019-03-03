@@ -499,8 +499,7 @@
 <p>[<br>     [2],<br>    [3,4],<br>   [6,5,7],<br>  [4,1,8,3]<br>]<br>The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</p>
 <p>Note:</p>
 <p>Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.<br><a id="more"></a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> height = triangle.size();</span><br><span class="line">        <span class="keyword">if</span>(height == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(height+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = height<span class="number">-1</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>,len = triangle.size();j &lt; len;j++) &#123;</span><br><span class="line">                dp[j] = min(dp[j],dp[j+<span class="number">1</span>]) + triangle[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<pre><code class="python">
-</code></pre>
+<p><code>python</code></p>
 
       
     </div>
@@ -606,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">159</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -818,7 +817,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">56</span>
+                      
+                    
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

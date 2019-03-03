@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="12345678910111213141516171819存在n+1个房间，每个房间依次为房间1 2 3...i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&amp;lt;=pi&amp;lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；    B. 如果访问过当前房间 i">
+  <meta name="description" content="存在n+1个房间，每个房间依次为房间1 2 3…i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&amp;lt;=pi&amp;lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；现在路人甲想知道移动到房间n+1">
 <meta name="keywords" content="dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="走房间">
 <meta property="og:url" content="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/走房间/index.html">
 <meta property="og:site_name" content="Mctahuo">
-<meta property="og:description" content="12345678910111213141516171819存在n+1个房间，每个房间依次为房间1 2 3...i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&amp;lt;=pi&amp;lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；    B. 如果访问过当前房间 i">
+<meta property="og:description" content="存在n+1个房间，每个房间依次为房间1 2 3…i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&amp;lt;=pi&amp;lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；现在路人甲想知道移动到房间n+1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T13:43:31.748Z">
+<meta property="og:updated_time" content="2019-03-02T02:30:04.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="走房间">
-<meta name="twitter:description" content="12345678910111213141516171819存在n+1个房间，每个房间依次为房间1 2 3...i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&amp;lt;=pi&amp;lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；    B. 如果访问过当前房间 i">
+<meta name="twitter:description" content="存在n+1个房间，每个房间依次为房间1 2 3…i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&amp;lt;=pi&amp;lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；现在路人甲想知道移动到房间n+1">
 
 
 
@@ -421,12 +421,24 @@
                 
               
 
-              <time title="创建时间：2019-03-01 21:41:14 / 修改时间：21:43:31" itemprop="dateCreated datePublished" datetime="2019-03-01T21:41:14+08:00">2019-03-01</time>
+              <time title="创建时间：2019-03-01 21:41:14" itemprop="dateCreated datePublished" datetime="2019-03-01T21:41:14+08:00">2019-03-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-02 10:30:04" itemprop="dateModified" datetime="2019-03-02T10:30:04+08:00">2019-03-02</time>
               
             
           </span>
@@ -495,9 +507,9 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">存在n+1个房间，每个房间依次为房间1 2 3...i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间pi(1&lt;=pi&lt;=i),现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：</span><br><span class="line">    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；</span><br><span class="line">    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；</span><br><span class="line">现在路人甲想知道移动到房间n+1一共需要多少次移动；</span><br><span class="line"></span><br><span class="line">输入描述:</span><br><span class="line">第一行包括一个数字n(30%数据1&lt;=n&lt;=100，100%数据 1&lt;=n&lt;=1000)，表示房间的数量，接下来一行存在n个数字 pi(1&lt;=pi&lt;=i), pi表示从房间i可以传送到房间pi。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输出描述:</span><br><span class="line">输出一行数字，表示最终移动的次数，最终结果需要对1000000007 (10e9 + 7) 取模。</span><br><span class="line">示例1</span><br><span class="line">输入</span><br><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">输出</span><br><span class="line">4</span><br><span class="line">说明</span><br><span class="line">开始从房间1 只访问一次所以只能跳到p1即 房间1， 之后采用策略A跳到房间2，房间2这时访问了一次因此采用策略B跳到房间2，之后采用策略A跳到房间3，因此到达房间3需要 4 步操作。</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>首先要读懂题意：<br>如果奇数次来到该房间，就到房间传送门，“回”Pi去。（为什么要用“回”，因为Pi取值范围是1~i）<br>如果偶数次来到该房间，就去下一个房间。<br>所以：<br>    思路：我想去更高的i+1房间，我一定需要偶数次访问i房间，我在访问i房间的时候，我必然是访问了偶数次i-1房间。是不是有点拗口= = ，简而言之，就是如果我到达了一个新的最高房间，那我前面的所有房间一定都访问了偶数次。所以这就构成了每一次的状态相似，就可以使用动态规划了。<br>    递归方程：dp[i+1] = dp[i] + 1 + dp[Pi~i] + 1。<br>    这个方程的意思是：我第一次来到i+1房间，我必然是已经先第一次来到过i房间（dp[i]），然后跳转到Pi房间(1)，然后从Pi到i（dp[Pi~i]）,然后再从i到i+1（1）。<br>    这里有一个dp[Pi~i]，就需要用到刚刚的思路，因为Pi到i的每一次迭代都是一次状态重启的迭代，所以dp[Pi~i] = dp[i]-dp[Pi]。<br>代入递归方程，得到结果为：dp[i+1] = 2*dp[i] + 2 - dp[Pi]<br>有了递归方程，还需要考虑初始值，因为这个是单向递归的，所以考虑第一个房间就可以了，由于初始就在第一个房间，所以dp[1] = 0;<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _ ios_base::sync_with_stdio(0);cin.tie(0);</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">1002</span>];</span><br><span class="line">ll dp[<span class="number">1002</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        dp[i] = (<span class="number">2</span> * dp[i<span class="number">-1</span>] % mod + <span class="number">2</span> - dp[p[i]<span class="number">-1</span>]) %mod;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;dp[n]%mod&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>存在n+1个房间，每个房间依次为房间1 2 3…i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间<code>pi(1&lt;=pi&lt;=i)</code>,现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：<br>    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；<br>    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；<br>现在路人甲想知道移动到房间n+1一共需要多少次移动；</p>
+<p>输入描述:<br>第一行包括一个数字n(30%数据<code>1&lt;=n&lt;=100，100%数据 1&lt;=n&lt;=1000)</code>，表示房间的数量，接下来一行存在n个数字 <code>pi(1&lt;=pi&lt;=i),</code> pi表示从房间i可以传送到房间pi。</p>
+<p>输出描述:<br>输出一行数字，表示最终移动的次数，最终结果需要对1000000007 (10e9 + 7) 取模。<br>示例1<br>输入<br>2<br>1 2<br>输出<br>4<br>说明<br>开始从房间1 只访问一次所以只能跳到p1即 房间1， 之后采用策略A跳到房间2，房间2这时访问了一次因此采用策略B跳到房间2，之后采用策略A跳到房间3，因此到达房间3需要 4 步操作。<br><a id="more"></a><br>首先要读懂题意：<br>如果奇数次来到该房间，就到房间传送门，“回”Pi去。（为什么要用“回”，因为Pi取值范围是1~i）<br>如果偶数次来到该房间，就去下一个房间。<br>所以：<br>    思路：我想去更高的i+1房间，我一定需要偶数次访问i房间，我在访问i房间的时候，我必然是访问了偶数次i-1房间。是不是有点拗口= = ，简而言之，就是如果我到达了一个新的最高房间，那我前面的所有房间一定都访问了偶数次。所以这就构成了每一次的状态相似，就可以使用动态规划了。<br>    递归方程：dp[i+1] = dp[i] + 1 + dp[Pi~i] + 1。<br>    这个方程的意思是：我第一次来到i+1房间，我必然是已经先第一次来到过i房间（dp[i]），然后跳转到Pi房间(1)，然后从Pi到i（dp[Pi~i]）,然后再从i到i+1（1）。<br>    这里有一个dp[Pi~i]，就需要用到刚刚的思路，因为Pi到i的每一次迭代都是一次状态重启的迭代，所以dp[Pi~i] = dp[i]-dp[Pi]。<br>代入递归方程，得到结果为：dp[i+1] = 2*dp[i] + 2 - dp[Pi]<br>有了递归方程，还需要考虑初始值，因为这个是单向递归的，所以考虑第一个房间就可以了，由于初始就在第一个房间，所以dp[1] = 0;<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _ ios_base::sync_with_stdio(0);cin.tie(0);</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">1002</span>];</span><br><span class="line">ll dp[<span class="number">1002</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        dp[i+<span class="number">1</span>] = (<span class="number">2</span> * dp[i] % mod + <span class="number">2</span> - dp[p[i]]) %mod;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;dp[n]%mod&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -543,6 +555,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/03/ACM/bytedance/推箱子/" rel="prev" title="推箱子">
+                推箱子 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -605,7 +621,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">159</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -817,7 +833,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">56</span>
+                      
+                    
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
