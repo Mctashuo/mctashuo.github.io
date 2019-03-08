@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/27/ACM/bytedance/异或/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/03/ACM/bytedance/推箱子/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -394,7 +394,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/27/ACM/bytedance/异或/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">异或</a>
+                <a href="/2019/03/03/ACM/bytedance/推箱子/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">推箱子</a>
               
             
           </h1>
@@ -419,7 +419,7 @@
                 
               
 
-              <time title="创建时间：2019-02-27 19:44:55 / 修改时间：21:28:43" itemprop="dateCreated datePublished" datetime="2019-02-27T19:44:55+08:00">2019-02-27</time>
+              <time title="创建时间：2019-03-03 19:33:10 / 修改时间：23:39:36" itemprop="dateCreated datePublished" datetime="2019-03-03T19:33:10+08:00">2019-03-03</time>
             
 
             
@@ -462,7 +462,7 @@
 
           
           
-             <span id="/2019/02/27/ACM/bytedance/异或/" class="leancloud_visitors" data-flag-title="异或">
+             <span id="/2019/03/03/ACM/bytedance/推箱子/" class="leancloud_visitors" data-flag-title="推箱子">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -494,13 +494,14 @@
 
       
         
-          <p>给定整数m以及n各数字A1,A2,..An，将数列A中所有元素两两异或，共能得到n(n-1)/2个结果，请求出这些结果中大于m的有多少个。</p>
-<p>输入描述:<br>第一行包含两个整数n,m.</p>
-<p>第二行给出n个整数A1，A2，…，An。</p>
-<p>数据范围<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于30%的数据，1 &lt;= n, m &lt;= 1000</span><br><span class="line"></span><br><span class="line">对于100%的数据，1 &lt;= n, m, Ai &lt;= 10^5</span><br></pre></td></tr></table></figure></p>
-<p>输出描述:<br>输出仅包括一行，即所求的答案</p>
-<p>输入例子1:<br>3 10<br>6 5 10</p>
-<p>输出例子1:<br>2<br>
+          <p>有一个推箱子的游戏, 一开始的情况如下图:</p>
+<p>上图中, ‘.’ 表示可到达的位置, ‘#’ 表示不可到达的位置，其中 S 表示你起始的位置, 0表示初始箱子的位置, E表示预期箱子的位置，你可以走到箱子的上下左右任意一侧, 将箱子向另一侧推动。如下图将箱子向右推动一格;<br>..S0.. -&gt; …S0.</p>
+<p>注意不能将箱子推动到’#’上, 也不能将箱子推出边界;</p>
+<p>现在, 给你游戏的初始样子, 你需要输出最少几步能够完成游戏, 如果不能完成, 则输出-1。</p>
+<p>输入描述:<br>第一行为2个数字,n, m, 表示游戏盘面大小有n 行m 列<code>(5&lt; n, m &lt; 50);</code><br>后面为n行字符串,每行字符串有m字符, 表示游戏盘面;</p>
+<p>输出描述:<br>一个数字,表示最少几步能完成游戏,如果不能,输出-1;</p>
+<p>输入例子1:<br>3 6<br>.S#..E<br>.#.0..<br>……</p>
+<p>输出例子1:<br>11<br>
           <!--noindex-->
           
           <!--/noindex-->
@@ -558,7 +559,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/27/ACM/bytedance/头条校招/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/走房间/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -578,7 +579,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/27/ACM/bytedance/头条校招/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">头条校招</a>
+                <a href="/2019/03/01/ACM/bytedance/走房间/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">走房间</a>
               
             
           </h1>
@@ -603,7 +604,199 @@
                 
               
 
-              <time title="创建时间：2019-02-27 15:10:56 / 修改时间：15:36:45" itemprop="dateCreated datePublished" datetime="2019-02-27T15:10:56+08:00">2019-02-27</time>
+              <time title="创建时间：2019-03-01 21:41:14" itemprop="dateCreated datePublished" datetime="2019-03-01T21:41:14+08:00">2019-03-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-02 10:30:04" itemprop="dateModified" datetime="2019-03-02T10:30:04+08:00">2019-03-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/01/ACM/bytedance/走房间/" class="leancloud_visitors" data-flag-title="走房间">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>存在n+1个房间，每个房间依次为房间1 2 3…i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间<code>pi(1&lt;=pi&lt;=i)</code>,现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：<br>    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；<br>    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；<br>现在路人甲想知道移动到房间n+1一共需要多少次移动；</p>
+<p>输入描述:<br>第一行包括一个数字n(30%数据<code>1&lt;=n&lt;=100，100%数据 1&lt;=n&lt;=1000)</code>，表示房间的数量，接下来一行存在n个数字 <code>pi(1&lt;=pi&lt;=i),</code> pi表示从房间i可以传送到房间pi。</p>
+<p>输出描述:<br>输出一行数字，表示最终移动的次数，最终结果需要对1000000007 (10e9 + 7) 取模。<br>示例1<br>输入<br>2<br>1 2<br>输出<br>4<br>说明<br>开始从房间1 只访问一次所以只能跳到p1即 房间1， 之后采用策略A跳到房间2，房间2这时访问了一次因此采用策略B跳到房间2，之后采用策略A跳到房间3，因此到达房间3需要 4 步操作。<br>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/字符替换/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/01/ACM/bytedance/字符替换/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">字符替换</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-01 19:49:51 / 修改时间：19:51:16" itemprop="dateCreated datePublished" datetime="2019-03-01T19:49:51+08:00">2019-03-01</time>
             
 
             
@@ -646,7 +839,7 @@
 
           
           
-             <span id="/2019/02/27/ACM/bytedance/头条校招/" class="leancloud_visitors" data-flag-title="头条校招">
+             <span id="/2019/03/01/ACM/bytedance/字符替换/" class="leancloud_visitors" data-flag-title="字符替换">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -678,562 +871,404 @@
 
       
         
-          <p>头条的2017校招开始了！为了这次校招，我们组织了一个规模宏大的出题团队，每个出题人都出了一些有趣的题目，而我们现在想把这些题目组合成若干场考试出来，在选题之前，我们对题目进行了盲审，并定出了每道题的难度系统。一场考试包含3道开放性题目，假设他们的难度从小到大分别为a,b,c，我们希望这3道题能满足下列条件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a&lt;=b&lt;=c</span><br><span class="line">b-a&lt;=10</span><br><span class="line">c-b&lt;=10</span><br></pre></td></tr></table></figure></p>
-<p>所有出题人一共出了n道开放性题目。现在我们想把这n道题分布到若干场考试中（1场或多场，每道题都必须使用且只能用一次），然而由于上述条件的限制，可能有一些考试没法凑够3道题，因此出题人就需要多出一些适当难度的题目来让每场考试都达到要求，然而我们出题已经出得很累了，你能计算出我们最少还需要再出几道题吗？</p>
-<p>输入描述:<br>输入的第一行包含一个整数n，表示目前已经出好的题目数量。</p>
-<p>第二行给出每道题目的难度系数d1,d2,…,dn。</p>
+          <p>有一个仅包含’a’和’b’两种字符的字符串s，长度为n，每次操作可以把一个字符做一次转换（把一个’a’设置为’b’，或者把一个’b’置成’a’)；但是操作的次数有上限m，问在有限的操作数范围内，能够得到最大连续的相同字符的子串的长度是多少。</p>
+<p>输入描述:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一行两个整数 n , m (1&lt;=m&lt;=n&lt;=50000)，第二行为长度为n且只包含’a’和’b’的字符串s。</span><br></pre></td></tr></table></figure></p>
+<p>输出描述:<br>输出在操作次数不超过 m 的情况下，能够得到的 最大连续 全’a’子串或全’b’子串的长度。</p>
+<p>输入例子1:<br>8 1<br>aabaabaa</p>
+<p>输出例子1:<br>5</p>
+<p>例子说明1:<br>把第一个 ‘b’ 或者第二个 ‘b’ 置成 ‘a’，可得到长度为 5 的全 ‘a’ 子串。<br>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/球队能否平局/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/01/ACM/bytedance/球队能否平局/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">球队能否平局</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-01 16:50:58" itemprop="dateCreated datePublished" datetime="2019-03-01T16:50:58+08:00">2019-03-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-02 09:52:35" itemprop="dateModified" datetime="2019-03-02T09:52:35+08:00">2019-03-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/01/ACM/bytedance/球队能否平局/" class="leancloud_visitors" data-flag-title="球队能否平局">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>有三只球队，每只球队编号分别为球队1，球队2，球队3，这三只球队一共需要进行 n 场比赛。现在已经踢完了k场比赛，每场比赛不能打平，踢赢一场比赛得一分，输了不得分不减分。已知球队1和球队2的比分相差d1分，球队2和球队3的比分相差d2分，每场比赛可以任意选择两只队伍进行。求如果打完最后的 (n-k) 场比赛，有没有可能三只球队的分数打平。  </p>
+<p>输入描述:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一行包含一个数字 t (1 &lt;= t &lt;= 10)</span><br><span class="line">接下来的t行每行包括四个数字 n, k, d1, d2(1 &lt;= n &lt;= 10^12; 0 &lt;= k &lt;= n, 0 &lt;= d1, d2 &lt;= k)</span><br></pre></td></tr></table></figure></p>
+<p>输出描述:<br>每行的比分数据，最终三只球队若能够打平，则输出“yes”，否则输出“no”</p>
+<p>输入例子1:<br>2<br>3 3 0 0<br>3 3 3 3</p>
+<p>输出例子1:<br>yes<br>no</p>
+<p>例子说明1:<br>case1: 球队1和球队2 差0分，球队2 和球队3也差0分，所以可能的赛得分是三只球队各得1分<br>case2: 球队1和球队2差3分，球队2和球队3差3分，所以可能的得分是 球队1得0分，球队2得3分, 球队3 得0分，比赛已经全部结束因此最终不能打平。<br>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/DAU统计/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/01/ACM/bytedance/DAU统计/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">DAU统计</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-01 10:50:15 / 修改时间：11:03:48" itemprop="dateCreated datePublished" datetime="2019-03-01T10:50:15+08:00">2019-03-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/01/ACM/bytedance/DAU统计/" class="leancloud_visitors" data-flag-title="DAU统计">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>DAU 统计</p>
+<p>【题目描述】日活跃用户数 (DAU) 是衡量一个产品表现的重要指标。</p>
+<p>需要编写程序，根据给定的某一天的 N 条访问记录，对当天的用户总数 M 进行统计。每个用户可能访问多次。为了方便，我们用数字 (uid) 唯一标识每个用户。</p>
+<p>输入格式</p>
+<p>每一行包含一个 uid，遇到 0 时认为输入结束。</p>
+<p>输入共包含 N+1 行，可认为是无序的。</p>
+<p>输出格式</p>
+<p>一个数字：去重后 uid 的数量 M。</p>
+<p>输入样例</p>
+<p>12933</p>
+<p>111111</p>
+<p>59220</p>
+<p>69433</p>
+<p>59220</p>
+<p>111111</p>
+<p>0</p>
+<p>输出样例</p>
+<p>4</p>
 <p>数据范围</p>
-<p>对于30%的数据，1 ≤ n,di ≤ 5;</p>
-<p>对于100%的数据，1 ≤ n ≤ 10^5,1 ≤ di ≤ 100。</p>
-<p>在样例中，一种可行的方案是添加2个难度分别为20和50的题目，这样可以组合成两场考试：（20 20 23）和（35,40,50）。</p>
-<p>输出描述:<br>输出只包括一行，即所求的答案。</p>
-<p>输入例子1:<br>4<br>20 35 23 40</p>
-<p>输出例子1:<br>2<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/27/ACM/bytedance/出专辑/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/27/ACM/bytedance/出专辑/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">出专辑</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-27 10:18:06 / 修改时间：10:18:39" itemprop="dateCreated datePublished" datetime="2019-02-27T10:18:06+08:00">2019-02-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/27/ACM/bytedance/出专辑/" class="leancloud_visitors" data-flag-title="出专辑">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？</p>
-<p>输入描述:<br>每组测试用例仅包含一组数据，每组数据第一行为三个正整数 n, s, L。 保证 n ≤ 100 , s ≤ L ≤ 10000</p>
-<p>输出描述:<br>输出一个整数代表你至少需要的 CD 数量。</p>
-<p>输入例子1:<br>7 2 6</p>
-<p>输出例子1:<br>4<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/27/ACM/bytedance/回访解码/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/27/ACM/bytedance/回访解码/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">回文解码</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-27 09:49:22 / 修改时间：09:50:04" itemprop="dateCreated datePublished" datetime="2019-02-27T09:49:22+08:00">2019-02-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/27/ACM/bytedance/回访解码/" class="leancloud_visitors" data-flag-title="回文解码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>现在有一个字符串，你要对这个字符串进行 n 次操作，每次操作给出两个数字：(p, l) 表示当前字符串中从下标为 p 的字符开始的长度为 l 的一个子串。你要将这个子串左右翻转后插在这个子串原来位置的正后方，求最后得到的字符串是什么。字符串的下标是从 0 开始的，你可以从样例中得到更多信息。</p>
-<p>输入描述:<br>每组测试用例仅包含一组数据，每组数据第一行为原字符串，长度不超过 10 ，仅包含大小写字符与数字。接下来会有一个数字 n 表示有 n 个操作，再接下来有 n 行，每行两个整数，表示每次操作的(p , l)。</p>
-<p>保证输入的操作一定合法，最后得到的字符串长度不超过 1000。</p>
-<p>输出描述:<br>输出一个字符串代表最后得到的字符串。</p>
-<p>输入例子1:<br>ab<br>2<br>0 2<br>1 3</p>
-<p>输出例子1:<br>abbaabb<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/26/ACM/bytedance/或与加/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/26/ACM/bytedance/或与加/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">或与加</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-26 21:35:57 / 修改时间：21:42:10" itemprop="dateCreated datePublished" datetime="2019-02-26T21:35:57+08:00">2019-02-26</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/26/ACM/bytedance/或与加/" class="leancloud_visitors" data-flag-title="或与加">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>给定 x, k ，求满足 x + y = x | y 的第 k 小的正整数 y 。 | 是二进制的或(or)运算，例如 3 | 5 = 7。</p>
-<p>比如当 x=5，k=1时返回 2，因为5+1=6 不等于 5|1=5，而 5+2=7 等于 5 | 2 = 7。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">输入描述:</span><br><span class="line">每组测试用例仅包含一组数据，每组数据为两个正整数 x , k。 满足 0 &lt; x , k ≤ 2,000,000,000。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输出描述:</span><br><span class="line">输出一个数y。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入例子1:</span><br><span class="line">5 1</span><br><span class="line"></span><br><span class="line">输出例子1:</span><br><span class="line">2</span><br><span class="line">输入描述:</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">0 &lt; uid &lt; 2^63</span><br><span class="line"></span><br><span class="line">时间 &lt; 1s, 内存 &lt; 32MB</span><br><span class="line"></span><br><span class="line">对于 30% 的数据，0 &lt; N &lt; 100,000, 0 &lt; M &lt; 100,000</span><br><span class="line"></span><br><span class="line">对于 100% 的数据，0 &lt; N &lt; 1,000,000, 0 &lt; M &lt; 800,000</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
           <!--/noindex-->
@@ -1291,7 +1326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/26/ACM/bytedance/魔法仅值/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/两数组找相同的元素/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -1311,7 +1346,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/26/ACM/bytedance/魔法仅值/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">魔法权值</a>
+                <a href="/2019/03/01/ACM/bytedance/两数组找相同的元素/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">两数组找相同的元素</a>
               
             
           </h1>
@@ -1336,7 +1371,7 @@
                 
               
 
-              <time title="创建时间：2019-02-26 21:08:51 / 修改时间：21:42:30" itemprop="dateCreated datePublished" datetime="2019-02-26T21:08:51+08:00">2019-02-26</time>
+              <time title="创建时间：2019-03-01 10:32:53 / 修改时间：10:34:39" itemprop="dateCreated datePublished" datetime="2019-03-01T10:32:53+08:00">2019-03-01</time>
             
 
             
@@ -1379,7 +1414,7 @@
 
           
           
-             <span id="/2019/02/26/ACM/bytedance/魔法仅值/" class="leancloud_visitors" data-flag-title="魔法权值">
+             <span id="/2019/03/01/ACM/bytedance/两数组找相同的元素/" class="leancloud_visitors" data-flag-title="两数组找相同的元素">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1411,19 +1446,13 @@
 
       
         
-          <p>给出 n 个字符串，对于每个 n 个排列 p，按排列给出的顺序(p[0] , p[1] … p[n-1])依次连接这 n 个字符串都能得到一个长度为这些字符串长度之和的字符串。所以按照这个方法一共可以生成 n! 个字符串。</p>
-<p>一个字符串的权值等于把这个字符串循环左移 i 次后得到的字符串仍和原字符串全等的数量，i 的取值为 [1 , 字符串长度]。求这些字符串最后生成的 n! 个字符串中权值为 K 的有多少个。</p>
-<p>注：定义把一个串循环左移 1 次等价于把这个串的第一个字符移动到最后一个字符的后面。</p>
-<p>输入描述:<br>每组测试用例仅包含一组数据，每组数据第一行为两个正整数 n, K ， n 的大小不超过 8 ， K 不超过 200。接下来有 n 行，每行一个长度不超过 20 且仅包含大写字母的字符串。</p>
-<p>输出描述:<br>输出一个整数代表权值为 K 的字符串数量。</p>
-<p>输入例子1:<br>3 2<br>AB<br>RAAB<br>RA</p>
-<p>输出例子1:<br>3<br>
+          <p>给两个整数(int)数组，输出相同的元素。<br>输入格式<br>m n<br>a1 a2 … am<br>b1 b2 … bn<br>输出格式<br>相同的的元素，用空白分开<br>输入样例<br>5 4<br>11 15 9 12 3<br>1 8 3 7<br>输出样例<br>3<br>数据规模<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于30%的数据,  0 &lt; m &lt; 30, 0 &lt; n &lt; 30</span><br><span class="line">对于100%的数据，0 &lt; m &lt; 100000, 0 &lt; n &lt; 100000</span><br><span class="line">想考察当m,n 超过一定规模之后不能直接用暴力求解</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
 
     
 
@@ -1475,7 +1504,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/26/ACM/bytedance/木棒拼图/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/数列/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -1495,7 +1524,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/26/ACM/bytedance/木棒拼图/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">木棒拼图</a>
+                <a href="/2019/03/01/ACM/bytedance/数列/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">数列</a>
               
             
           </h1>
@@ -1520,7 +1549,7 @@
                 
               
 
-              <time title="创建时间：2019-02-26 19:55:31 / 修改时间：21:42:16" itemprop="dateCreated datePublished" datetime="2019-02-26T19:55:31+08:00">2019-02-26</time>
+              <time title="创建时间：2019-03-01 10:14:52 / 修改时间：10:17:23" itemprop="dateCreated datePublished" datetime="2019-03-01T10:14:52+08:00">2019-03-01</time>
             
 
             
@@ -1563,7 +1592,7 @@
 
           
           
-             <span id="/2019/02/26/ACM/bytedance/木棒拼图/" class="leancloud_visitors" data-flag-title="木棒拼图">
+             <span id="/2019/03/01/ACM/bytedance/数列/" class="leancloud_visitors" data-flag-title="数列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1595,18 +1624,30 @@
 
       
         
-          <p>有一个由很多木棒构成的集合，每个木棒有对应的长度，请问能否用集合中的这些木棒以某个顺序首尾相连构成一个面积大于 0 的简单多边形且所有木棒都要用上，简单多边形即不会自交的多边形。</p>
-<p>初始集合是空的，有两种操作，要么给集合添加一个长度为 L 的木棒，要么删去集合中已经有的某个木棒。每次操作结束后你都需要告知是否能用集合中的这些木棒构成一个简单多边形。</p>
-<p>输入描述:<br>每组测试用例仅包含一组数据，每组数据第一行为一个正整数 n 表示操作的数量(1 ≤ n ≤ 50000) ， 接下来有n行，每行第一个整数为操作类型 i (i ∈ {1,2})，第二个整数为一个长度 L(1 ≤ L ≤ 1,000,000,000)。如果 i=1 代表在集合内插入一个长度为 L 的木棒，如果 i=2 代表删去在集合内的一根长度为 L 的木棒。输入数据保证删除时集合中必定存在长度为 L 的木棒，且任意操作后集合都是非空的。</p>
-<p>输出描述:<br>对于每一次操作结束有一次输出，如果集合内的木棒可以构成简单多边形，输出 “Yes” ，否则输出 “No”。</p>
-<p>输入例子1:<br>5<br>1 1<br>1 1<br>1 1<br>2 1<br>1 2</p>
-<p>输出例子1:<br>No<br>No<br>Yes<br>No<br>No<br>
+          <p>【题目描述】给定两个长度为 n 的整数数列 A 和 B。再给定 q 组查询，每次查询给出两个整数 x 和 y，求满足 Ai &gt;= x 且 Bi &gt;= y 这样的 i 的数量。</p>
+<p>输入格式</p>
+<p>第一行给定两个整数 n 和 q。</p>
+<p>第二行给定数列 A，包含 n 个整数。</p>
+<p>第三行给定数列 B，包含 n 个整数。</p>
+<p>接下来 q 行，每行两个整数 x 和 y，意义如上所述。</p>
+<p>输出格式</p>
+<p>对于每组查询，输出所求的下标数量。</p>
+<p>输入样例</p>
+<p>3 2</p>
+<p>3 2 4</p>
+<p>6 5 8</p>
+<p>1 1</p>
+<p>4 8</p>
+<p>输出样例</p>
+<p>3</p>
+<p>1</p>
+<p>数据规模<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对于 30% 的数据，1 &lt;= n, q &lt;= 100。</span><br><span class="line"></span><br><span class="line">对于 100% 的数据，1 &lt;= n, q, Ai, Bi &lt;= 10^5。</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
 
     
 
@@ -1658,7 +1699,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/26/ACM/bytedance/最大映射/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/28/ACM/bytedance/Paragraph/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -1678,7 +1719,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/26/ACM/bytedance/最大映射/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">最大映射</a>
+                <a href="/2019/02/28/ACM/bytedance/Paragraph/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">Paragraph</a>
               
             
           </h1>
@@ -1703,24 +1744,12 @@
                 
               
 
-              <time title="创建时间：2019-02-26 19:38:41" itemprop="dateCreated datePublished" datetime="2019-02-26T19:38:41+08:00">2019-02-26</time>
+              <time title="创建时间：2019-02-28 20:31:56 / 修改时间：20:35:15" itemprop="dateCreated datePublished" datetime="2019-02-28T20:31:56+08:00">2019-02-28</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-27 08:51:35" itemprop="dateModified" datetime="2019-02-27T08:51:35+08:00">2019-02-27</time>
               
             
           </span>
@@ -1758,7 +1787,7 @@
 
           
           
-             <span id="/2019/02/26/ACM/bytedance/最大映射/" class="leancloud_visitors" data-flag-title="最大映射">
+             <span id="/2019/02/28/ACM/bytedance/Paragraph/" class="leancloud_visitors" data-flag-title="Paragraph">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1790,17 +1819,39 @@
 
       
         
-          <p>有 n 个字符串，每个字符串都是由 A-J 的大写字符构成。现在你将每个字符映射为一个 0-9 的数字，不同字符映射为不同的数字。这样每个字符串就可以看做一个整数，唯一的要求是这些整数必须是正整数且它们的字符串不能有前导零。现在问你怎样映射字符才能使得这些字符串表示的整数之和最大？</p>
-<p>输入描述:<br>每组测试用例仅包含一组数据，每组数据第一行为一个正整数 n ， 接下来有 n 行，每行一个长度不超过 12 且仅包含大写字母 A-J 的字符串。 n 不大于 50，且至少存在一个字符不是任何字符串的首字母。</p>
-<p>输出描述:<br>输出一个数，表示最大和是多少。</p>
-<p>输入例子1:<br>2<br>ABC<br>BCA</p>
-<p>输出例子1:<br>1875<br>
+          <p>给定一个段落，由 N 个句子组成。第 i 个句子的长度为 L[i]，包含的单词个数为 W[i]。</p>
+<p>句子不包含任何除字母和空格( ) 外的符号。</p>
+<p>每个句子内部，含有若干个单词，由空格( ) 分隔。句子不会包含连续的空格。</p>
+<p>随后给定 M 个查询，每个查询包含一个句子，需要在段落中寻找相同单词数量最多的句子。重复的单词只计一次，且不区分大小写。</p>
+<p>输入数据将保证结果是存在且唯一的。</p>
+<p>输入格式</p>
+<p>第一行是两个整数 N 和 M。</p>
+<p>接下来的 N+M 行，每行包含一个句子。</p>
+<p>前 N 行代表段落中的句子，后 M 行表示查询。</p>
+<p>输出格式</p>
+<p>输出 M 行，每行代表查询的结果。</p>
+<p>输入样例</p>
+<p>6 3</p>
+<p>An algorithm is an effective method that can be expressed within a finite amount of space and time</p>
+<p>Starting from an initial state and initial input the instructions describe a computation</p>
+<p>That when executed proceeds through a finite number of successive states</p>
+<p>Eventually producing output and terminating at a final ending state</p>
+<p>The transition from one state to the next is not necessarily deterministic</p>
+<p>Some algorithms known as randomized algorithms incorporate random input</p>
+<p>Next to the transition</p>
+<p>Wormhole, infinite time and space</p>
+<p>The transition from one state to the next is not necessarily deterministic</p>
+<p>输出样例</p>
+<p>The transition from one state to the next is not necessarily deterministic</p>
+<p>An algorithm is an effective method that can be expressed within a finite amount of space and time</p>
+<p>The transition from one state to the next is not necessarily deterministic</p>
+<p>数据规模<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">0 &lt; L[i] &lt; 512</span><br><span class="line"></span><br><span class="line">0 &lt; W[i] &lt; 32</span><br><span class="line"></span><br><span class="line">对于 30% 的数据，0 &lt; N &lt; 30，0 &lt; M &lt; 30。</span><br><span class="line"></span><br><span class="line">对于 100% 的数据，0 &lt; N &lt; 500，0 &lt; M &lt; 800。</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
 
     
 
@@ -1852,7 +1903,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/26/ACM/bytedance/糖果迷题/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/28/ACM/bytedance/找出函数的最宽尖峰/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -1872,7 +1923,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/26/ACM/bytedance/糖果迷题/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">糖果迷题</a>
+                <a href="/2019/02/28/ACM/bytedance/找出函数的最宽尖峰/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">找出函数的最宽尖峰</a>
               
             
           </h1>
@@ -1897,24 +1948,12 @@
                 
               
 
-              <time title="创建时间：2019-02-26 15:47:45" itemprop="dateCreated datePublished" datetime="2019-02-26T15:47:45+08:00">2019-02-26</time>
+              <time title="创建时间：2019-02-28 16:39:48 / 修改时间：16:41:02" itemprop="dateCreated datePublished" datetime="2019-02-28T16:39:48+08:00">2019-02-28</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-27 08:56:33" itemprop="dateModified" datetime="2019-02-27T08:56:33+08:00">2019-02-27</time>
               
             
           </span>
@@ -1952,7 +1991,7 @@
 
           
           
-             <span id="/2019/02/26/ACM/bytedance/糖果迷题/" class="leancloud_visitors" data-flag-title="糖果迷题">
+             <span id="/2019/02/28/ACM/bytedance/找出函数的最宽尖峰/" class="leancloud_visitors" data-flag-title="找出函数的最宽尖峰">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1984,20 +2023,31 @@
 
       
         
-          <p>小明是幼儿园的一名老师。某天幼儿园园长给小朋友们每人发一颗糖果，小朋友们拿到后发现有一些同学拿到的糖果颜色和自己相同，有一些同学糖果颜色和自己不同。<br>假定每个小朋友只知道有多少同学和自己拿到了相同颜色的糖果。<br>上课后，有一部分小朋友兴奋的把这一结果告诉小明老师，并让小明老师猜一猜，最少有多少同学拿到了糖果。<br>例如有三个小朋友告诉小明老师这一结果如下：<br>其中第一个小朋友发现有1人和自己糖果颜色一样，第二个小朋友也发现有1人和自己糖果颜色一样，第三个小朋友发现有3人和自己糖果颜色一样。<br>第一二个小朋友可互相认为对方和自己颜色相同，比如红色；<br>第三个小朋友不可能再为红色（否则第一二个小朋友会发现有2人和自己糖果颜色相同），假设他拿到的为蓝色糖果，那么至少还有另外3位同学拿到蓝色的糖果，最终至少有6位小朋友拿到了糖果。<br>现在请你帮助小明老师解答下这个谜题。</p>
-<p>输入描述:<br>假定部分小朋友的回答用空格间隔，如 1 1 3</p>
-<p>输出描述:<br>直接打印最少有多少位小朋友拿到糖果<br>如 6</p>
-<p>输入例子1:<br>1 1 3</p>
-<p>输出例子1:<br>6</p>
-<p>输入例子2:<br>0 0 0</p>
-<p>输出例子2:<br>3</p>
-<p>例子说明2:<br>三位小朋友都没发现有人和自己的颜色相同，所以最少的情况就是三位小朋友糖果的颜色均不同<br>
+          <p>题目描述<br>找出函数的最宽尖峰</p>
+<p>【题目描述】按数组的形式给出函数f(x)的取值，即数组A的A[0]元素为f(0)的取值，数组的取值都为整数，函数在每个点都是严格单调递增或者严格递减（即A[i-1] != A[i] != A[i+1]），要求找出最宽的先上升后下降的区间（这个区间内函数的值必须先上升到一个点然后下降，区间的上升段和下降段长度必须都大于0）。</p>
+<ol>
+<li><p>如果找到符合条件的最大区间输出数组对应的左右下标（保证只有一个最大区间）</p>
+</li>
+<li><p>找不到那么输出-1 -1</p>
+</li>
+</ol>
+<p>输入格式</p>
+<p>n</p>
+<p>n长度的整数数组</p>
+<p>输出格式</p>
+<p>区间的范围</p>
+<p>输入样例</p>
+<p>10</p>
+<p>1 3 1 2 5 4 3 1 9 10</p>
+<p>输出样例</p>
+<p>2 7</p>
+<p>数据规模<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于 100% 的数据，1 &lt;=n &lt;=10, 000, 000</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
 
     
 
@@ -2049,7 +2099,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/25/ACM/leetcode/71.simplify-path/">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/02/28/ACM/bytedance/字典序/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen Ma">
@@ -2069,7 +2119,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/02/25/ACM/leetcode/71.simplify-path/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">71.simplify-path</a>
+                <a href="/2019/02/28/ACM/bytedance/字典序/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">字典序</a>
               
             
           </h1>
@@ -2094,7 +2144,7 @@
                 
               
 
-              <time title="创建时间：2019-02-25 21:06:27 / 修改时间：21:07:21" itemprop="dateCreated datePublished" datetime="2019-02-25T21:06:27+08:00">2019-02-25</time>
+              <time title="创建时间：2019-02-28 14:57:40 / 修改时间：15:00:11" itemprop="dateCreated datePublished" datetime="2019-02-28T14:57:40+08:00">2019-02-28</time>
             
 
             
@@ -2105,31 +2155,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -2137,7 +2162,7 @@
 
           
           
-             <span id="/2019/02/25/ACM/leetcode/71.simplify-path/" class="leancloud_visitors" data-flag-title="71.simplify-path">
+             <span id="/2019/02/28/ACM/bytedance/字典序/" class="leancloud_visitors" data-flag-title="字典序">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2169,16 +2194,12 @@
 
       
         
-          <p>Given an absolute path for a file (Unix-style), simplify it. Or in other words, convert it to the canonical path.</p>
-<p>In a UNIX-style file system, a period . refers to the current directory. Furthermore, a double period .. moves the directory up a level. For more information, see: Absolute path vs relative path in Linux/Unix</p>
-<p>Note that the returned canonical path must always begin with a slash /, and there must be only a single slash / between two directory names. The last directory name (if it exists) must not end with a trailing /. Also, the canonical path must be the shortest string representing the absolute path.</p>
-<p>Example 1:</p>
-<p>Input: “/home/“<br>Output: “/home”<br>Explanation: Note that there is no trailing slash after the last directory name.<br>Example 2:</p>
-<p>Input: “/../“<br>Output: “/“<br>Explanation: Going one level up from the root directory is a no-op, as the root level is the highest level you can go.<br>Example 3:</p>
-<p>Input: “/home//foo/“<br>Output: “/home/foo”<br>Explanation: In the canonical path, multiple consecutive slashes are replaced by a single one.<br>Example 4:</p>
-<p>Input: “/a/./b/../../c/“<br>Output: “/c”<br>Example 5:</p>
-<p>Input: “/a/../../b/../c//.//“<br>Output: “/c”<br>Example 6:</p>
-<p>Input: “/a//b////c/d//././/..”<br>Output: “/a/b/c”<br>
+          <p>给定整数n和m, 将1到n的这n个整数按字典序排列之后, 求其中的第m个数。<br>对于n=11, m=4, 按字典序排列依次为1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 因此第4个数是2.<br>对于n=200, m=25, 按字典序排列依次为1 10 100 101 102 103 104 105 106 107 108 109 11 110 111 112 113 114 115 116 117 118 119 12 120 121 122 123 124 125 126 127 128 129 13 130 131 132 133 134 135 136 137 138 139 14 140 141 142 143 144 145 146 147 148 149 15 150 151 152 153 154 155 156 157 158 159 16 160 161 162 163 164 165 166 167 168 169 17 170 171 172 173 174 175 176 177 178 179 18 180 181 182 183 184 185 186 187 188 189 19 190 191 192 193 194 195 196 197 198 199 2 20 200 21 22 23 24 25 26 27 28 29 3 30 31 32 33 34 35 36 37 38 39 4 40 41 42 43 44 45 46 47 48 49 5 50 51 52 53 54 55 56 57 58 59 6 60 61 62 63 64 65 66 67 68 69 7 70 71 72 73 74 75 76 77 78 79 8 80 81 82 83 84 85 86 87 88 89 9 90 91 92 93 94 95 96 97 98 99 因此第25个数是120…</p>
+<p>输入描述:<br>输入仅包含两个整数n和m。</p>
+<p>数据范围:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">对于20%的数据, 1 &lt;= m &lt;= n &lt;= 5 ;</span><br><span class="line"></span><br><span class="line">对于80%的数据, 1 &lt;= m &lt;= n &lt;= 10^7 ;</span><br><span class="line"></span><br><span class="line">对于100%的数据, 1 &lt;= m &lt;= n &lt;= 10^18.</span><br></pre></td></tr></table></figure></p>
+<p>输出描述:<br>输出仅包括一行, 即所求排列中的第m个数字.</p>
+<p>输入例子1:<br>11 4</p>
+<p>输出例子1:<br>2<br>
           <!--noindex-->
           
           <!--/noindex-->
@@ -2225,7 +2246,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2270,7 +2291,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">159</span>
+                    <span class="site-state-item-count">169</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
