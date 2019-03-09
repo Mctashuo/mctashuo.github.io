@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="进程进程定义:一个其中运行着一个或多个线程的地址空间和这些线程所需要的系统资源正常情况下程序代码是以只读的方式加载到内存中的.所有的进程都init进程启动或init启动的其他进程启动">
+<meta name="keywords" content="进程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程和信号">
+<meta property="og:url" content="https://www.mctashuo.cn/2018/09/26/BLP/ch11_进程和信号/index.html">
+<meta property="og:site_name" content="Mctahuo">
+<meta property="og:description" content="进程进程定义:一个其中运行着一个或多个线程的地址空间和这些线程所需要的系统资源正常情况下程序代码是以只读的方式加载到内存中的.所有的进程都init进程启动或init启动的其他进程启动">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-02T07:12:22.206Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="进程和信号">
+<meta name="twitter:description" content="进程进程定义:一个其中运行着一个或多个线程的地址空间和这些线程所需要的系统资源正常情况下程序代码是以只读的方式加载到内存中的.所有的进程都init进程启动或init启动的其他进程启动">
+
+
+
+
+
+
+  <link rel="canonical" href="https://www.mctashuo.cn/2018/09/26/BLP/ch11_进程和信号/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>进程和信号 | Mctahuo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mctahuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">晨的博客</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2018/09/26/BLP/ch11_进程和信号/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">进程和信号
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-26 10:04:45" itemprop="dateCreated datePublished" datetime="2018-09-26T10:04:45+08:00">2018-09-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-02 15:12:22" itemprop="dateModified" datetime="2018-10-02T15:12:22+08:00">2018-10-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/BLP/" itemprop="url" rel="index"><span itemprop="name">BLP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/26/BLP/ch11_进程和信号/" class="leancloud_visitors" data-flag-title="进程和信号">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p>进程定义:一个其中运行着一个或多个线程的地址空间和这些线程所需要的系统资源<br>正常情况下程序代码是以只读的方式加载到内存中的.<br>所有的进程都init进程启动或init启动的其他进程启动<br><a id="more"></a></p>
+<h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><p>Linux内核用进程调度器来决定下一个时间片应该分配给那个进程(优先级).<br>多任务中持续占用cpu并轮询系统来查看是否有新输入的到达的程序没有执行短期突发性并等待输入的进程表现好<br>表现良好的进程称为nice进程.默认为0系统根据变化改变nice值<br>可以使用命令启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nice oclock &amp;</span><br></pre></td></tr></table></figure></p>
+<p>会分配一个+10的nice值,如果用下面的命令调整这个值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">renice 10 1362</span><br></pre></td></tr></table></figure></p>
+<p>使用ps -l查看如果状态栏STAT中包含字符N表明这个进程的nice值已经被修改过了,不是默认值了</p>
+<h2 id="启动新进程"><a href="#启动新进程" class="headerlink" title="启动新进程"></a>启动新进程</h2><h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3><p>可以通过库函数system来完成<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">system</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *<span class="built_in">string</span>)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>以字符串参数的形式传递给它的命令并等待该命令的完成.命令的执行情况就如同在shell中执行如下的命令<br>sh -c string<br>如果无法启动shell来运行这个命令,system函数将返回错误代码127,如果是其他错误则返回-1.否则system函数将返回该命令的退出码<br>一般来说,使用system函数远非启动其他进程的理想手段,因为它必须用一个shell来启动需要的程序.由于在启动程序之前需要先启动一个shell,而且对shell的安装情况及使用的环境的依赖也很大,所以使用system函数的效率不高.</p>
+<h3 id="exec系列函数"><a href="#exec系列函数" class="headerlink" title="exec系列函数"></a>exec系列函数</h3><p>替换进程映像<br>exec函数可以把当前进程替换为一个新进程,新进程由path或file参数指定.可以使用<br>exec将程序的执行从一个程序切换到另一个程序.<br>exec函数比system函数更有效,因为在新的程序启动后,原来的程序就不再运行了.<br>复制进程映像<br>使用fork<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pid_t</span> fork(<span class="keyword">void</span>);</span><br></pre></td></tr></table></figure></p>
+<p>fork调用返回子进程的PID,新进程将继续执行.就像原进程一样,不同之处在于,子进程中的fork调用返回的是0.<br>父子进程可以通过这个判断父子进程<br>如果fork失败,返回-1,通常因为父进程拥有的子进程数目超过了规定的限制(CHILD_MAX),此时errno将被设置为<br>EAGAIN.如果因为进程表里没有足够的空间用于创建新的表单或虚拟内存不足,errno变量将被设为ENOMEM</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">char</span> *message;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"fork program starting\n"</span>);</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">switch</span>(pid) </span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">        perror(<span class="string">"fork failed"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        message = <span class="string">"This is the child"</span>;</span><br><span class="line">        n = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        message = <span class="string">"This is the parent"</span>;</span><br><span class="line">        n = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(; n &gt; <span class="number">0</span>; n--) &#123;</span><br><span class="line">        <span class="built_in">puts</span>(message);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>wait函数等待子进程退出<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="keyword">pid_t</span> wait(<span class="keyword">int</span> *stat_loc);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line">    <span class="keyword">char</span> *message;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"fork program starting\n"</span>);</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">switch</span>(pid) </span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">        perror(<span class="string">"fork failed"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        message = <span class="string">"This is the child"</span>;</span><br><span class="line">        n = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        message = <span class="string">"This is the parent"</span>;</span><br><span class="line">        n = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(; n &gt; <span class="number">0</span>; n--) &#123;</span><br><span class="line">        <span class="built_in">puts</span>(message);</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid,<span class="keyword">int</span> * stat_loc,<span class="keyword">int</span> options);</span><br></pre></td></tr></table></figure></p>
+<p>pid 参数指定需要等待的子进程的PID,如果它的值为-1,waitpid将返回任一子进程的信息,与wait一样,如果stat_loc不是空指针,waitpid将把状态信息写到它所指向的位置.option参数可以改变waitpid的行为.其中最有用的一个选项是WNOHANG,它的作用是防止waitpid调用将调用者的执行挂起<br>父进程周期性检查某个特定子进程是否已终止,使用如下调用方式</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">waitpid(child_pid,(<span class="keyword">int</span> *) <span class="number">0</span>,WNOHANG);</span><br></pre></td></tr></table></figure>
+<h3 id="僵尸进程"><a href="#僵尸进程" class="headerlink" title="僵尸进程"></a>僵尸进程</h3><p>子进程终止时,它与父进程之间的关联还会保持,直到父进程也正常终止或父进程调用wait才告结束.因此,进程表中代表子进程的表项不会立刻释放,虽然子进程已经不在运行,但它仍然存在于系统中,因为它的退出码还需要保存起来,以备父进程今后的wait调用,这时它将成为一个僵尸进程.</p>
+<p>如果父进程异常终止,子进程将自动把PID为1的进程(即init)作为自己的父进程,子进程现在是一个不再运行的僵尸进程,但因为其父进程异常终止,所以它由init进程接管,僵尸进程将一直保留在进程表中直到被init进程发现并释放,进程表越大这一过程就越慢.<br>应该尽量避免产生僵尸进程,因为在init清理它们之前,它们将一直消耗系统的资源.</p>
+<h3 id="输入和输出重定向"><a href="#输入和输出重定向" class="headerlink" title="输入和输出重定向"></a>输入和输出重定向</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">upper.c</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;                     </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;                     </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;                    </span></span></span><br><span class="line">                                       </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                             </span></span><br><span class="line"><span class="function"></span>&#123;                                      </span><br><span class="line">    <span class="keyword">int</span> ch;                            </span><br><span class="line">    <span class="keyword">while</span>((ch = getchar()) != EOF) &#123;   </span><br><span class="line">        <span class="built_in">putchar</span>(<span class="built_in">toupper</span>(ch));          </span><br><span class="line">    &#125;                                  </span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);                           </span><br><span class="line">&#125;                                      </span><br><span class="line"></span><br><span class="line">useupper.c</span><br><span class="line"><span class="comment">/*  This code, useupper.c, accepts a file name as an argument                                     </span></span><br><span class="line"><span class="comment">    and will respond with an error if called incorrectly.  */</span>                                     </span><br><span class="line">                                                                                                  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;                                                                               </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;                                                                                </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;                                                                               </span></span></span><br><span class="line">                                                                                                  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span>                                                                  </span></span><br><span class="line"><span class="function"></span>&#123;                                                                                                 </span><br><span class="line">    <span class="keyword">char</span> *filename;                                                                               </span><br><span class="line">                                                                                                  </span><br><span class="line">    <span class="keyword">if</span>(argc != <span class="number">2</span>) &#123;                                                                               </span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"usage: useupper file\n"</span>);                                                </span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);                                                                                  </span><br><span class="line">    &#125;                                                                                             </span><br><span class="line">                                                                                                  </span><br><span class="line">    filename = argv[<span class="number">1</span>];                                                                           </span><br><span class="line">                                                                                                  </span><br><span class="line"><span class="comment">/*  That done, we reopen the standard input, again checking for any errors as we do so,           </span></span><br><span class="line"><span class="comment">    and then use execl to call upper.  */</span>                                                         </span><br><span class="line">                                                                                                  </span><br><span class="line">    <span class="keyword">if</span>(!freopen(filename, <span class="string">"r"</span>, <span class="built_in">stdin</span>)) &#123;                                                          </span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"could not redirect stdin to file %s\n"</span>, filename);                       </span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">2</span>);                                                                                  </span><br><span class="line">    &#125;                                                                                             </span><br><span class="line">                                                                                                  </span><br><span class="line">    execl(<span class="string">"./upper"</span>, <span class="string">"upper"</span>, <span class="number">0</span>);                                                                 </span><br><span class="line">                                                                                                  </span><br><span class="line"><span class="comment">/*  Don't forget that execl replaces the current process;                                         </span></span><br><span class="line"><span class="comment">    provided there is no error, the remaining lines are not executed.  */</span>                         </span><br><span class="line">                                                                                                  </span><br><span class="line">    perror(<span class="string">"could not exec ./upper"</span>);                                                             </span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">3</span>);                                                                                      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h1><p>信号是由于某些错误条件而生成的,如内存段冲突,浮点处理器错误或非法指令等.<br>如果进程收到signal.h中的一些信号,但没有事先安排捕获它,进程会立刻终止,系统将生成核心转储文件core,并将其放在当前目录下<br>该文件是进程在内存中的映像.它对程序的调度很有用处.</p>
+<p>信号函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (*signal(<span class="keyword">int</span> sig, <span class="keyword">void</span> (*func)(<span class="keyword">int</span>)))(<span class="keyword">int</span>);</span><br></pre></td></tr></table></figure>
+<p>准备捕获或忽略的信号由参数sig给出,接收到指定的信号后将要调用的函数由参数func给出.<br>信号处理函数必须有一个int类型的参数(即接收到的信号代码)并且返回类型为void.signa函数本身也返回一个同类型的函数.<br>即先前用来处理这个信号的函数.或者用SIG_IGN(忽略信号)和SIG_DEF(恢复默认行为)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  We'll start by writing the function which reacts to the signal</span></span><br><span class="line"><span class="comment">    which is passed in the parameter sig.</span></span><br><span class="line"><span class="comment">    This is the function we will arrange to be called when a signal occurs.</span></span><br><span class="line"><span class="comment">    We print a message, then reset the signal handling for SIGINT</span></span><br><span class="line"><span class="comment">    (by default generated by pressing CTRL-C) back to the default behavior.</span></span><br><span class="line"><span class="comment">    Let's call this function ouch.  */</span></span><br><span class="line">                                                                                               </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;                                                                            </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;                                                                             </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;                                                                            </span></span></span><br><span class="line">                                                                                               </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ouch</span><span class="params">(<span class="keyword">int</span> sig)</span>                                                                             </span></span><br><span class="line"><span class="function"></span>&#123;                                                                                              </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"OUCH! - I got signal %d\n"</span>, sig);                                                  </span><br><span class="line">    (<span class="keyword">void</span>) signal(SIGINT, SIG_DFL);                                                            </span><br><span class="line">&#125;                                                                                              </span><br><span class="line">                                                                                               </span><br><span class="line"><span class="comment">/*  The main function has to intercept the SIGINT signal generated when we type Ctrl-C .       </span></span><br><span class="line"><span class="comment">    For the rest of the time, it just sits in an infinite loop,                                </span></span><br><span class="line"><span class="comment">    printing a message once a second.  */</span>                                                      </span><br><span class="line">                                                                                               </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>                                                                                     </span></span><br><span class="line"><span class="function"></span>&#123;                                                                                              </span><br><span class="line">    (<span class="keyword">void</span>) signal(SIGINT, ouch);                                                               </span><br><span class="line">                                                                                               </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;                                                                                 </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);                                                              </span><br><span class="line">        sleep(<span class="number">1</span>);                                                                              </span><br><span class="line">    &#125;                                                                                          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在信号处理函数中,调用如printf这样的函数是不安全的,<br>一个ISR应该避免调用不可重入函数。一些标准库函数是不可重入的，如经常实现的malloc和printf。因为中断可能发生在执行任务中，因为任务可能是在“malloc”的函数调用中，如果ISR调用此相同的不可重入函数，由此产生的行为可能是灾难性的。<br>不可重入函数是指这样的一类函数，不可以在它还没有返回就再次被调用。例如printf，malloc，free等都是不可重入函数。因为信号可能在任何时候发生，例如在printf执行过程中，因此不能在信号处理函数里调用printf，否则printf将会被重入。</p>
+<p>函数不可重入大多数是因为在函数中引用了全局变量。例如，printf会引用全局变量stdout，malloc，free会引用全局的内存分配表。</p>
+<h2 id="发送信号"><a href="#发送信号" class="headerlink" title="发送信号"></a>发送信号</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kill</span><span class="params">(<span class="keyword">pid_t</span> pid,<span class="keyword">int</span> sig)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>kill函数把参数指定的信号发送给由参数pid给出的进程号所指定的进程,冬暖夏凉时它返回0.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlucde<span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">alarm</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> seconds)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>alarm函数用来在seconds秒之后安排发送一个SIGALRM信号</p>
+<p>函数pause把程序挂起直到有一个信号出现<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>需要等待信号的话,一个常用的函数为sigsuspend函数<br>如果信号出现在系统调用的执行过程中,结果是视情况而定<br>如果想调用pause等待一个信号,可信号却出现在调用pause之前,就会使程序无限期的等待一个不会发生的事件</p>
+<h2 id="健壮的信号接口"><a href="#健壮的信号接口" class="headerlink" title="健壮的信号接口"></a>健壮的信号接口</h2><p>sigaction</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sigaction</span><span class="params">(<span class="keyword">int</span> sig,<span class="keyword">const</span> struct sigaction * act,struct sigaction *oact)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//sigaction结构</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>(*) <span class="keyword">int</span> sa_handler</span><br><span class="line"><span class="keyword">sigset_t</span> sa_mask</span><br><span class="line"><span class="keyword">int</span> sa_flags</span><br></pre></td></tr></table></figure>
+<p>sa_handler是一个函数指针在接收到信号sig后被调用的处理函数<br>sa_mask指定一组信号集,将被阻塞不会被传递给进程的信号.设置信号屏蔽字可以防止信号在它的处理函数还示运行结束时就被接收到的情况,使用sa_mask字段可以消除这一竞态条件.</p>
+<h2 id="信号集"><a href="#信号集" class="headerlink" title="信号集"></a>信号集</h2><p>sigaction和其他函数将用这些信号来修改进程在接收到信号的行为.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/进程/" rel="tag"># 进程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/23/Vim/注释和删除/" rel="next" title="注释和删除">
+                <i class="fa fa-chevron-left"></i> 注释和删除
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/28/BLP/中断处理程序不能使用printf的本质/" rel="prev" title="中断处理函数不能使用printf的本质">
+                中断处理函数不能使用printf的本质 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Chen Ma">
+            
+              <p class="site-author-name" itemprop="name">Chen Ma</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">172</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程调度"><span class="nav-number">1.1.</span> <span class="nav-text">进程调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动新进程"><span class="nav-number">1.2.</span> <span class="nav-text">启动新进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#system"><span class="nav-number">1.2.1.</span> <span class="nav-text">system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exec系列函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">exec系列函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#僵尸进程"><span class="nav-number">1.2.3.</span> <span class="nav-text">僵尸进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入和输出重定向"><span class="nav-number">1.2.4.</span> <span class="nav-text">输入和输出重定向</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信号"><span class="nav-number">2.</span> <span class="nav-text">信号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#发送信号"><span class="nav-number">2.1.</span> <span class="nav-text">发送信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#健壮的信号接口"><span class="nav-number">2.2.</span> <span class="nav-text">健壮的信号接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号集"><span class="nav-number">2.3.</span> <span class="nav-text">信号集</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen Ma</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "MyIbIKOgV7er81eDL87telqz-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "MyIbIKOgV7er81eDL87telqz-gzGzoHsz",
+                'X-LC-Key': "R0py3Gu7zvD98ooAKQvK3eUc",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+
+  
+
+</body>
+</html>
