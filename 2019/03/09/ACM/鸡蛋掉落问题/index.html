@@ -490,7 +490,8 @@
       
         <p>这天，丁丁正走在路上，欣赏着路边迷人的城市风景，突然发现前面的大楼前围了一波吃瓜群众。他好奇地凑上前去，想一探究竟，看看到底发生了什么事情。<br>  原来本市的一位小有名气的科学家正在这幢大楼进行一个实验：某种材料的防护性能。他在大楼的底下铺了一层这种防护材料，想拿鸡蛋做实验，将鸡蛋从楼层掉下，看看鸡蛋从哪一层掉下去会摔碎，以此测试该材料的防护性能。这就是著名的鸡蛋掉落问题（egg dropping problem），即给定N个鸡蛋和k层楼，试问至少需要几次才能确定鸡蛋从哪一层楼掉下去恰好摔碎。<br>  一听到这个问题，他顿时感觉无从下手，没有丝毫的头绪。但他尝试着先从最简单的情形入手：</p>
 <p>若鸡蛋数N=0或者楼层数为0，则尝试0次即可。<br>若鸡蛋数N=1， 对于楼层数为k，最坏的情况为尝试k次，因此至少需要k次才能确定鸡蛋从哪一层楼掉下去恰好摔碎。<br>有了最基本的情形还不够，对于其他的N，k并没有给出答案。这时，他想到自己这几天正在研究的算法：动态规划法，他想也许这个算法可以帮上忙。假设用numdrops(N,k)表示该问题的解。则将鸡蛋从x层扔下，有以下两种情形：</p>
-<p>鸡蛋摔碎了，此时剩下N-1个鸡蛋，需要考虑比x层低的楼层，即1,2,…,x-1层，因为比x层高的楼层扔下去必定也摔碎，故可不比考虑。因此，这个问题会被缩减到numdrops(N-1, x-1).<br>鸡蛋没有摔碎，此时剩下N个鸡蛋，需要考虑比x层高的楼层，即x+1, x+2,…,k层，共有k-x层。因此，问题会被缩减到numdrops(N, k-x).<br>对于以上两种情形，应该去两者的最大值。同时，考虑到x=1,2,3,…,k， 因此有如下公式：<br>$$numdrops(N,k)=1+\min\limits_{1\leq x\leq k}{\ max(numdrops(N-1, x-1), numdrops(N, k-x))}.$$<br>有了以上算法，再加上如下初始情况:</p>
+<p>鸡蛋摔碎了，此时剩下N-1个鸡蛋，需要考虑比x层低的楼层，即1,2,…,x-1层，因为比x层高的楼层扔下去必定也摔碎，故可不比考虑。因此，这个问题会被缩减到numdrops(N-1, x-1).<br>鸡蛋没有摔碎，此时剩下N个鸡蛋，需要考虑比x层高的楼层，即x+1, x+2,…,k层，共有k-x层。因此，问题会被缩减到numdrops(N, k-x).<br>对于以上两种情形，应该去两者的最大值。同时，考虑到x=1,2,3,…,k， 因此有如下公式：</p>
+<script type="math/tex; mode=display">numdrops(N,k)=1+\min\limits_{1\leq x\leq k}\{\ max(numdrops(N-1, x-1), numdrops(N, k-x))\}.</script><p>有了以上算法，再加上如下初始情况:</p>
 <p>numdrops(0, x)=0, numdrops(x,0)=0.<br>numdrops(1, x)=x.<br>就可以用动态规划法求解该问题了。他迅速地写下了Python代码：<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solvepuzzle</span><span class="params">(n, k)</span>:</span></span><br><span class="line">    numdrops = np.array([[<span class="number">0</span>]*(k+<span class="number">1</span>)]*(n+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k+<span class="number">1</span>):</span><br><span class="line">        numdrops[<span class="number">1</span>, i] = i</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, k+<span class="number">1</span>):</span><br><span class="line">            minimum = float(<span class="string">'inf'</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, j+<span class="number">1</span>):</span><br><span class="line">                minimum = min(minimum, (<span class="number">1</span>+max(numdrops[i, j-x], numdrops[i<span class="number">-1</span>, x<span class="number">-1</span>])))</span><br><span class="line"></span><br><span class="line">            numdrops[i, j] = minimum</span><br><span class="line"></span><br><span class="line">    print(numdrops)</span><br><span class="line">    <span class="keyword">return</span> numdrops[n,k]</span><br><span class="line"></span><br><span class="line">t = solvepuzzle(<span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line">print(t)</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://blog.csdn.net/jclian91/article/details/80579999" target="_blank" rel="noopener">参考链接</a><br><a href="https://blog.csdn.net/jclian91/article/details/80597117" target="_blank" rel="noopener">参考链接</a></p>
 
@@ -604,7 +605,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">172</span>
+                    <span class="site-state-item-count">176</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -818,7 +819,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">57</span>
+                      
+                    
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
