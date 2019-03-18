@@ -104,7 +104,7 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Mctahuo">
-<meta property="og:url" content="https://www.mctashuo.cn/categories/linux/index.html">
+<meta property="og:url" content="https://www.mctashuo.cn/categories/Linux/index.html">
 <meta property="og:site_name" content="Mctahuo">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="https://www.mctashuo.cn/categories/linux/">
+  <link rel="canonical" href="https://www.mctashuo.cn/categories/Linux/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>分类: linux | Mctahuo</title>
+  <title>分类: Linux | Mctahuo</title>
   
 
 
@@ -386,7 +386,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>linux<small>分类</small>
+        <h1>Linux<small>分类</small>
         </h1>
       </div>
 
@@ -398,69 +398,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/09/14/linux/shell/rm命令误删恢复/" itemprop="url">
+            <a class="post-title-link" href="/2018/09/28/linux/nginx源码安装和boost库安装/" itemprop="url">
               
-                <span itemprop="name">rm命令误删文件的恢复方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-09-14T11:17:04+08:00" content="2018-09-14">
-          09-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/05/linux/shell/zsh/" itemprop="url">
-              
-                <span itemprop="name">shell利器Zsh</span>
+                <span itemprop="name">nginx源码安装和boost安装</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-09-05T19:31:36+08:00" content="2018-09-05">
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/22/linux/git/git-clone-加速/" itemprop="url">
-              
-                <span itemprop="name">git_clone_加速</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-22T23:25:51+08:00" content="2018-08-22">
-          08-22
+        <time class="post-time" itemprop="dateCreated" datetime="2018-09-28T21:12:59+08:00" content="2018-09-28">
+          09-28
         </time>
       </div>
 
@@ -520,7 +468,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">176</span>
+                    <span class="site-state-item-count">177</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1273,6 +1221,85 @@
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "MyIbIKOgV7er81eDL87telqz-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "MyIbIKOgV7er81eDL87telqz-gzGzoHsz",
+                'X-LC-Key': "R0py3Gu7zvD98ooAKQvK3eUc",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          if ($('.post-title-link').length >= 1) {
+            showTime(Counter);
+          }
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.loadBookmark();
+  
+  </script>
+
+
+  
+
+  
+
+</body>
+</html>
+UNT_CONTAINER_REF);
             if( countSpan.text() == '') {
               countSpan.text(0);
             }

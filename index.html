@@ -374,6 +374,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/18/C++面试/C/C++基础知识/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/18/C++面试/C/C++基础知识/" class="post-title-link" itemprop="https://www.mctashuo.cn/index.html">C++基础知识</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-18 10:52:18 / 修改时间：21:44:22" itemprop="dateCreated datePublished" datetime="2019-03-18T10:52:18+08:00">2019-03-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C-面试/" itemprop="url" rel="index"><span itemprop="name">C++面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/18/C++面试/C/C++基础知识/" class="leancloud_visitors" data-flag-title="C++基础知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><p>函数名等价于函数的入口地址<br>函数指针的一般定义<br>数据类型(<em>指针变量)(参数列表)<br>`int (</em>p)(int,int)<code>指针的括号不可少
+&lt;!-- more --&gt;
+使用场景
+例</code>+-*/`</p>
+<h2 id="使用typedef简化长函数指针"><a href="#使用typedef简化长函数指针" class="headerlink" title="使用typedef简化长函数指针"></a>使用typedef简化长函数指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b,<span class="keyword">int</span> c,<span class="keyword">int</span>(*func)(<span class="keyword">int</span>,<span class="keyword">int</span>,<span class="keyword">int</span>))</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> func(a,b,c);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> (*pFunc)(<span class="keyword">int</span>,<span class="keyword">int</span>,<span class="keyword">int</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">process</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c,pFunc func)</span></span>;</span><br></pre></td></tr></table></figure>
+<h1 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h1><p>当对象访问类中的非静态成员函数时，编译器会自动将对象的地址隐式地作为每一个参<br>数传递给this指针，在非静态成员函数中访问非静态成员时都隐含地使用了this指针<br>this指针的作用域是在非静态成员函数内部，在调用非静态函数时构造this指针，在非<br>静态成员函数调用结束之后销毁this指针。<br>将对象的地址作为返回值主要是为了链式访问<br>this指针是特殊的指针不能用&amp;来获取地址。<br>不能对this指针进行赋值操作</p>
+<h1 id="空指针和野指针"><a href="#空指针和野指针" class="headerlink" title="空指针和野指针"></a>空指针和野指针</h1><p>空指针：没有指向的指针，指向NULL<br>野指针：指向垃圾的指针<br>野指针出现的场景：</p>
+<ol>
+<li>指针未初始化</li>
+<li>指针指向的变量被free或delete后没有置为NULL</li>
+<li>指针操作超过所指向变量的生存期<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1>变量的别名<br>引用的初始化并不是值的拷贝，而是将引用方与被引用方绑定在一起。<br>引用在定义时必须初始化，从而与一个变量绑定在一起，初始化后，引用不能再绑定其他变量<h2 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h2></li>
+<li>指针是变量的地址，引用是变量的别名</li>
+<li>指针可以不初始化，引入必须初始化</li>
+<li>指针本身可以被修改，引用本身不能被修改</li>
+<li>指针可以为NULL,引用不能为NULL</li>
+<li>指针可以定义二重指针，引入不能定义二重引入</li>
+<li>指针需要先解引用，引用直接使用<h2 id="常量引用"><a href="#常量引用" class="headerlink" title="常量引用"></a>常量引用</h2>常量引用的初始化操作实际上分不两步来执行：首先将常量存放在一个临时变量中，然后使用这个临时变量初始化常量引用。<br>如果将函数声明为常量引用，在发挥引用本身特性的同时，还能保证在函数内不会错误的修改参数值，而且在调用函数时不同特意区分左值和右值</li>
+</ol>
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>在程序中，数据存储在不同的区段，通常将整个数据区分成四部分，栈存储区，堆存储区，全局及静态存储区，常量存储区。</p>
+<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>产生内存泄漏的原因很简单，就是分配的内存没有及时回收<br>预防方法<br>用智能指针代替普通指针，由于智能指针自带引用计数功能，能够记录动态分配空间的引用数量，在引用计数为零时，自动调用析构函数释放空间</p>
+<h2 id="内存越界"><a href="#内存越界" class="headerlink" title="内存越界"></a>内存越界</h2><p>内存访问越界，是指访问了所申请空间之外的内存</p>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcmp</span>(<span class="keyword">char</span> * str1,<span class="keyword">char</span> *str2);</span><br><span class="line"><span class="built_in">strcpy</span>(<span class="keyword">char</span> * str1,<span class="keyword">char</span> * str2);</span><br><span class="line"><span class="comment">//返回第一个字符串的指针</span></span><br><span class="line"><span class="built_in">strcat</span>(<span class="keyword">char</span> * str1,<span class="keyword">char</span> * str2);</span><br><span class="line"><span class="built_in">strlen</span>(<span class="keyword">char</span> *str);</span><br><span class="line"><span class="built_in">strstr</span>(<span class="keyword">char</span> * str1,<span class="keyword">char</span> * str2);</span><br><span class="line"><span class="comment">//查找str2在str1中首次出现的位置，否则返回NULL</span></span><br></pre></td></tr></table></figure>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>面向过程和面向对象的区别</p>
+<ol>
+<li>设计思路</li>
+<li>适用范围</li>
+<li>代码复用<h2 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h2>抽象，封装，继承，多态<h2 id="基本设计原则"><a href="#基本设计原则" class="headerlink" title="基本设计原则"></a>基本设计原则</h2>单一职责，里氏替换原则。依赖倒转原则，开放封闭原则，接口隔离原则，<br>最少知道原则<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2>类和结构体的区别<br>在C++出现的时候为了兼容C语言，保留了结构体的概念。并且对结构体做了扩展。在C++中的结构体不仅可以包含数据成员，还可以包含方法成员。<br>类的默认访问控制是private,结构体的默认访问控制是public<br>const修饰的数据成员，必须通过构造函数的初始化列表进行初始化，不能在构造函数函数体内进行赋值<br>对函数加上const可以防止数据成员被修改<br>在创建对象时加上const表示对象是一个常量，常量对象的任何要数据成员在对象创建后都不能修改，并且常量对象只能调用类的const成员函数<h2 id="友元函数和友元类"><a href="#友元函数和友元类" class="headerlink" title="友元函数和友元类"></a>友元函数和友元类</h2>友元函数是可以直接访问类的非公有成员的非成员函数，友元类的所有成员函数都是另一个类的友元函数<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2>构造函数的执行分为两个阶段：首先执行构造函数的初始化列表，然后执行构造函数的函数体<br>默认的拷贝构造函数只进行浅拷贝<br>类的所有数据成员都会在执行构造的函数体之前，通过构造函数的初始化列表初始化，不论该数据成员是否显式地出现在初始化列表之中。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/12/ACM/bytedance/双生词/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -419,12 +617,24 @@
                 
               
 
-              <time title="创建时间：2019-03-12 19:33:44 / 修改时间：19:34:37" itemprop="dateCreated datePublished" datetime="2019-03-12T19:33:44+08:00">2019-03-12</time>
+              <time title="创建时间：2019-03-12 19:33:44" itemprop="dateCreated datePublished" datetime="2019-03-12T19:33:44+08:00">2019-03-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-18 14:00:13" itemprop="dateModified" datetime="2019-03-18T14:00:13+08:00">2019-03-18</time>
               
             
           </span>
@@ -494,7 +704,7 @@
 
       
         
-          <p><a href="/uploads/20180827192834465.png">!双生词</a><br>
+          <p><img src="/uploads/20180827192834465.png" alt="双生词"><br>
           <!--noindex-->
           
           <!--/noindex-->
@@ -1539,8 +1749,7 @@
         
           <p>这天，丁丁正走在路上，欣赏着路边迷人的城市风景，突然发现前面的大楼前围了一波吃瓜群众。他好奇地凑上前去，想一探究竟，看看到底发生了什么事情。<br>  原来本市的一位小有名气的科学家正在这幢大楼进行一个实验：某种材料的防护性能。他在大楼的底下铺了一层这种防护材料，想拿鸡蛋做实验，将鸡蛋从楼层掉下，看看鸡蛋从哪一层掉下去会摔碎，以此测试该材料的防护性能。这就是著名的鸡蛋掉落问题（egg dropping problem），即给定N个鸡蛋和k层楼，试问至少需要几次才能确定鸡蛋从哪一层楼掉下去恰好摔碎。<br>  一听到这个问题，他顿时感觉无从下手，没有丝毫的头绪。但他尝试着先从最简单的情形入手：</p>
 <p>若鸡蛋数N=0或者楼层数为0，则尝试0次即可。<br>若鸡蛋数N=1， 对于楼层数为k，最坏的情况为尝试k次，因此至少需要k次才能确定鸡蛋从哪一层楼掉下去恰好摔碎。<br>有了最基本的情形还不够，对于其他的N，k并没有给出答案。这时，他想到自己这几天正在研究的算法：动态规划法，他想也许这个算法可以帮上忙。假设用numdrops(N,k)表示该问题的解。则将鸡蛋从x层扔下，有以下两种情形：</p>
-<p>鸡蛋摔碎了，此时剩下N-1个鸡蛋，需要考虑比x层低的楼层，即1,2,…,x-1层，因为比x层高的楼层扔下去必定也摔碎，故可不比考虑。因此，这个问题会被缩减到numdrops(N-1, x-1).<br>鸡蛋没有摔碎，此时剩下N个鸡蛋，需要考虑比x层高的楼层，即x+1, x+2,…,k层，共有k-x层。因此，问题会被缩减到numdrops(N, k-x).<br>对于以上两种情形，应该去两者的最大值。同时，考虑到x=1,2,3,…,k， 因此有如下公式：</p>
-<script type="math/tex; mode=display">numdrops(N,k)=1+\min\limits_{1\leq x\leq k}\{\ max(numdrops(N-1, x-1), numdrops(N, k-x))\}.</script><p>有了以上算法，再加上如下初始情况:</p>
+<p>鸡蛋摔碎了，此时剩下N-1个鸡蛋，需要考虑比x层低的楼层，即1,2,…,x-1层，因为比x层高的楼层扔下去必定也摔碎，故可不比考虑。因此，这个问题会被缩减到numdrops(N-1, x-1).<br>鸡蛋没有摔碎，此时剩下N个鸡蛋，需要考虑比x层高的楼层，即x+1, x+2,…,k层，共有k-x层。因此，问题会被缩减到numdrops(N, k-x).<br>对于以上两种情形，应该去两者的最大值。同时，考虑到x=1,2,3,…,k， 因此有如下公式：<br>$$numdrops(N,k)=1+\min\limits_{1\leq x\leq k}{\ max(numdrops(N-1, x-1), numdrops(N, k-x))}.$$<br>有了以上算法，再加上如下初始情况:</p>
 <p>numdrops(0, x)=0, numdrops(x,0)=0.<br>numdrops(1, x)=x.<br>就可以用动态规划法求解该问题了。他迅速地写下了Python代码：<br>
           <!--noindex-->
           
@@ -1719,7 +1928,7 @@
 
       
         
-          <ol>
+          <ol start="5">
 <li>小明在抖音里关注了N个主播，每个主播每天的开播时间是固定的，分别在S时刻开始开播，t时间结束。小明无法同时观看两个主播的直播。一天被分成了M个时间单位。请问小明每天最多能完整观看多少场直播？<br>输入描述：<br>第一行一个整数，代表N<br>第二行一个整数，代表M<br>第三行空格间隔的N*2个整数，代表s，t<br>输出描述：<br>一行一个整数，表示答案<br>例1：输入<br>3<br>10<br>0 3 3 7 7 0<br>输出：3<br>例2： 输入<br>3<br>10<br>0 5 2 7 6 9<br>输出：2<br>备注：数据范围<code>1&lt;=N&lt;=10^5</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2&lt;=M&lt;=10^6</span><br><span class="line">0&lt;=s(i),t(i)&lt;M (s(i)!=t(i))</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -1901,7 +2110,7 @@
 
       
         
-          <ol>
+          <ol start="4">
 <li>两个长度为n的序列a，b。问有多少个区间[l，r]满足<code>max(a[l,r])&lt;min(b[l,r])</code>即a区间的最大值小于b区间的最小值数据范围：<code>n&lt;1e5，a(i),b(i)&lt;1e9</code><br>输入描述：<br>第一行一个整数n<br>第二行n个数，第i个为a(i)<br>第三行n个数，第i个为b(i)<br><code>0&lt;1&lt;=r&lt;n</code><br>输出描述：<br>一行一个整数，表示答案<br>例1：输入<br>3<br>3 2 1<br>3 3 3<br>输出： 3
           <!--noindex-->
           
@@ -1909,184 +2118,6 @@
         
       
     </li></ol></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/08/ACM/bytedance/文章病句标识/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/08/ACM/bytedance/文章病句标识/" class="post-title-link" itemprop="https://www.mctashuo.cn/index.html">文章病句合并(区间合并)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-08 10:42:33 / 修改时间：10:47:09" itemprop="dateCreated datePublished" datetime="2019-03-08T10:42:33+08:00">2019-03-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/08/ACM/bytedance/文章病句标识/" class="leancloud_visitors" data-flag-title="文章病句合并(区间合并)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>2.为了提高文章质量，每一篇文章（假设全部都是英文）都会有m民编辑进行审核，每个编辑独立工作，会把觉得有问题的句子通过下表记录下来，比如[1,10]，1表示病句的第一个字符，10表示病句的最后一个字符。也就是从1到10着10个字符组成的句子，是有问题的。<br>现在需要把多名编辑有问题的句子合并起来，送个总编辑进行最终的审核。比如编辑A指出的病句是[1,10]，[32,45];编辑B指出的病句是[5,16]，[78,94]那么[1,10]和[5,16]是有交叉的，可以合并成<code>[1,16][32,45][78,94]</code><br>输入描述：<br>编辑数量m，之后每行是每个编辑的标记的下表组合，第一个和最后一个下标用英文逗号分隔，每组下标之间用分号分隔<br>输出描述：<br>合并后的下标集合，第一个和最后一个下标用英文逗号分隔，每组下标之间用分号分隔。返回结果是从小到大递增排列<br>例：输入<br>3<br>1,10;32,45<br>78,94;5,16<br>80,100;200,220;16,32<br>输出： 1,45;78,100;200,220<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
 
     
 
@@ -2172,7 +2203,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">176</span>
+                    <span class="site-state-item-count">177</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
