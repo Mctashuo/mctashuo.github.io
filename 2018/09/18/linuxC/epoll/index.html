@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="理解epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：  epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。 epoll 之所以高效，是因为 epoll 将用户关心的文件描述符放到">
+  <meta name="description" content="对于io多路复用的理解epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：  epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。 epoll 之所以高效，是因为 epoll 将用户关">
 <meta name="keywords" content="epoll">
 <meta property="og:type" content="article">
 <meta property="og:title" content="epoll">
 <meta property="og:url" content="https://www.mctashuo.cn/2018/09/18/linuxC/epoll/index.html">
 <meta property="og:site_name" content="Mctahuo">
-<meta property="og:description" content="理解epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：  epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。 epoll 之所以高效，是因为 epoll 将用户关心的文件描述符放到">
+<meta property="og:description" content="对于io多路复用的理解epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：  epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。 epoll 之所以高效，是因为 epoll 将用户关">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-19T03:10:06.107Z">
+<meta property="og:updated_time" content="2019-04-04T03:02:53.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="epoll">
-<meta name="twitter:description" content="理解epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：  epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。 epoll 之所以高效，是因为 epoll 将用户关心的文件描述符放到">
+<meta name="twitter:description" content="对于io多路复用的理解epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：  epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。 epoll 之所以高效，是因为 epoll 将用户关">
 
 
 
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-19 11:10:06" itemprop="dateModified" datetime="2019-03-19T11:10:06+08:00">2019-03-19</time>
+                <time title="修改时间：2019-04-04 11:02:53" itemprop="dateModified" datetime="2019-04-04T11:02:53+08:00">2019-04-04</time>
               
             
           </span>
@@ -500,19 +500,17 @@
       
 
       
-        <p><a href="https://www.zhihu.com/question/32163005/answer/55772739" target="_blank" rel="noopener">理解</a><br>epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：</p>
+        <p><a href="https://www.zhihu.com/question/32163005/answer/55772739" target="_blank" rel="noopener">对于io多路复用的理解</a><br>epoll 是 Linux 内核为处理大批句柄而作改进的 poll ，是 Linux 特有的 I/O 函数。其特点如下：</p>
 <blockquote>
 <p>epoll 是 Linux 下多路复用 IO 接口 select/poll 的增强版本。其实现和使用方式与 select/poll 有很多不同，epoll 通过一组函数来完成有关任务，而不是一个函数。</p>
 <p>epoll 之所以高效，是因为 epoll 将用户关心的文件描述符放到内核里的一个事件表中，而不是像 select/poll 每次调用都需要重复传入文件描述符集或事件集。比如当一个事件发生（比如说读事件），epoll 无须遍历整个被侦听的描述符集，只要遍历那些被内核 IO 事件异步唤醒而加入就绪队列的描述符集合就行了。</p>
 <p>epoll 有两种工作方式，LT(level triggered)：水平触发和 ET(edge-triggered)：边沿触发。LT 是 select/poll 使用的触发方式，比较低效；而 ET 是 epoll 的高速工作方式（本项目使用 epoll 的 ET 方式）。</p>
-</blockquote>
 <a id="more"></a>
-<p>通俗理解就是，比如说有一堆女孩，有的很漂亮，有的很凤姐。现在你想找漂亮的女孩聊天，LT 就是你需要把这一堆女孩全都看一遍，才可以找到其中的漂亮的（就绪事件）；而ET是你的小弟（内核）将N个漂亮的女孩编号告诉你，你直接去看就好，所以 epoll 很高效。另外，还记得小明找女神聊天的例子吗？采用非阻塞方式，小明还需要每隔十分钟回来看一下（select）；如果小明有小弟（内核）帮他守在大门口，女神回来了，小弟会主动打电话，告诉小明女神回来了，快来处理吧！这就是 epoll。</p>
-<p>epoll 共3个函数, 如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_create</span><span class="params">(<span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function"><span class="comment">//创建一个epoll句柄，参数size用来告诉内核监听的数目，size为epoll所支持的最大句柄数</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_ctl</span><span class="params">(<span class="keyword">int</span> epfd, <span class="keyword">int</span> op, <span class="keyword">int</span> fd, struct epoll_event *event)</span></span></span><br><span class="line">函数功能： epoll事件注册函数</span><br><span class="line">　 参数epfd为epoll的句柄，即epoll_create返回值</span><br><span class="line">　 参数op表示动作，用<span class="number">3</span>个宏来表示：  </span><br><span class="line">　　  EPOLL_CTL_ADD(注册新的fd到epfd)， </span><br><span class="line">　EPOLL_CTL_MOD(修改已经注册的fd的监听事件)，</span><br><span class="line">　　  EPOLL_CTL_DEL(从epfd删除一个fd)；</span><br><span class="line">　　  其中参数fd为需要监听的标示符；</span><br><span class="line">　 参数event告诉内核需要监听的事件，event的结构如下：</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">epoll_event</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">__uint32_t</span> events; <span class="comment">//Epoll events</span></span><br><span class="line">    <span class="keyword">epoll_data_t</span> data; <span class="comment">//User data variable</span></span><br><span class="line">&#125;;</span><br><span class="line">其中介绍events是宏的集合，EPOLLIN(表示对应的文件描述符可以读，即读事件发生)，其他宏类型，可以google之！</span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>、 <span class="function"><span class="keyword">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="keyword">int</span> epfd, struct epoll_event * events, <span class="keyword">int</span> maxevents, <span class="keyword">int</span> timeout)</span></span></span><br><span class="line">等待事件的产生，函数返回需要处理的事件数目（该数目是就绪事件的数目，就是前面所说漂亮女孩的个数N）</span><br></pre></td></tr></table></figure>
-<p>因此服务端使用epoll的时候，步骤如下：<br>调用epoll_create函数在Linux内核中创建一个事件表；<br>然后将文件描述符（监听套接字listener）添加到所创建的事件表中；<br>在主循环中，调用epoll_wait等待返回就绪的文件描述符集合；<br>分别处理就绪的事件集合，本项目中一共有两类事件：新用户连接事件和用户发来消息事件（epoll还有很多其他事件，本项目为简洁明了，不介绍）。</p>
+<p>epoll 共3个函数, 如下:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_create</span><span class="params">(<span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function"><span class="comment">//创建一个epoll句柄，参数size用来告诉内核监听的数目，size为epoll所支持的最大句柄数</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">epoll_ctl</span><span class="params">(<span class="keyword">int</span> epfd, <span class="keyword">int</span> op, <span class="keyword">int</span> fd, struct epoll_event *event)</span></span></span><br><span class="line">函数功能： epoll事件注册函数</span><br><span class="line">　 参数epfd为epoll的句柄，即epoll_create返回值</span><br><span class="line">　 参数op表示动作，用<span class="number">3</span>个宏来表示：  </span><br><span class="line">　　  EPOLL_CTL_ADD(注册新的fd到epfd)， </span><br><span class="line">　EPOLL_CTL_MOD(修改已经注册的fd的监听事件)，</span><br><span class="line">　　  EPOLL_CTL_DEL(从epfd删除一个fd)；</span><br><span class="line">　　  其中参数fd为需要监听的标示符；</span><br><span class="line">　 参数event告诉内核需要监听的事件，event的结构如下：</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">epoll_event</span> &#123;</span></span><br><span class="line">    <span class="keyword">__uint32_t</span> events; <span class="comment">//Epoll events</span></span><br><span class="line">    <span class="keyword">epoll_data_t</span> data; <span class="comment">//User data variable</span></span><br><span class="line">&#125;;</span><br><span class="line">其中介绍events是宏的集合，EPOLLIN(表示对应的文件描述符可以读，即读事件发生)，其他宏类型，可以google之！</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>、 <span class="function"><span class="keyword">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="keyword">int</span> epfd, struct epoll_event * events, <span class="keyword">int</span> maxevents, <span class="keyword">int</span> timeout)</span></span></span><br><span class="line">等待事件的产生，函数返回需要处理的事件数目（该数目是就绪事件的数目)</span><br></pre></td></tr></table></figure>
+<p>因此服务端使用epoll的时候，步骤如下：<br>调用epoll_create函数在Linux内核中创建一个事件表；<br>然后将文件描述符（监听套接字listener）添加到所创建的事件表中；<br>在主循环中，调用epoll_wait等待返回就绪的文件描述符集合；<br>分别处理就绪的事件集合.<br><a href="http://www.chenghuili.cn/2018/04/02/深入分析epoll函数/" target="_blank" rel="noopener">深入分析epoll函数</a><br><a href="https://stackoverflow.com/questions/9162712/what-is-the-purpose-of-epolls-edge-triggered-option#" target="_blank" rel="noopener">水平和垂直触发模式</a><br><a href="https://blog.csdn.net/q623702748/article/details/52514392" target="_blank" rel="noopener">水平和边缘触发模式</a></p>
 
       
     </div>
@@ -624,7 +622,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">177</span>
+                    <span class="site-state-item-count">176</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
