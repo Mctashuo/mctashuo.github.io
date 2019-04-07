@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="B树的不足在B树的结构中,在每个结点之间往返意味着,必须得在硬盘的页面之间进行多次访问,假如希望遍历B树,每个结点都属于硬盘的不同页面,我们为了中序遍历,会频繁的在页面间切换B+树,在B树的结构基础上,加上了新的元素组织方式.!B树和B+树详解!从B树B+树到R树">
+  <meta name="description" content="B树 每个结点最多含有m个孩子(B树的阶) 除根结点和叶子结点外,其它每个结点至少有celi(m/2)个孩子, 若根结点不是叶子结点,则至少有2个孩子(整棵树只有一个根节点的除外) 所有叶子结点都出现在同一层 每个非终端结点中包含有n个关键字信息.(有j个孩子的非叶结点恰好有j-1个关键码,关键码按照递增次序排列)B树的阶通常由磁盘页的大小决定,在读取数据时将磁盘页调入内存,在内存中使用二分查找查">
 <meta name="keywords" content="B树,B+树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B树和B+树">
 <meta property="og:url" content="https://www.mctashuo.cn/2018/09/29/C++面试/数据结构/B树和B+树/index.html">
 <meta property="og:site_name" content="Mctahuo">
-<meta property="og:description" content="B树的不足在B树的结构中,在每个结点之间往返意味着,必须得在硬盘的页面之间进行多次访问,假如希望遍历B树,每个结点都属于硬盘的不同页面,我们为了中序遍历,会频繁的在页面间切换B+树,在B树的结构基础上,加上了新的元素组织方式.!B树和B+树详解!从B树B+树到R树">
+<meta property="og:description" content="B树 每个结点最多含有m个孩子(B树的阶) 除根结点和叶子结点外,其它每个结点至少有celi(m/2)个孩子, 若根结点不是叶子结点,则至少有2个孩子(整棵树只有一个根节点的除外) 所有叶子结点都出现在同一层 每个非终端结点中包含有n个关键字信息.(有j个孩子的非叶结点恰好有j-1个关键码,关键码按照递增次序排列)B树的阶通常由磁盘页的大小决定,在读取数据时将磁盘页调入内存,在内存中使用二分查找查">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-29T12:51:57.241Z">
+<meta property="og:updated_time" content="2019-04-06T11:33:20.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B树和B+树">
-<meta name="twitter:description" content="B树的不足在B树的结构中,在每个结点之间往返意味着,必须得在硬盘的页面之间进行多次访问,假如希望遍历B树,每个结点都属于硬盘的不同页面,我们为了中序遍历,会频繁的在页面间切换B+树,在B树的结构基础上,加上了新的元素组织方式.!B树和B+树详解!从B树B+树到R树">
+<meta name="twitter:description" content="B树 每个结点最多含有m个孩子(B树的阶) 除根结点和叶子结点外,其它每个结点至少有celi(m/2)个孩子, 若根结点不是叶子结点,则至少有2个孩子(整棵树只有一个根节点的除外) 所有叶子结点都出现在同一层 每个非终端结点中包含有n个关键字信息.(有j个孩子的非叶结点恰好有j-1个关键码,关键码按照递增次序排列)B树的阶通常由磁盘页的大小决定,在读取数据时将磁盘页调入内存,在内存中使用二分查找查">
 
 
 
@@ -421,12 +421,24 @@
                 
               
 
-              <time title="创建时间：2018-09-29 20:42:19 / 修改时间：20:51:57" itemprop="dateCreated datePublished" datetime="2018-09-29T20:42:19+08:00">2018-09-29</time>
+              <time title="创建时间：2018-09-29 20:42:19" itemprop="dateCreated datePublished" datetime="2018-09-29T20:42:19+08:00">2018-09-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-06 19:33:20" itemprop="dateModified" datetime="2019-04-06T19:33:20+08:00">2019-04-06</time>
               
             
           </span>
@@ -495,7 +507,19 @@
       
 
       
-        <p>B树的不足<br>在B树的结构中,在每个结点之间往返意味着,必须得在硬盘的页面之间进行多次访问,<br>假如希望遍历B树,每个结点都属于硬盘的不同页面,我们为了中序遍历,<br>会频繁的在页面间切换<br>B+树,在B树的结构基础上,加上了新的元素组织方式.<br><a href="http://www.chenghuili.cn/2018/01/12/B%E6%A0%91%E4%B8%8EB-%E6%A0%91%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">!B树和B+树详解</a><br><a href="https://blog.csdn.net/v_july_v/article/details/6530142" target="_blank" rel="noopener">!从B树B+树到R树</a><br><a id="more"></a></p>
+        <h1 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h1><ol>
+<li>每个结点最多含有m个孩子(B树的阶)</li>
+<li>除根结点和叶子结点外,其它每个结点至少有celi(m/2)个孩子,</li>
+<li>若根结点不是叶子结点,则至少有2个孩子(整棵树只有一个根节点的除外)</li>
+<li>所有叶子结点都出现在同一层</li>
+<li>每个非终端结点中包含有n个关键字信息.(有j个孩子的非叶结点恰好有j-1个关键码,关键码按照递增次序排列)<br>B树的阶通常由磁盘页的大小决定,在读取数据时将磁盘页调入内存,在内存中使用二分查找查找关键字.<br>如果找不到再根据子结点指针进行一次调页操作.循环往复.<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1>查询效率高,log级别<br>查询次数不稳定.<br>通过变高,长胖等操作插入和删除.<h1 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h1>就文件系统所需产生的一种B-tree的变形树</li>
+<li>所有叶子结点包含全部关键字的信息,及指向含有这些关键字记录的指针,且叶子结点依关键字的大小自小而大的顺序链接.</li>
+<li>所有的非终端结点可以看成是索引的信息,及指向含有这些关键字记录的指针,且叶子结点本身依关键字的大小自小而在大的顺序链接(B树的叶子节点没有包括全部需要查找的信息)<h2 id="相对B树的优点"><a href="#相对B树的优点" class="headerlink" title="相对B树的优点"></a>相对B树的优点</h2>B+树内部结点无指向关键字信息的指针,内部结点相对B树更小,把同一内部结点的关键字存放在同一盘块中,一次性读入的需要查找的关键字就越多.IO读写的次数也就降低了.</li>
+<li>磁盘的读写代价更低</li>
+<li>B+树的查询效率更加稳定</li>
+<li>数据库索引采用B+树的主要原因是B树在提高了磁盘IO性能的同时并没有解决元素遍历效率低下的问题,B+树只要遍历叶子节点就可以实现整棵树的遍历.数据库中基于范围的查询是非常频繁的,而B树这样做的效率低下<br>B树的不足<br>在B树的结构中,在每个结点之间往返意味着,必须得在硬盘的页面之间进行多次访问,<br>假如希望遍历B树,每个结点都属于硬盘的不同页面,我们为了中序遍历,<br>会频繁的在页面间切换<br>B+树,在B树的结构基础上,加上了新的元素组织方式.<br><a href="http://www.chenghuili.cn/2018/01/12/B%E6%A0%91%E4%B8%8EB-%E6%A0%91%E8%AF%A6%E8%A7%A3/" target="_blank" rel="noopener">!B树和B+树详解</a><br><a href="https://blog.csdn.net/v_july_v/article/details/6530142" target="_blank" rel="noopener">!从B树B+树到R树</a><a id="more"></a>
+</li>
+</ol>
 
       
     </div>
@@ -591,8 +615,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -850,6 +883,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#B树"><span class="nav-number">1.</span> <span class="nav-text">B树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-树"><span class="nav-number">3.</span> <span class="nav-text">B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相对B树的优点"><span class="nav-number">3.1.</span> <span class="nav-text">相对B树的优点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
