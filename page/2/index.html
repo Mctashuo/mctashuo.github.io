@@ -374,6 +374,541 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/09/ACM/鸡蛋掉落问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/09/ACM/鸡蛋掉落问题/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">鸡蛋掉落问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-09 16:12:21 / 修改时间：16:15:19" itemprop="dateCreated datePublished" datetime="2019-03-09T16:12:21+08:00">2019-03-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/09/ACM/鸡蛋掉落问题/" class="leancloud_visitors" data-flag-title="鸡蛋掉落问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这天，丁丁正走在路上，欣赏着路边迷人的城市风景，突然发现前面的大楼前围了一波吃瓜群众。他好奇地凑上前去，想一探究竟，看看到底发生了什么事情。<br>  原来本市的一位小有名气的科学家正在这幢大楼进行一个实验：某种材料的防护性能。他在大楼的底下铺了一层这种防护材料，想拿鸡蛋做实验，将鸡蛋从楼层掉下，看看鸡蛋从哪一层掉下去会摔碎，以此测试该材料的防护性能。这就是著名的鸡蛋掉落问题（egg dropping problem），即给定N个鸡蛋和k层楼，试问至少需要几次才能确定鸡蛋从哪一层楼掉下去恰好摔碎。<br>  一听到这个问题，他顿时感觉无从下手，没有丝毫的头绪。但他尝试着先从最简单的情形入手：</p>
+<p>若鸡蛋数N=0或者楼层数为0，则尝试0次即可。<br>若鸡蛋数N=1， 对于楼层数为k，最坏的情况为尝试k次，因此至少需要k次才能确定鸡蛋从哪一层楼掉下去恰好摔碎。<br>有了最基本的情形还不够，对于其他的N，k并没有给出答案。这时，他想到自己这几天正在研究的算法：动态规划法，他想也许这个算法可以帮上忙。假设用numdrops(N,k)表示该问题的解。则将鸡蛋从x层扔下，有以下两种情形：</p>
+<p>鸡蛋摔碎了，此时剩下N-1个鸡蛋，需要考虑比x层低的楼层，即1,2,…,x-1层，因为比x层高的楼层扔下去必定也摔碎，故可不比考虑。因此，这个问题会被缩减到numdrops(N-1, x-1).<br>鸡蛋没有摔碎，此时剩下N个鸡蛋，需要考虑比x层高的楼层，即x+1, x+2,…,k层，共有k-x层。因此，问题会被缩减到numdrops(N, k-x).<br>对于以上两种情形，应该去两者的最大值。同时，考虑到x=1,2,3,…,k， 因此有如下公式：<br>$$numdrops(N,k)=1+\min\limits_{1\leq x\leq k}{\ max(numdrops(N-1, x-1), numdrops(N, k-x))}.$$<br>有了以上算法，再加上如下初始情况:</p>
+<p>numdrops(0, x)=0, numdrops(x,0)=0.<br>numdrops(1, x)=x.<br>就可以用动态规划法求解该问题了。他迅速地写下了Python代码：<br>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/08/ACM/bytedance/看完整直播的个数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/08/ACM/bytedance/看完整直播的个数/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">看完整直播的个数</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-08 10:51:05 / 修改时间：11:14:23" itemprop="dateCreated datePublished" datetime="2019-03-08T10:51:05+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/08/ACM/bytedance/看完整直播的个数/" class="leancloud_visitors" data-flag-title="看完整直播的个数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol start="5">
+<li>小明在抖音里关注了N个主播，每个主播每天的开播时间是固定的，分别在S时刻开始开播，t时间结束。小明无法同时观看两个主播的直播。一天被分成了M个时间单位。请问小明每天最多能完整观看多少场直播？<br>输入描述：<br>第一行一个整数，代表N<br>第二行一个整数，代表M<br>第三行空格间隔的N*2个整数，代表s，t<br>输出描述：<br>一行一个整数，表示答案<br>例1：输入<br>3<br>10<br>0 3 3 7 7 0<br>输出：3<br>例2： 输入<br>3<br>10<br>0 5 2 7 6 9<br>输出：2<br>备注：数据范围<code>1&lt;=N&lt;=10^5</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2&lt;=M&lt;=10^6</span><br><span class="line">0&lt;=s(i),t(i)&lt;M (s(i)!=t(i))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>s(i)&gt;t(i)代表时间跨天，但直播时长不会超过一天<br>
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </p></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/08/ACM/bytedance/区间最大最小值/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mctahuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/08/ACM/bytedance/区间最大最小值/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">区间最大最小值</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-08 10:48:34 / 修改时间：10:50:12" itemprop="dateCreated datePublished" datetime="2019-03-08T10:48:34+08:00">2019-03-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/08/ACM/bytedance/区间最大最小值/" class="leancloud_visitors" data-flag-title="区间最大最小值">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol start="4">
+<li>两个长度为n的序列a，b。问有多少个区间[l，r]满足<code>max(a[l,r])&lt;min(b[l,r])</code>即a区间的最大值小于b区间的最小值数据范围：<code>n&lt;1e5，a(i),b(i)&lt;1e9</code><br>输入描述：<br>第一行一个整数n<br>第二行n个数，第i个为a(i)<br>第三行n个数，第i个为b(i)<br><code>0&lt;1&lt;=r&lt;n</code><br>输出描述：<br>一行一个整数，表示答案<br>例1：输入<br>3<br>3 2 1<br>3 3 3<br>输出： 3
+          <!--noindex-->
+          
+          <!--/noindex-->
+        
+      
+    </li></ol></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/08/ACM/bytedance/文章病句标识/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1608,566 +2143,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/04/ACM/bytedance/用户喜好/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/ACM/bytedance/用户喜好/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">用户喜好</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-04 14:55:05 / 修改时间：15:11:03" itemprop="dateCreated datePublished" datetime="2019-03-04T14:55:05+08:00">2019-03-04</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/04/ACM/bytedance/用户喜好/" class="leancloud_visitors" data-flag-title="用户喜好">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>为了不断优化推荐效果，今日头条每天要存储和处理海量数据。假设有这样一种场景：我们对用户按照它们的注册时间先后来标号，对于一类文章，每个用户都有不同的喜好值，我们会想知道某一段时间内注册的用户（标号相连的一批用户）中，有多少用户对这类文章喜好值为k。因为一些特殊的原因，不会出现一个查询的用户区间完全覆盖另一个查询的用户区间(不存在<code>L1&lt;=L2&lt;=R2&lt;=R1)</code>。</p>
-<p>输入描述:<br>输入： 第1行为n代表用户的个数 第2行为n个整数，第i个代表用户标号为i的用户对某类文章的喜好度 第3行为一个正整数q代表查询的组数  第4行到第（3+q）行，每行包含3个整数l,r,k代表一组查询，即标号为<code>l&lt;=i&lt;=r的用户中对这类文章喜好值为k的用户的个数。 数据范围n &lt;= 300000,q&lt;=300000 k是整型</code></p>
-<p>输出描述:<br>输出：一共q行，每行一个整数代表喜好值为k的用户的个数</p>
-<p>输入例子1:<br>5<br>1 2 3 3 5<br>3<br>1 2 1<br>2 4 5<br>3 5 3</p>
-<p>输出例子1:<br>1<br>0<br>2</p>
-<p>例子说明1:<br>样例解释:<br>有5个用户，喜好值为分别为1、2、3、3、5，<br>第一组询问对于标号[1,2]的用户喜好值为1的用户的个数是1<br>第二组询问对于标号[2,4]的用户喜好值为5的用户的个数是0<br>第三组询问对于标号[3,5]的用户喜好值为3的用户的个数是2<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/03/ACM/bytedance/推箱子/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/03/ACM/bytedance/推箱子/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">推箱子</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-03 19:33:10 / 修改时间：23:39:36" itemprop="dateCreated datePublished" datetime="2019-03-03T19:33:10+08:00">2019-03-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/03/ACM/bytedance/推箱子/" class="leancloud_visitors" data-flag-title="推箱子">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>有一个推箱子的游戏, 一开始的情况如下图:</p>
-<p>上图中, ‘.’ 表示可到达的位置, ‘#’ 表示不可到达的位置，其中 S 表示你起始的位置, 0表示初始箱子的位置, E表示预期箱子的位置，你可以走到箱子的上下左右任意一侧, 将箱子向另一侧推动。如下图将箱子向右推动一格;<br>..S0.. -&gt; …S0.</p>
-<p>注意不能将箱子推动到’#’上, 也不能将箱子推出边界;</p>
-<p>现在, 给你游戏的初始样子, 你需要输出最少几步能够完成游戏, 如果不能完成, 则输出-1。</p>
-<p>输入描述:<br>第一行为2个数字,n, m, 表示游戏盘面大小有n 行m 列<code>(5&lt; n, m &lt; 50);</code><br>后面为n行字符串,每行字符串有m字符, 表示游戏盘面;</p>
-<p>输出描述:<br>一个数字,表示最少几步能完成游戏,如果不能,输出-1;</p>
-<p>输入例子1:<br>3 6<br>.S#..E<br>.#.0..<br>……</p>
-<p>输出例子1:<br>11<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.mctashuo.cn/2019/03/01/ACM/bytedance/走房间/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chen Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mctahuo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/01/ACM/bytedance/走房间/" class="post-title-link" itemprop="https://www.mctashuo.cn/page/2/index.html">走房间</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-01 21:41:14" itemprop="dateCreated datePublished" datetime="2019-03-01T21:41:14+08:00">2019-03-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-02 10:30:04" itemprop="dateModified" datetime="2019-03-02T10:30:04+08:00">2019-03-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/ACM/bytedance/" itemprop="url" rel="index"><span itemprop="name">bytedance</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/01/ACM/bytedance/走房间/" class="leancloud_visitors" data-flag-title="走房间">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>存在n+1个房间，每个房间依次为房间1 2 3…i，每个房间都存在一个传送门，i房间的传送门可以把人传送到房间<code>pi(1&lt;=pi&lt;=i)</code>,现在路人甲从房间1开始出发(当前房间1即第一次访问)，每次移动他有两种移动策略：<br>    A. 如果访问过当前房间 i 偶数次，那么下一次移动到房间i+1；<br>    B. 如果访问过当前房间 i 奇数次，那么移动到房间pi；<br>现在路人甲想知道移动到房间n+1一共需要多少次移动；</p>
-<p>输入描述:<br>第一行包括一个数字n(30%数据<code>1&lt;=n&lt;=100，100%数据 1&lt;=n&lt;=1000)</code>，表示房间的数量，接下来一行存在n个数字 <code>pi(1&lt;=pi&lt;=i),</code> pi表示从房间i可以传送到房间pi。</p>
-<p>输出描述:<br>输出一行数字，表示最终移动的次数，最终结果需要对1000000007 (10e9 + 7) 取模。<br>示例1<br>输入<br>2<br>1 2<br>输出<br>4<br>说明<br>开始从房间1 只访问一次所以只能跳到p1即 房间1， 之后采用策略A跳到房间2，房间2这时访问了一次因此采用策略B跳到房间2，之后采用策略A跳到房间3，因此到达房间3需要 4 步操作。<br>
-          <!--noindex-->
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2217,7 +2192,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">176</span>
+                    <span class="site-state-item-count">179</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2433,7 +2408,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">58</span>
+                      
+                    
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
